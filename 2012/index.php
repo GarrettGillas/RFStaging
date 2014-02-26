@@ -47,10 +47,11 @@ $page_title = $myTitle;
 <h1><?php echo $page_title; ?></h1>
 
 <?php
-//-- Directory Navigation with SCANDIR
+/* Directory Navigation with SCANDIR */
 error_reporting(E_ALL ^ E_NOTICE);
 
-$exclude_list = array(".", "..","_services","_includes",".git");
+/* Global Exclusion Handling */
+include '../_includes/ssi/exclusions.php';
 
 if (isset($_GET["dir"])) {
   $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"].$_GET["dir"];

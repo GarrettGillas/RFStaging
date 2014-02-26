@@ -14,8 +14,24 @@ $(function()
 
 <?php
 function mkmap($dir_accord){
-    $exclude_list_scan_accord = array(".", "..","_services","_includes","README.md","robots.txt",".git",".DS_Store",".htaccess","index.php","_cms","uploads");
-    $ffs_accord = array_diff(scandir($dir_accord), $exclude_list_scan_accord);
+    
+$exclude_list = array(
+    ".", 
+    "..",
+    ".git",
+    ".DS_Store",
+    ".htaccess",
+    "_services",
+    "_includes",
+    "_cms",
+    "uploads",
+    "login",
+    "usage-guide",
+    "robots.txt",
+    "index.php",
+    "README.md");
+
+    $ffs_accord = array_diff(scandir($dir_accord), $exclude_list);
     
     foreach($ffs_accord as $file_accord){
     	echo "\n<ul>";
