@@ -78,23 +78,7 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 </div>
 
 
-
-
-<br><br><br><br><br><br><br><br>
-<h2>Delete Test</h2>
-
-<?php
-$assetname = "Microsoft-Digital-Production-Group.pdf";
-$file = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"]."uploads/".$assetname;
-echo "<p><a href=\"".$file."\" target='_blank'>".$assetname."</a>";
-echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
-?>
-<br><br><br><br><br><br><br><br>
-
-
-
-
-<?php include '_cms/cms.php'; ?>
+<?php include './_cms/cms.php'; ?>
 
 </article>
 </section>
@@ -107,7 +91,7 @@ $(function() {
 
 	var pattern = new RegExp(/_(([0-9]{2,4})x)([0-9]{2,4})/);
 
-	$('.linksContainer').on('click', 'a.assetLink', function(e){
+	$('.linksContainer').on('click', '.assetLink', function(e){
 		e.preventDefault();
 		var _assetLink = this;
 		var assetDimensions = {};
@@ -153,28 +137,6 @@ $(function() {
 		
 	})
 	
-	$('.linksContainer').on('click', '.deleteButton', function(e){
-		console.log('test');
-		if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
-			$.ajax({
-				type: "POST",
-				url: "/_services/delete.php",
-				data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
-				context: document.body
-			}).done(function(data) {
-				console.log(data);
-				ProjectContent.refresh(uploadPath);
-			});
-		}
-		// echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
-	});
-
-	$('.member').click(function() {
-		if (confirm('Are you sure?')) {
-			var url = $(this).attr('href');
-			$('#content').load(url);
-		}
-	});
 
 });
 

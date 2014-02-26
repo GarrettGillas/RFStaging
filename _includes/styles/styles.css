@@ -198,18 +198,23 @@ body.client div#content{
 position:relative;}
 
 body.client span.edit-del{
-position:relative;
+position:absolute;
 text-transform: uppercase;
 font-size: 10px;
 line-height: 10px;
-float: right;
+/*float: right;*/
 clear: none;
 margin:2px 2px 0 0;
 padding:0;
 opacity: 0;
 transition: opacity .25s ease-in-out;
 -moz-transition: opacity .25s ease-in-out;
--webkit-transition: opacity .25s ease-in-out;}
+-webkit-transition: opacity .25s ease-in-out;
+height: 14px;
+top:0;
+right:0;
+display:inline-block;
+}
 
 body.client p:hover span.edit-del{
 opacity: 1;}
@@ -343,10 +348,14 @@ height: 100%;}
 width: 100%;
 overflow: auto;}
 
-
-#bannersContainer a,
-#imagesContainer a,
-#documentsContainer a  {
-	display:block;
+.linksContainer p {
+	position:relative;
 }
 
+.assetExpand {
+	margin: 10px 0 18px 0;
+}
+
+.deleteButton {
+	display:inline-block;
+}

@@ -22,10 +22,23 @@ var ProjectContent = function (win, doc) {
   }
 
   function buildLink(_fileName, _type){
+    var outputLinkContainer = document.createElement('p');
     var outputLink = document.createElement('a');
+    var outputDeleteLinkContainer = document.createElement('span');
+    var outputDeleteLink = document.createElement('a');
     outputLink.href = "uploads/"+_fileName;
     $(outputLink).html(_fileName);
-    return outputLink;
+    $(outputLink).addClass('assetLink');
+    $(outputLink).addClass(_type);
+    $(outputDeleteLink).attr('href', _fileName);
+    $(outputDeleteLink).html("DELETE");
+    $(outputDeleteLink).addClass('deleteButton');
+    $(outputDeleteLinkContainer).addClass('edit-del');
+    $(outputLinkContainer).append(outputLink);
+    $(outputLinkContainer).append(outputDeleteLinkContainer);
+    $(outputDeleteLinkContainer).append("[ ").append($(outputDeleteLink)).append(" ]");
+    
+    return outputLinkContainer;
   }
 
   function refresh(projectContentPath){
