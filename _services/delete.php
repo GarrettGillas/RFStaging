@@ -14,10 +14,9 @@ if($_POST['delete'] == true && isset($_POST['fileToDelete']) && isset($_POST['fi
 	$path = realpath(urldecode($_POST['filePath']));
 	$ds = DIRECTORY_SEPARATOR;
 	$file = $path . $ds . basename($_POST['fileToDelete']);
-	$file = urldecode($file);
-	// $fileDeleted = unlink($file);
-	$result["success"] = file_exists($file);
-	
+	$fileDeleted = unlink($file);
+	$result['exists'] = file_exists($file);
+	$result["success"] = $fileDeleted;
 }
 
 $output = json_encode($result);

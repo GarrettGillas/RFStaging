@@ -77,23 +77,6 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 
 </div>
 
-
-
-
-<br><br><br><br><br><br><br><br>
-<h2>Delete Test</h2>
-
-<?php
-$assetname = "Microsoft-Digital-Production-Group.pdf";
-$file = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"]."uploads/".$assetname;
-echo "<p><a href=\"".$file."\" target='_blank'>".$assetname."</a>";
-echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
-?>
-<br><br><br><br><br><br><br><br>
-
-
-
-
 <?php include '_cms/cms.php'; ?>
 
 </article>
@@ -154,15 +137,13 @@ $(function() {
 	})
 	
 	$('.linksContainer').on('click', '.deleteButton', function(e){
-		console.log('test');
 		if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
 			$.ajax({
 				type: "POST",
-				url: "/_services/delete.php",
+				url: "/_services/delete.php?"+new Date().getTime(),
 				data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
 				context: document.body
 			}).done(function(data) {
-				console.log(data);
 				ProjectContent.refresh(uploadPath);
 			});
 		}
