@@ -65,8 +65,12 @@ function dir_nav() {
    $directories = array_diff(scandir($dir_path), $exclude_list);
 
   foreach($directories as $entry) {
+
+	$file_entry = str_replace("-", " ", $entry);
+	$file_entry = str_replace("_", " ", $file_entry);
+
     if(is_dir($dir_path.$entry)) {
-      echo "<p><a href='".$_GET["dir"].$entry."/"."'>".$entry."</a></p>\n";
+      echo "<p><a href='".$_GET["dir"].$entry."/"."'>".$file_entry."</a></p>\n";
     }
   }
 }

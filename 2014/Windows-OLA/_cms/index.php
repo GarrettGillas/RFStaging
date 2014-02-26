@@ -3,19 +3,31 @@
 <head>
 <meta charset=utf-8 />
 <title></title>
-<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
+<style type="text/css" media="all">@import url(../../../_includes/styles/styles.css);</style>
+
+<script  type="text/javascript">
+function externalLinks() {
+  for(var c = document.getElementsByTagName("a"), a = 0;a < c.length;a++) {
+    var b = c[a];
+    b.getAttribute("href") && b.hostname !== location.hostname && (b.target = "_blank")
+  }
+}
+;
+externalLinks();
+</script>
 </head>
 
 
 <body class="iframe">
 <ul>
-<li>[ <a href="admin.php">edit</a> ]</li>
+<li>[ <a href="admin.php" target="_blank" class="cl2">edit</a> ]</li>
 </ul>
 
 <h2>EXTERNAL LINKS</h2>
 
-<p><a href="http://google.com/" target="_blank">Example Link 1</a><br />
-<a href="http://bing.com/" target="_blank">Example Link 2</a><br />
-<a href="http://yahoo.com/" target="_blank">Example Link 3</a> </p>
+<p><a href="http://nike.com/" target="_blank" class="cl2">Nike Fuelband</a>  </p>
+
+<h2>Rich Media</h2>
+
+<h2>PSDs</h2>
 </body></html>

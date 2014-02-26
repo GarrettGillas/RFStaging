@@ -15,6 +15,7 @@ $logo2 = 	"/_includes/logo-razorfish.png";
 /* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
 $myTitle = basename(getcwd());
 $myTitle = str_replace("-", " ", $myTitle);
+$myTitle = str_replace("_", " ", $myTitle);
 $page_title = $myTitle;
 ?>
 
