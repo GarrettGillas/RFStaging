@@ -25,6 +25,8 @@ var ProjectContent = function (win, doc) {
     var outputLink = document.createElement('a');
     outputLink.href = "uploads/"+_fileName;
     $(outputLink).html(_fileName);
+    $(outputLink).addClass('assetLink');
+    $(outputLink).addClass(_type);
     return outputLink;
   }
 

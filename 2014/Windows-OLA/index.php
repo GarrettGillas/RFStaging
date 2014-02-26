@@ -33,6 +33,7 @@ $filetypes_to_ignore = array('zip','swf','txt','bak','php','tiff','tif','DS_Stor
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
+<script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/_includes/js/swfObject.jquery.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
 
 <script type="text/javascript">
@@ -62,17 +63,17 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 <h1><?php echo $page_title; ?></h1>
 
 <h2>Banners</h2>
-<div id="bannersContainer">
+<div id="bannersContainer" class="linksContainer">
 
 </div>
 
 <h2>Images</h2>
-<div id="imagesContainer">
+<div id="imagesContainer" class="linksContainer">
 
 </div>
 
 <h2>Documents</h2>
-<div id="documentsContainer">
+<div id="documentsContainer" class="linksContainer">
 
 </div>
 
@@ -84,4 +85,64 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 </div><!--|#content|-->
 
 <?php include '../../_includes/ssi/footer.php'; ?>
+<script>
+
+$(function() {
+
+	var pattern = new RegExp(/_(([0-9]{2,4})x)([0-9]{2,4})/);
+
+	$('.linksContainer').on('click', '.assetLink', function(e){
+		e.preventDefault();
+		var _assetLink = this;
+		var assetDimensions = {};
+		var assetExpand = {};
+		var assetObject = {};
+		$('body').remove('#downloadIFrame');
+		$('.linksContainer .assetExpand').hide(200, function(){
+			
+			$(_assetLink).removeClass('open');
+			if($(this).has('div')){
+				$(this).flash().remove();
+			}
+			$(this).remove();
+		})
+
+		if(!$(_assetLink).hasClass('open')){
+			$(_assetLink).addClass('open');
+			if(!$(_assetLink).hasClass('doc')){
+				dimensionsTemp = $(_assetLink).attr('href').match(pattern);
+				assetDimensions.width = dimensionsTemp[2];
+				assetDimensions.height = dimensionsTemp[3];
+				assetExpand = document.createElement('div');
+				$(assetExpand).addClass('assetExpand');
+				$(assetExpand).css({'height': (assetDimensions.height)});
+				$(assetExpand).css({'width': assetDimensions.width});
+				$(assetExpand).hide();
+				$(_assetLink).after(assetExpand);
+				if($(_assetLink).hasClass('img')){
+					assetObject = document.createElement('img');
+					$(assetObject).attr('src', $(_assetLink).attr('href'));
+					$(assetExpand).append(assetObject)
+				}else if($(_assetLink).hasClass('swf')){
+					assetObject = document.createElement('div');
+					$(assetObject).attr('id', 'swfContainer');
+					$(assetExpand).append(assetObject);
+					console.log($(_assetLink).attr('href'));
+					$(assetObject).flash({swf:$(_assetLink).attr('href'),height:assetDimensions.height,width:assetDimensions.width});
+				}
+				$(assetExpand).show(300);
+			}else{
+				var temp = window.open($(_assetLink).attr('href'));
+				// temp.document.execCommand('SaveAs', 'null', $(_assetLink).attr('href'));
+				// temp.close();
+				// $("body").append("<iframe id='downloadIFrame' src='" + $(_assetLink).attr('href') + "' style='display: none;' ></iframe>")	
+			}
+		}
+		
+	})
+	
+
+});
+
+</script>
 </body></html>
