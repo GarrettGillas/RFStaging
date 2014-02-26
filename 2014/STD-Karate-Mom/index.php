@@ -147,7 +147,6 @@ $(function() {
 				ProjectContent.refresh(uploadPath);
 			});
 		}
-		// echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
 	});
 
 	$('.member').click(function() {
