@@ -10,7 +10,7 @@
 $orgin_path = '.';
 $logo = "/_includes/logo-windows.jpg";
 $logo2 = "/_includes/logo-razorfish.png";
-$page_title = "Windows OLA";
+$page_title = "2014";
 $location = "<strong>Razorfish Portland</strong><br>
 700 SW Taylor<br>Suite 400<br>Portland, OR 97205<br>";
 $contact = "<strong>Firstname Lastname</strong><br>
@@ -54,14 +54,29 @@ $filetypes_to_ignore = array('zip','swf','txt','bak','php','tiff','tif','DS_Stor
 <article>
 <h1><?php echo $page_title; ?></h1>
 
-<h2>2014</h2>
-<ul>
-<li><a href="">example1.jpg</a></li>	
-<li><a href="">example2.jpg</a></li>
-<li><a href="">example3.jpg</a></li>
-<li><a href="">example4.jpg</a></li>
-<li><a href="">example5.jpg</a></li>
-</ul>
+<?php
+//-- Directory Navigation with SCANDIR
+$exclude_list = array(".", "..","_services","_includes",".git");
+
+if (isset($_GET["dir"])) {
+  $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"].$_GET["dir"];
+}
+else {
+  $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"];
+}
+
+function dir_nav() {
+  global $exclude_list, $dir_path;
+  $directories = array_diff(scandir($dir_path), $exclude_list);
+
+  foreach($directories as $entry) {
+    if(is_dir($dir_path.$entry)) {
+      echo "<p><a href='".$_GET["dir"].$entry."/"."'>".$entry."</a></p>\n";
+    }
+  }
+}
+dir_nav();
+?>
 
 </article>
 </section>

@@ -77,6 +77,22 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 </div>
 
 
+
+
+<br><br><br><br><br><br><br><br>
+<h2>Delete Test</h2>
+
+<?php
+$assetname = "Microsoft-Digital-Production-Group.pdf";
+$file = "http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"]."uploads/".$assetname;
+echo "<p><a href=\"".$file."\" target='_blank'>".$assetname."</a>";
+echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
+?>
+<br><br><br><br><br><br><br><br>
+
+
+
+
 <?php include '_cms/cms.php'; ?>
 
 </article>
