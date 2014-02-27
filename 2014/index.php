@@ -1,15 +1,7 @@
 <?php
-/****************************/
-/* PAGE VARIABLES TO UPDATE */
-/****************************/
-$location = "<strong>Razorfish Portland</strong><br>
-700 SW Taylor<br>Suite 400<br>Portland, OR 97205<br>";
-$contact = "<strong>Firstname Lastname</strong><br>
-Account Director<br>
-(123) 456-7890<br>
-first.last@razorfish.com";
-$logo = "/_includes/logo-windows.jpg";
-$logo2 = "/_includes/logo-razorfish.png";
+
+include '../_includes/ssi/checkauth.php';
+include '../_includes/ssi/siteconfig.php';
 
 /* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
 $myTitle = basename(getcwd());

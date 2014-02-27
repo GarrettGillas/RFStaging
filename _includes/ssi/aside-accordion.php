@@ -29,6 +29,7 @@ $exclude_list = array(
     "usage-guide",
     "robots.txt",
     "index.php",
+    "login.php",
     "README.md");
 
     $ffs_accord = array_diff(scandir($dir_accord), $exclude_list);    

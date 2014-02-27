@@ -367,3 +367,25 @@ height: 100%;}
 .scroll-pane{
 width: 100%;
 overflow: auto;}
+
+
+/* Login page style overrides */
+article.login {
+	background-color: #f2f2f2;
+	padding: 24px 0 0 24px;
+	height: 141px;
+}
+
+article.login h1 {
+	margin-bottom:10px;
+}
+
+article.login .loginFormRow {
+	width: 270px;
+}
+
+article.login .loginFormRow input[type=submit] {
+	border:0;
+	background-color:#000;
+	color:#fff;
+}

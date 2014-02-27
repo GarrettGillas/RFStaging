@@ -28,6 +28,10 @@ function breadcrumbs() {
     }
     output += bits[i] + "/\">" + bits[i] + "</a>";
   }
+
+  if(sURL.indexOf('login.php')!= -1){
+    output = "<nav><a href='/login.php'>Login</a>";
+  }
   document.write(output);
   document.write("</nav>");
   }
