@@ -430,7 +430,16 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
       params: {},
       clickable: true,
       ignoreHiddenFiles: true,
-      acceptedFiles: ".SWF, .GIF, .HTML, .HTM, .JPG, .JPEG, .PNG, .PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS",
+      acceptedFiles: ".SWF,  .HTML, .HTM, 
+                      .GIF, .JPG, .JPEG, .PNG,
+                      .PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS,
+
+                      .FLV, .AS, .XML, .JSON,
+                      .EOT, .TTF, .OTF, .WOFF, .SVG,
+                      .JS, .ICO, .PHP, 
+                      .TXT, .RTF,
+                      .MP4, .OGV, .WEBM, .M4V", /* See the user guide for more info on this. */
+
       acceptedMimeTypes: null,
       autoProcessQueue: true,
       addRemoveLinks: false,

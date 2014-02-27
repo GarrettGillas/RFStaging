@@ -51,7 +51,33 @@ $page_title = $myTitle;
 <h2>Using the Client Preview Platform</h2>
 <p>The Razorfish Client Preview Platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. It has been purpose built to be fast and flexible so that teams can review and revise media across global offices at a an extremly fast pace. By posting all files directly in the browser, and being able to modify them there as well, we can avoid the use of FTP and other slow file transfer systems.</p>
 
+<br>
+<hr>
+
 <h2>Uploading Files</h2>
+<p><strong>Banners</strong></p>
+<p>.SWF,  .HTML, .HTM</p>
+<br>
+
+<p><strong>Images</strong></p>
+<p>.GIF, .JPG, .JPEG, .PNG</p>
+<br>
+
+<p><strong>Documents</strong></p>
+<p>.PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS</p>
+<br>
+
+<p><strong>Files that you can upload but will not be viewable (need to add)</strong></p>
+<br>
+
+<p>(Folders)</p>
+<p>.FLV, .AS, .XML, .JSON</p>
+<p>.EOT, .TTF, .OTF, .WOFF, .SVG</p>
+<p>.JS, .ICO, .PHP</p>
+<p>.TXT, .RTF</p>
+<p>.MP4, .OGV, .WEBM, .M4V</p>
+
+ 
 <p></p>
 
 <h2>Viewing Files</h2>
@@ -60,7 +86,10 @@ $page_title = $myTitle;
 <h2>Deleting Files</h2>
 <p></p>
 
-<h2>Adding Files</h2>
+<br>
+<hr>
+
+<h2>Adding Titles</h2>
 <p></p>
 
 <h2>Adding Links</h2>
@@ -68,6 +97,9 @@ $page_title = $myTitle;
 
 <h2>Applying Changes</h2>
 <p></p>
+
+<br>
+<hr>
 
 <h2>Creating New Projects</h2>
 <p></p>
