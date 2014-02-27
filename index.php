@@ -1,7 +1,7 @@
 <?php
 
-include '_includes/ssi/checkauth.php';
 include '_includes/ssi/siteconfig.php';
+include '_includes/ssi/checkauth.php';
 
 ?>
 

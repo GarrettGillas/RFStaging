@@ -24,19 +24,12 @@ var ProjectContent = function (win, doc) {
   function buildLink(_fileName, _type){
     var outputLinkContainer = document.createElement('p');
     var outputLink = document.createElement('a');
-    var outputDeleteLinkContainer = document.createElement('span');
-    var outputDeleteLink = document.createElement('a');
     outputLink.href = "uploads/"+_fileName;
     $(outputLink).html(_fileName);
     $(outputLink).addClass('assetLink');
     $(outputLink).addClass(_type);
-    $(outputDeleteLink).attr('href', _fileName);
-    $(outputDeleteLink).html("DELETE");
-    $(outputDeleteLink).addClass('deleteButton');
-    $(outputDeleteLinkContainer).addClass('edit-del');
+    $(outputLinkContainer).addClass('assetLinkItemContainer');
     $(outputLinkContainer).append(outputLink);
-    $(outputLinkContainer).append(outputDeleteLinkContainer);
-    $(outputDeleteLinkContainer).append("[ ").append($(outputDeleteLink)).append(" ]");
     
     return outputLinkContainer;
   }
@@ -45,7 +38,6 @@ var ProjectContent = function (win, doc) {
     banners_SWF.length = 0;
     banners_IMG.length = 0;
     documents.length = 0;
-
     $.ajax({
       type: "POST",
       url: "/_services/getuploadslist.php",

@@ -1,6 +1,4 @@
-<?
-
-session_start();
+<?php
 
 function curPageURL() {
  $pageURL = 'http';

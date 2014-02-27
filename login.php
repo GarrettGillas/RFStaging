@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include '_includes/ssi/siteconfig.php';
 
@@ -11,6 +10,12 @@ if(isset($_GET['logout'])) {
 if(isset($_POST['username'])) {
     if($userinfo[$_POST['username']] == $_POST['password']) {
         $_SESSION['username'] = $_POST['username'];
+        if($_POST['username'] == $adminAccount){
+        	$_SESSION['is_admin'] = true;
+        }else{
+        	$_SESSION['is_admin'] = false;
+        }
+
         if(isset($_SESSION['LoginRedirect'])){
         	header('Location:  '.$_SESSION['LoginRedirect']);
         }else{

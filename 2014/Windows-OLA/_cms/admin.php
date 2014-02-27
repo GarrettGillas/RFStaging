@@ -1,10 +1,11 @@
 <?php
+include '../../../_includes/ssi/siteconfig.php';
 
 /**********************************
        CHANGE PASSWORD HERE
 ***********************************/
 
-$pass = "Snapper4781";
+$pass = $userinfo[$adminAccount];//"Snapper4781";
 
 /**********************************
          Don't edit below.
@@ -79,8 +80,8 @@ if(isset($_POST['addition'])) {
         fwrite($file, $footer);
         fclose($file);
 	
-		header ("location: " . $home_page);
-		return;
+		header ("location: " . $_SESSION['edit_redirect']);
+		// echo "<script type='text/javascript'>parent.location = '".$_SESSION['edit_redirect'].";</script>";
 	} else {
 		// Bad password
 		$error_msg = "Incorrect password.";

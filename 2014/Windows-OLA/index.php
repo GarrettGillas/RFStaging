@@ -1,6 +1,6 @@
 <?php
-include '../../_includes/ssi/checkauth.php';
 include '../../_includes/ssi/siteconfig.php';
+include '../../_includes/ssi/checkauth.php';
 
 /* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
 $myTitle = basename(getcwd());
@@ -37,7 +37,8 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 <div id="content">
 <?php #include '../../_includes/ssi/aside-info.php'; ?>
 <?php
-if($_SESSION['username'] == 'rzf'){
+if($_SESSION['is_admin'] == true){
+	$_SESSION['edit_redirect'] = curPageURL();
 	include '../../_includes/ssi/aside-uploader.php';
 }
 	
@@ -123,29 +124,66 @@ $(function() {
 			}
 		}
 		
+	});
+
+	var bannersContainer = $('#bannersContainer');
+	var imagesContainer = $('#imagesContainer');
+	var documentsContainer = $('#documentsContainer');
+
+	function pushContent(){
+		bannersContainer.empty();
+		imagesContainer.empty();
+		documentsContainer.empty();
+		
+		$.each(ProjectContent.banners_SWF, function( index, value ) {
+			bannersContainer.append(value);
+		});
+		$.each(ProjectContent.banners_IMG, function( index, value ) {
+			imagesContainer.append(value);
+		});
+		$.each(ProjectContent.documents, function( index, value ) {
+			documentsContainer.append(value);
+		});
+
+		<?php if($_SESSION['is_admin'] == true): ?>
+
+		$('.assetLinkItemContainer').each(function(i, el){
+			var _fileName = $(el).find('.assetLink').attr('href');
+			var outputDeleteLinkContainer = document.createElement('span');
+			var outputDeleteLink = document.createElement('a');
+
+			$(outputDeleteLink).attr('href', _fileName);
+			$(outputDeleteLink).html("DELETE");
+			$(outputDeleteLink).addClass('deleteButton');
+			$(outputDeleteLinkContainer).addClass('edit-del');
+			$(this).append(outputDeleteLinkContainer);
+			$(outputDeleteLinkContainer).append("[ ").append($(outputDeleteLink)).append(" ]");
+		});
+
+		$('.assetLinkItemContainer').on('click', '.deleteButton', function(e){
+			e.preventDefault();
+			if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
+				$.ajax({
+					type: "POST",
+					url: "/_services/delete.php?"+new Date().getTime(),
+					data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
+					context: document.body
+				}).done(function(data) {
+					ProjectContent.refresh(uploadPath);
+				});
+			}
+		});
+
+		<?php endif; ?>
+
+	}
+
+	$(document).on(ProjectContent.DATA_REFRESH_COMPLETE, function(e){
+		setTimeout(1000, pushContent());
 	})
 	
-	$('.linksContainer').on('click', '.deleteButton', function(e){
-		if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
-			$.ajax({
-				type: "POST",
-				url: "/_services/delete.php?"+new Date().getTime(),
-				data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
-				context: document.body
-			}).done(function(data) {
-				ProjectContent.refresh(uploadPath);
-			});
-		}
-		// echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
-	});
-
-	$('.member').click(function() {
-		if (confirm('Are you sure?')) {
-			var url = $(this).attr('href');
-			$('#content').load(url);
-		}
-	});
-
+	ProjectContent.refresh(uploadPath);
+	
 });
 </script>
 

@@ -1,3 +1,4 @@
+<?php include '../../../_includes/ssi/siteconfig.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@ externalLinks();
 
 <body class="iframe">
 <ul>
-<li>[ <a href="admin.php" target="_blank" class="cl2">edit</a> ]</li>
+<?php if($_SESSION['is_admin'] == true): ?><li>[ <a href="admin.php" target="_parent" class="cl2">edit</a> ]</li><?php endif; ?>
 </ul>
 
 <h2>EXTERNAL LINKS</h2>
