@@ -71,7 +71,7 @@ $page_title = $myTitle;
 <br>
 
 <p>(Folders)</p>
-<p>.FLA, .AS, .XML, .JSON</p>
+<p>.FLV, .AS, .XML, .JSON</p>
 <p>.EOT, .TTF, .OTF, .WOFF, .SVG</p>
 <p>.JS, .ICO, .PHP</p>
 <p>.TXT, .RTF</p>

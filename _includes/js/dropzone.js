@@ -434,7 +434,7 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
                       .GIF, .JPG, .JPEG, .PNG,
                       .PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS,
 
-                      .FLA, .AS, .XML, .JSON,
+                      .FLV, .AS, .XML, .JSON,
                       .EOT, .TTF, .OTF, .WOFF, .SVG,
                       .JS, .ICO, .PHP, 
                       .TXT, .RTF,
