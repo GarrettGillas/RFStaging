@@ -5,7 +5,7 @@
 $location = "<strong>Razorfish Portland</strong><br>
 			700 SW Taylor #400<br>
 			Portland, OR 97205<br>";
-$contact = "<strong>Firstname Lastname</strong><br>
+$contact = 	"<strong>Firstname Lastname</strong><br>
 			Account Director<br>
 			(123) 456-7890<br>
 			first.last@razorfish.com";
