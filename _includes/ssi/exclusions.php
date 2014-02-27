@@ -12,7 +12,7 @@ $exclude_list = array(
 	"_cms",
 	"uploads",
 	"login",
-	"usage-guide",
+	"User-Guide",
 	"robots.txt",
 	"index.php",
 	"README.md");

@@ -2,11 +2,7 @@
 include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
 
-/* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
-$myTitle = basename(getcwd());
-$myTitle = str_replace("-", " ", $myTitle);
-$myTitle = str_replace("_", " ", $myTitle);
-$page_title = $myTitle;
+
 ?>
 
 <!DOCTYPE html>
@@ -169,6 +165,7 @@ $(function() {
 					data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
 					context: document.body
 				}).done(function(data) {
+					console.log("deleted?");
 					ProjectContent.refresh(uploadPath);
 				});
 			}

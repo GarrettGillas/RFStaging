@@ -1,6 +1,16 @@
 <?php
-include '../_includes/ssi/siteconfig.php';
-include '../_includes/ssi/checkauth.php';
+/****************************/
+/* PAGE VARIABLES TO UPDATE */
+/****************************/
+$location = "<strong>Razorfish Portland</strong><br>
+            700 SW Taylor #400<br>
+            Portland, OR 97205<br>";
+$contact =  "<strong>Firstname Lastname</strong><br>
+            Account Director<br>
+            (123) 456-7890<br>
+            first.last@razorfish.com";
+$logo =     "/_includes/logo-windows.jpg";
+$logo2 =    "/_includes/logo-razorfish.png";
 
 /* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
 $myTitle = basename(getcwd());
@@ -23,11 +33,11 @@ $page_title = $myTitle;
 </head>
 
 
-<body class="year">
+<body class="guide">
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php include '../_includes/ssi/aside-info.php'; ?>
+<?php #include '../_includes/ssi/aside-info.php'; ?>
 <?php #include '../_includes/ssi/aside-uploader.php'; ?>
 <?php include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 <?php #include '../_includes/ssi/aside-public.php'; ?> 
@@ -38,36 +48,33 @@ $page_title = $myTitle;
 <article>
 <h1><?php echo $page_title; ?></h1>
 
-<?php
-/* Directory Navigation with SCANDIR */
-error_reporting(E_ALL ^ E_NOTICE);
+<h2>Using the Client Preview Platform</h2>
+<p>The Razorfish Client Preview Platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. It has been purpose built to be fast and flexible so that teams can review and revise media across global offices at a an extremly fast pace. By posting all files directly in the browser, and being able to modify them there as well, we can avoid the use of FTP and other slow file transfer systems.</p>
 
-/* Global Exclusion Handling */
-include '../_includes/ssi/exclusions.php';
+<h2>Uploading Files</h2>
+<p></p>
 
-if (isset($_GET["dir"])) {
-  $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"].$_GET["dir"];
-}
-else {
-  $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"];
-}
+<h2>Viewing Files</h2>
+<p></p>
 
-function dir_nav() {
-  global $exclude_list, $dir_path;
-   $directories = array_diff(scandir($dir_path), $exclude_list);
+<h2>Deleting Files</h2>
+<p></p>
 
-  foreach($directories as $entry) {
+<h2>Adding Files</h2>
+<p></p>
 
-	$file_entry = str_replace("-", " ", $entry);
-	$file_entry = str_replace("_", " ", $file_entry);
+<h2>Adding Links</h2>
+<p></p>
 
-    if(is_dir($dir_path.$entry)) {
-      echo "<p><a href='".$_GET["dir"].$entry."/"."'>".$file_entry."</a></p>\n";
-    }
-  }
-}
-dir_nav();
-?>
+<h2>Applying Changes</h2>
+<p></p>
+
+<h2>Creating New Projects</h2>
+<p></p>
+
+
+
+
 
 </article>
 </section>

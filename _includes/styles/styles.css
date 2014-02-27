@@ -129,6 +129,7 @@ font-size: 10px;
 line-height: 10px;
 margin:0px 0px 20px 0px;
 padding: 9px 0 9px 0;
+text-transform: capitalize;;
 border-bottom: 1px solid #1a1a1a;
 position:relative;}
 
@@ -199,6 +200,9 @@ a:hover#homelink{
 text-decoration:underline;}
 
 /* Page Specific Styles */
+body.guide article p{
+margin-right:20px;}
+
 body.year h1{
 margin-bottom: 20px;}
 
@@ -221,8 +225,7 @@ transition: opacity .25s ease-in-out;
 height: 14px;
 top:0;
 right:0;
-display:inline-block;
-}
+display:inline-block;}
 
 body.client p:hover span.edit-del{
 opacity: 1;}
