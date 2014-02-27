@@ -6,7 +6,8 @@
 <script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/_includes/js/dropzone.js"></script>
 <? $ds = DIRECTORY_SEPARATOR; ?>
 <form action="/_services/upload.php" class="dropzone" id="fileUploader" enctype="multipart/form-data"><input type="hidden" value="<?php echo urldecode($uploadPath); ?>" id="contentUploadPath" name="contentUploadPath" /></form> 
-<p class="small"><strong>Supported formats:</strong> JPG, PNG, GIF, SWF, HTML, PDF, PPTX, DOCX, XLSX<br>
+<p class="small"><strong>Supported formats:</strong> JPG, PNG, GIF, SWF, HTML, PDF, PPTX, 
+<a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/user-guide/";?>" style="text-decoration:underline;">more</a><br>
 <strong>Maximum file size:</strong> 100MB</p>
 </div><!--|.asidewrap|-->
 </aside>
