@@ -1,27 +1,6 @@
 <?php
-<<<<<<< HEAD
 include '../_includes/ssi/siteconfig.php';
 include '../_includes/ssi/checkauth.php';
-=======
-/****************************/
-/* PAGE VARIABLES TO UPDATE */
-/****************************/
-$location = "<strong>Razorfish Portland</strong><br>
-			700 SW Taylor #400<br>
-			Portland, OR 97205<br>";
-$contact = 	"<strong>Firstname Lastname</strong><br>
-			Account Director<br>
-			(123) 456-7890<br>
-			first.last@razorfish.com";
-$logo = 	"/_includes/logo-windows.jpg";
-$logo2 = 	"/_includes/logo-razorfish.png";
-
-/* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
-$myTitle = basename(getcwd());
-$myTitle = str_replace("-", " ", $myTitle);
-$myTitle = str_replace("_", " ", $myTitle);
-$page_title = $myTitle;
->>>>>>> FETCH_HEAD
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +22,7 @@ $page_title = $myTitle;
 
 <div id="content">
 <?php include '../_includes/ssi/aside-info.php'; ?>
-<?php #include '../_includes/ssi/aside-uploader.php'; ?>
+<?php #include '../_includes/ssi/aside-uploader.php'; ?> 
 <?php include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 <?php #include '../_includes/ssi/aside-public.php'; ?> 
 

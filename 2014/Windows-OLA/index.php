@@ -1,11 +1,6 @@
 <?php
 include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
-<<<<<<< HEAD
-=======
-
-
->>>>>>> FETCH_HEAD
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +26,7 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 
 
 <body class="client">
-<?php include '../../_includes/ssi/header.php'; ?>
+<?php include '../../_includes/ssi/header.php'; ?> 
 
 <div id="content">
 <?php #include '../../_includes/ssi/aside-info.php'; ?>
@@ -39,8 +34,7 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 if($_SESSION['is_admin'] == true){
 	$_SESSION['edit_redirect'] = curPageURL();
 	include '../../_includes/ssi/aside-uploader.php';
-}
-	
+}	
 ?>
 <?php include '../../_includes/ssi/aside-accordion.php'; mkmap("../.."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 <?php #include '../../_includes/ssi/aside-public.php'; ?> 
@@ -73,10 +67,9 @@ if($_SESSION['is_admin'] == true){
 </div><!--|#content|-->
 
 <?php include '../../_includes/ssi/footer.php'; ?>
+
 <script>
-
 $(function() {
-
 	var pattern = new RegExp(/_(([0-9]{2,4})x)([0-9]{2,4})/);
 
 	$('.linksContainer').on('click', 'a.assetLink', function(e){

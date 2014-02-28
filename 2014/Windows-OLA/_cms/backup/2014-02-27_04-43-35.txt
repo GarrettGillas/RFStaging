@@ -1,8 +1,0 @@
-- [ [edit](admin.php) ]
-
-## EXTERNAL LINKS
-
-[Nike Fuelband](http://nike.com/)  
-
-[testing link add](http://google.com)
-[test](http://xbox.com)

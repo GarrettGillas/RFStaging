@@ -1,15 +1,6 @@
 <?php
 include '../_includes/ssi/siteconfig.php';
 include '../_includes/ssi/checkauth.php';
-<<<<<<< HEAD
-=======
-
-/* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
-$myTitle = basename(getcwd());
-$myTitle = str_replace("-", " ", $myTitle);
-$myTitle = str_replace("_", " ", $myTitle);
-$page_title = $myTitle;
->>>>>>> FETCH_HEAD
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +22,7 @@ $page_title = $myTitle;
 
 <div id="content">
 <?php include '../_includes/ssi/aside-info.php'; ?>
-<?php #include '../_includes/ssi/aside-uploader.php'; ?>
+<?php #include '../_includes/ssi/aside-uploader.php'; ?> 
 <?php include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 <?php #include '../_includes/ssi/aside-public.php'; ?> 
 

@@ -18,7 +18,6 @@ include '_includes/ssi/checkauth.php';
 
 
 <body class="root">
-
 <?php include '_includes/ssi/header.php'; ?>
 
 <div id="content">

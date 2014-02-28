@@ -1,7 +1,0 @@
-- [ [edit](admin.php) ]
-
-## EXTERNAL LINKS
-
-[Nike Fuelband](http://nike.com/)  
-
-

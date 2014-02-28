@@ -1,6 +1,7 @@
 <?php
-/* Page Exclusion Handling                             */
-/* aside-accordion.php Has Separate Exclusion Handling */
+/*************************************************************************************************/
+/* Page Exclusion Handling, aside-accordion.php Has Separate Exclusion Handling                  */
+/*************************************************************************************************/
 $exclude_list = array(
 	".", 
 	"..",
@@ -12,11 +13,7 @@ $exclude_list = array(
 	"_cms",
 	"uploads",
 	"login",
-<<<<<<< HEAD
 	"user-guide",
-=======
-	"User-Guide",
->>>>>>> FETCH_HEAD
 	"robots.txt",
 	"index.php",
 	"README.md");
