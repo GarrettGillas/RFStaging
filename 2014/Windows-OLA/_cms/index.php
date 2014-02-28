@@ -1,4 +1,3 @@
-<?php include '../../../_includes/ssi/siteconfig.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,14 +20,14 @@ externalLinks();
 
 <body class="iframe">
 <ul>
-<?php if($_SESSION['is_admin'] == true): ?><li>[ <a href="admin.php" target="_parent" class="cl2">edit</a> ]</li><?php endif; ?>
+<li>[ <a href="admin.php" target="_blank" class="cl2">edit</a> ]</li>
 </ul>
 
 <h2>EXTERNAL LINKS</h2>
 
 <p><a href="http://nike.com/" target="_blank" class="cl2">Nike Fuelband</a>  </p>
 
-<h2>Rich Media</h2>
+<p><a href="http://google.com" target="_blank" class="cl2">testing link add</a></p>
 
-<h2>PSDs</h2>
+<p><a href="http://xbox.com" target="_blank" class="cl2">test</a></p>
 </body></html>

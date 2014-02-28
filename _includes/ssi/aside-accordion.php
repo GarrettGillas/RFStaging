@@ -26,7 +26,7 @@ $exclude_list = array(
     "_cms",
     "uploads",
     "login",
-    "usage-guide",
+    "user-guide",
     "robots.txt",
     "index.php",
     "login.php",
@@ -45,9 +45,7 @@ $exclude_list = array(
 
             if(is_dir($dir_accord.'/'.$file_accord)) mkmap($dir_accord.'/'.$file_accord);
             echo "</ul>\n";
-        }
-        
-    }
-    
+        }        
+    }    
 }
 ?>

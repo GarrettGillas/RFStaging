@@ -1,19 +1,13 @@
 <?php
 include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
-
-/* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
-$myTitle = basename(getcwd());
-$myTitle = str_replace("-", " ", $myTitle);
-$myTitle = str_replace("_", " ", $myTitle);
-$page_title = $myTitle;
 ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta charset="utf-8">
-<title><?php echo $page_title; ?></title>
+<title><?php echo $page_title2; ?></title>
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
@@ -50,7 +44,7 @@ if($_SESSION['is_admin'] == true){
 <script>breadcrumbs();</script>
 
 <article>
-<h1><?php echo $page_title; ?></h1>
+<h1><?php echo $page_title2; ?></h1>
 
 <h2>Banners</h2>
 <div id="bannersContainer" class="linksContainer">
@@ -169,6 +163,7 @@ $(function() {
 					data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
 					context: document.body
 				}).done(function(data) {
+					console.log("deleted?");
 					ProjectContent.refresh(uploadPath);
 				});
 			}

@@ -1,5 +1,4 @@
 - [ [edit](admin.php) ]
 
 ## EXTERNAL LINKS
-www.google.com
 

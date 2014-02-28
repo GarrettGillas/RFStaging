@@ -1,29 +1,13 @@
 <?php
-/****************************/
-/* PAGE VARIABLES TO UPDATE */
-/****************************/
-$location = "<strong>Razorfish Portland</strong><br>
-			700 SW Taylor #400<br>
-			Portland, OR 97205<br>";
-$contact = "<strong>Firstname Lastname</strong><br>
-			Account Director<br>
-			(123) 456-7890<br>
-			first.last@razorfish.com";
-$logo = 	"/_includes/logo-windows.jpg";
-$logo2 = 	"/_includes/logo-razorfish.png";
-
-/* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
-$myTitle = basename(getcwd());
-$myTitle = str_replace("-", " ", $myTitle);
-$myTitle = str_replace("_", " ", $myTitle);
-$page_title = $myTitle;
+include '../../_includes/ssi/siteconfig.php';
+include '../../_includes/ssi/checkauth.php';
 ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <meta charset="utf-8">
-<title><?php echo $page_title; ?></title>
+<title><?php echo $page_title2; ?></title>
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
@@ -46,7 +30,13 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 
 <div id="content">
 <?php #include '../../_includes/ssi/aside-info.php'; ?>
-<?php include '../../_includes/ssi/aside-uploader.php'; ?>
+<?php
+if($_SESSION['is_admin'] == true){
+	$_SESSION['edit_redirect'] = curPageURL();
+	include '../../_includes/ssi/aside-uploader.php';
+}
+	
+?>
 <?php include '../../_includes/ssi/aside-accordion.php'; mkmap("../.."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 <?php #include '../../_includes/ssi/aside-public.php'; ?> 
 
@@ -54,7 +44,7 @@ var uploadPath = "<?php echo $uploadPath; ?>";
 <script>breadcrumbs();</script>
 
 <article>
-<h1><?php echo $page_title; ?></h1>
+<h1><?php echo $page_title2; ?></h1>
 
 <h2>Banners</h2>
 <div id="bannersContainer" class="linksContainer">
@@ -128,29 +118,67 @@ $(function() {
 			}
 		}
 		
+	});
+
+	var bannersContainer = $('#bannersContainer');
+	var imagesContainer = $('#imagesContainer');
+	var documentsContainer = $('#documentsContainer');
+
+	function pushContent(){
+		bannersContainer.empty();
+		imagesContainer.empty();
+		documentsContainer.empty();
+		
+		$.each(ProjectContent.banners_SWF, function( index, value ) {
+			bannersContainer.append(value);
+		});
+		$.each(ProjectContent.banners_IMG, function( index, value ) {
+			imagesContainer.append(value);
+		});
+		$.each(ProjectContent.documents, function( index, value ) {
+			documentsContainer.append(value);
+		});
+
+		<?php if($_SESSION['is_admin'] == true): ?>
+
+		$('.assetLinkItemContainer').each(function(i, el){
+			var _fileName = $(el).find('.assetLink').attr('href');
+			var outputDeleteLinkContainer = document.createElement('span');
+			var outputDeleteLink = document.createElement('a');
+
+			$(outputDeleteLink).attr('href', _fileName);
+			$(outputDeleteLink).html("DELETE");
+			$(outputDeleteLink).addClass('deleteButton');
+			$(outputDeleteLinkContainer).addClass('edit-del');
+			$(this).append(outputDeleteLinkContainer);
+			$(outputDeleteLinkContainer).append("[ ").append($(outputDeleteLink)).append(" ]");
+		});
+
+		$('.assetLinkItemContainer').on('click', '.deleteButton', function(e){
+			e.preventDefault();
+			if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
+				$.ajax({
+					type: "POST",
+					url: "/_services/delete.php?"+new Date().getTime(),
+					data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
+					context: document.body
+				}).done(function(data) {
+					console.log("deleted?");
+					ProjectContent.refresh(uploadPath);
+				});
+			}
+		});
+
+		<?php endif; ?>
+
+	}
+
+	$(document).on(ProjectContent.DATA_REFRESH_COMPLETE, function(e){
+		setTimeout(1000, pushContent());
 	})
 	
-	$('.linksContainer').on('click', '.deleteButton', function(e){
-		if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
-			$.ajax({
-				type: "POST",
-				url: "/_services/delete.php?"+new Date().getTime(),
-				data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
-				context: document.body
-			}).done(function(data) {
-				ProjectContent.refresh(uploadPath);
-			});
-		}
-		// echo "<span class='edit-del'>[ <a href=\"dl.php?file=".$file."&amp;delete=true\" onclick=\"return confirm('Are you sure you want to delete ".$file."?')\">delete</a> ]</span></p>";  
-	});
-
-	$('.member').click(function() {
-		if (confirm('Are you sure?')) {
-			var url = $(this).attr('href');
-			$('#content').load(url);
-		}
-	});
-
+	ProjectContent.refresh(uploadPath);
+	
 });
 </script>
 
