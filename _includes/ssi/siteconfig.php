@@ -24,6 +24,7 @@ $userinfo = array(
 );
 $adminAccount = 'RFEmployee';
 
+<<<<<<< HEAD
 /*************************************************************************************************/
 /* Sub Page Titles Generated from Folder Lables                                                  */
 /*************************************************************************************************/
@@ -32,3 +33,12 @@ $myTitle = str_replace("-", " ", $myTitle);
 $myTitle = str_replace("_", " ", $myTitle);
 $page_title2 = $myTitle;
 ?>
+=======
+/* PAGE TITLE GENERATED FROM SANITIZED DIRECTORY NAME */
+$myTitle = basename(getcwd());
+$myTitle = str_replace("-", " ", $myTitle);
+$myTitle = str_replace("_", " ", $myTitle);
+$page_title = $myTitle;
+
+?>
+>>>>>>> FETCH_HEAD

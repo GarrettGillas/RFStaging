@@ -1,6 +1,11 @@
 <?php
 include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> FETCH_HEAD
 ?>
 
 <!DOCTYPE html>

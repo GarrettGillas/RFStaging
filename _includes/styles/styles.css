@@ -187,6 +187,7 @@ float:right;
 clear:right;
 margin:18px 25px 0 0;}
 
+<<<<<<< HEAD
 /*************************************************************************************************/
 /* Accordion Menu Widget Styles                                                                  */
 /*************************************************************************************************/
@@ -195,6 +196,17 @@ margin:0 0 0px 0;
 padding:0;
 font-weight:700;
 list-style-type:none;}
+=======
+/* I think this section is all legacy crap that can be deleted.
+div#pager{
+position:absolute;
+top:0;
+right:0;
+border:solid 1px #F0EFF1;
+background-color:#F7F9FB;
+padding:20px;
+width:100px;}
+>>>>>>> FETCH_HEAD
 
 aside .asidewrap ul li{
 margin:1px 0 2px 0px;
@@ -213,6 +225,7 @@ overflow: hidden;
 text-overflow: ellipsis; 
 -o-text-overflow: ellipsis;}
 
+<<<<<<< HEAD
 aside .asidewrap ul ul li{
 font-weight:400;
 margin-left:7px;}
@@ -266,6 +279,18 @@ height: 100%;}
 background: #eeeef4;
 float: left;
 height: 100%;}
+=======
+a:hover#homelink{
+text-decoration:underline;}
+*/
+
+/* Page Specific Styles */
+body.guide article p{
+margin-right:20px;}
+
+body.year h1{
+margin-bottom: 20px;}
+>>>>>>> FETCH_HEAD
 
 .scroll-pane{
 width: 100%;
@@ -383,11 +408,43 @@ margin: 10px 0 18px 0;}
 .deleteButton{
 display:inline-block;}
 
+<<<<<<< HEAD
 /*************************************************************************************************/
 /* User Guide Page Styles                                                                        */
 /*************************************************************************************************/
 body.guide article p{
 margin-right:20px;}
+=======
+/* Accordion File Menu Styles */
+aside .asidewrap ul{
+margin:0 0 0px 0;
+padding:0;
+font-weight:700;
+list-style-type:none;}
+
+aside .asidewrap ul li{
+margin:1px 0 2px 0px;
+padding:0;
+font-weight:700;
+list-style-type:none;
+text-transform: capitalize;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis; 
+-o-text-overflow: ellipsis;}
+
+aside .asidewrap ul ul li{
+font-weight:400;
+margin-left:7px;}
+
+aside.accordion .asidewrap{
+max-height:370px;
+overflow-y:auto;
+overflow-x:hidden;
+width:156px;
+padding:0 4px 0 0;
+margin:20px;}
+>>>>>>> FETCH_HEAD
 
 body.guide article p a{
 text-decoration:underline;}
@@ -411,5 +468,13 @@ left: 293px;}
 body.guide .guide-labels span.g-a3{
 left: 513px;}
 
+<<<<<<< HEAD
 body.year h1{
 margin-bottom: 20px;}
+=======
+article.login .loginFormRow input[type=submit] {
+	border:0;
+	background-color:#000;
+	color:#fff;
+}
+>>>>>>> FETCH_HEAD
