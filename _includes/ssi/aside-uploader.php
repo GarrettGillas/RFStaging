@@ -14,26 +14,34 @@
 <script type="text/javascript">
 
 $(function() {
-	Dropzone.options.fileUploader = false;
 
-	var fileUploader = new Dropzone("#fileUploader", {uploadMultiple: true});
-	
 	var currentUploadQueue = 0;
 	var currentCompleteQueue = 0;
 
-	fileUploader.on("addedfile", function(file) {
-		currentUploadQueue += 1;
-	});
+	Dropzone.options.fileUploader = {
+		uploadMultiple : true,
+		acceptedFiles : ".SWF,  .HTML, .HTM, .GIF, .JPG, .JPEG, .PNG, .PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS, .FLV, .AS, .XML, .JSON, .EOT, .TTF, .OTF, .WOFF, .SVG, .JS, .ICO, .PHP, .TXT, .RTF, .MP4, .OGV, .WEBM, .M4V",
+		dictInvalidFileType: "File type not supported.",
+		init: function(){
+			fileUploader = this;
+			fileUploader.on("addedfile", function(file) {
+				currentUploadQueue += 1;
+			});
 
-	fileUploader.on("complete", function(file){
-		currentCompleteQueue += 1;
-		if(currentCompleteQueue == currentUploadQueue){
-			fileUploader.removeAllFiles();
-			ProjectContent.refresh(uploadPath);
-			currentUploadQueue = currentCompleteQueue = 0;
+			fileUploader.on("complete", function(file){
+				currentCompleteQueue += 1;
+				if(currentCompleteQueue == currentUploadQueue){
+					setTimeout(function(){
+						fileUploader.removeAllFiles();
+					}, 3000)
+					
+					ProjectContent.refresh(uploadPath);
+					currentUploadQueue = currentCompleteQueue = 0;
+				}
+
+			});
 		}
-
-	});
+	}
 
 });
 
