@@ -1,5 +1,4 @@
 <?php
-
 include '_includes/ssi/siteconfig.php';
 
 if(isset($_GET['logout'])) {
@@ -26,9 +25,8 @@ if(isset($_POST['username'])) {
         //Invalid Login
     }
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -42,32 +40,39 @@ if(isset($_POST['username'])) {
 <link rel="icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 </head>
     
-	<body class="root">
 
-	<?php include '_includes/ssi/header.php'; ?>
+<body class="login">
+<?php include '_includes/ssi/header.php'; ?>
 
-		<div id="content">
-			<?php include '_includes/ssi/aside-info.php'; ?>
+<div id="content">
+<?php include '_includes/ssi/aside-info.php'; ?>
+<?php #include '_includes/ssi/aside-uploader.php'; ?>
+<?php #include '_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
+<?php #include '_includes/ssi/aside-public.php'; ?> 
 
-			<section>
-				<script>breadcrumbs();</script>
-				<article class='login'>
-					<h1>Welcome. Please log in.</h1>
-					<form name="login" action="" method="post">
-						<div class="loginFormRow">
-							<span>Username:</span><input type="text" name="username" value="" />
-						</div>
-			            <div class="loginFormRow">
-				            <span>Password:</span><input type="password" name="password" value="" />
-				        </div>
-				        <div class="loginFormRow">
-							<input type="submit" name="submit" value="Submit" />
-						</div>
-			        </form>
-			    </article>
-			</section>
-	    </div>
+<section>
+<script>breadcrumbs();</script>
 
-		<?php include '_includes/ssi/footer.php'; ?>
-    </body>
-</html>
+<article class='login'>
+<h1>Welcome. Please log in.</h1>
+
+<form name="login" action="" id="form2" method="post">
+<div class="loginFormRow">
+<span>Username:</span><input type="text" name="username" value="">
+</div><!--|.loginFormRow|-->
+
+<div class="loginFormRow">
+<span>Password:</span><input type="password" name="password" value="">
+</div><!--|.loginFormRow|-->
+
+<div class="loginFormRow">
+<input type="submit" name="submit" value="Submit">
+</div><!--|.loginFormRow|-->
+</form>
+
+</article>
+</section>
+</div><!--|#content|-->
+
+<?php include '_includes/ssi/footer.php'; ?>
+</body></html>

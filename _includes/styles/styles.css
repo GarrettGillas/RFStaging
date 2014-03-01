@@ -188,6 +188,59 @@ clear:right;
 margin:18px 25px 0 0;}
 
 /*************************************************************************************************/
+/* Form Styles                                                                                   */
+/*************************************************************************************************/
+form input[type="submit"]{
+background-color:#1a1a1a;
+color:#fff;
+text-transform:uppercase;
+border:0;
+font-size:13px;
+line-height:26px;
+margin:0;
+padding: 0px 17px;
+cursor:pointer;}
+
+form input[type="submit"]:hover{
+color:#c8c8c8 !important;}
+
+form input[type="password"]{
+border:2px solid #f2f2f2;
+background-color:#f2f2f2;
+line-height:16px;
+padding:0 4px;
+margin:0 6px;
+width:130px;}
+
+form input[type="password"]:active, form input[type="password"]:hover, form input[type="password"]:focus{
+background-color:#fff;}
+
+form input[type="password"]:focus{
+border:2px solid #1a1a1a;}
+
+#form1{
+position:relative;}
+
+#form1 #form-left{
+float:left;
+clear:left;
+width:400px;
+margin:20px 0 0 0;}
+
+#form1 #form-right{
+float:right;
+clear:none;
+width:280px;
+margin:20px 0 0 0;}
+
+#form1 #form-right input{
+float:right;
+margin:0 0 0 16px;}
+
+.wrong-pw{
+color:#f10000;}
+
+/*************************************************************************************************/
 /* Accordion Menu Widget Styles                                                                  */
 /*************************************************************************************************/
 aside .asidewrap ul{
@@ -275,20 +328,41 @@ overflow: auto;}
 /* Login Page Styles                                                                             */
 /*************************************************************************************************/
 article.login{
-background-color: #f2f2f2;
-padding: 24px 0 0 24px;
-height: 141px;}
+background-color:#f2f2f2;
+padding:24px 0 0 24px;
+height:141px;}
 
 article.login h1{
 margin-bottom:10px;}
 
 article.login .loginFormRow{
-width: 270px;}
+width:295px;
+position:relative;
+padding-bottom:2px;}
+
+article.login .loginFormRow span{
+line-height: 26px;}
 
 article.login .loginFormRow input[type=submit]{
 border:0;
 background-color:#000;
 color:#fff;}
+
+article.login .loginFormRow input[type="text"], article.login .loginFormRow input[type="password"]{
+border:2px solid #fff;
+background-color:#fff;
+line-height:16px;
+padding:0 4px;
+margin:3px 0 0 0;
+width:220px;
+float: right;
+clear: none;}
+
+article.login .loginFormRow input[type="submit"]{
+margin:4px 0 0 63px;}
+
+article.login .loginFormRow input[type="text"]:focus, article.login .loginFormRow input[type="password"]:focus{
+border:2px solid #1a1a1a;}
 
 /*************************************************************************************************/
 /* Client Main Page (post login) Styles                                                          */
@@ -336,16 +410,13 @@ body.client p:hover{
 background-color:#f2f2f2;}
 */
 
-body.iframe{
-position:relative;
-width: 740px;
-overflow-x:hidden;
-overflow-y:visible;
-white-space: normal;}
+body.client .iframe-wrapper{
+width:740px;
+position:relative;}
 
-body.iframe ul{
+body.client p.cl2{
 position:absolute;
-top:2px;
+top:30px;
 right:2px;
 text-transform: uppercase;
 font-size: 10px;
@@ -358,16 +429,26 @@ transition: opacity .25s ease-in-out;
 -moz-transition: opacity .25s ease-in-out;
 -webkit-transition: opacity .25s ease-in-out;}
 
-body.iframe:hover ul{
+body.client p.cl2 a{
+cursor:pointer;}
+
+body.client .iframe-wrapper:hover p{
 opacity: 1;}
+
+body.iframe{
+position:relative;
+width:680px;
+overflow-x:hidden;
+overflow-y:visible;
+white-space: normal;}
 
 body.iframe p{
 margin:0;
 padding:0;
 white-space: normal;}
 
-body.iframe textarea {
-width: 720px;
+body.iframe textarea{
+width: 660px;
 height: 80%;
 border: 0px;
 padding: 10px;
@@ -393,7 +474,7 @@ body.guide article p a{
 text-decoration:underline;}
 
 body.guide .guide-thumbs{
-margin:20px 0 0 65px;}
+margin:20px 0 0 60px;}
 
 body.guide .guide-labels{
 position:relative;
@@ -403,13 +484,23 @@ body.guide .guide-labels span{
 position:absolute;}
 
 body.guide .guide-labels span.g-a1{
-left: 67px;}
+left: 65px;}
 
 body.guide .guide-labels span.g-a2{
-left: 293px;}
+left: 290px;}
 
 body.guide .guide-labels span.g-a3{
-left: 513px;}
+left: 510px;}
+
+body.guide table{
+margin:20px 0 0 64px;
+border:0px;
+padding:20px 20px 15px 20px;
+background-color:#F2F2F2;}
+
+body.guide table tr td{
+padding:0px 0px 5px 0px;
+vertical-align:top;}
 
 body.year h1{
 margin-bottom: 20px;}

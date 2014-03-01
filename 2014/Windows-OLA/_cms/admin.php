@@ -1,15 +1,11 @@
 <?php
 include '../../../_includes/ssi/siteconfig.php';
 
-/**********************************
-       CHANGE PASSWORD HERE
-***********************************/
+/*************************************************************************************************/
+/* Password defined here (moved to siteconfig.php).                                              */
+/*************************************************************************************************/
 
-$pass = $userinfo[$adminAccount];//"Snapper4781";
-
-/**********************************
-         Don't edit below.
-***********************************/
+$pass = $userinfo[$adminAccount];
 
 require_once "includes/markdown.php";
 
@@ -80,11 +76,11 @@ if(isset($_POST['addition'])) {
         fwrite($file, $footer);
         fclose($file);
 	
-		header ("location: " . $_SESSION['edit_redirect']);
-		// echo "<script type='text/javascript'>parent.location = '".$_SESSION['edit_redirect'].";</script>";
+		header ("location: " . $home_page);
+		return;
 	} else {
 		// Bad password
-		$error_msg = "Incorrect password.";
+		$error_msg = "<span class='wrong-pw'>Incorrect password.</span>";
         if (get_magic_quotes_gpc()) {
 			$contents = stripslashes($_POST['addition']);
 		}
@@ -116,11 +112,18 @@ jQuery(document).ready(function () {
 
 
 <body onload="resizeTextArea()" onresize="resizeTextArea()" class="iframe">
-<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" id="form">
-<textarea id="area" name="addition" rows="30"><?=$contents?></textarea> <br/><br/>
-Password: <input type="password" name="pass" /> <?php echo $error_msg ?> <br/><br/>
-<input type="submit" name="submit" value="Apply changes"/>
-<input type="submit" name="back" value="Go Back"/>
+<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" id="form1">
+<textarea id="area" name="addition" rows="30"><?=$contents?></textarea>
+
+<div id="form-left">
+Password:<input type="password" name="pass" class="cms-pass"><?php echo $error_msg ?>
+</div><!--|#form-left|-->
+
+<div id="form-right">
+<input type="submit" name="submit" value="Apply Changes">
+<input type="submit" name="back" value="Cancel">
+</div><!--|#form-right|-->
+
 <!--<input type="submit" name="backups" value="Backups"/>-->
 </form>
 </body>

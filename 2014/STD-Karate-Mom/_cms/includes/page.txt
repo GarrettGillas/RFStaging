@@ -1,5 +1,9 @@
-- [ [edit](admin.php) ]
-
 ## EXTERNAL LINKS
-www.google.com
+
+[Nike](http://nike.com/)  
+
+[Bing](http://bing.com)
+
+[Xbox](http://xbox.com) 
+
 
