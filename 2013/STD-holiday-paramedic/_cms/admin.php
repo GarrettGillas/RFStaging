@@ -123,7 +123,5 @@ Password:<input type="password" name="pass" class="cms-pass"><?php echo $error_m
 <input type="submit" name="submit" value="Apply Changes">
 <input type="submit" name="back" value="Cancel">
 </div><!--|#form-right|-->
-
-<!--<input type="submit" name="backups" value="Backups"/>-->
 </form>
 </body>

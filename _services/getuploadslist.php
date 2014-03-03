@@ -1,5 +1,4 @@
 <?php
-
 function ReadFolderDirectory($dir,$listDir= array())
 {
     $listDir = array();
@@ -27,5 +26,4 @@ function ReadFolderDirectory($dir,$listDir= array())
 $output = json_encode(ReadFolderDirectory(urldecode($_POST['pathToContent'])));
 header('Content-Type: application/json');
 echo $output;
-
 ?>

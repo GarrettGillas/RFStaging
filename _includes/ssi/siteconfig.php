@@ -25,10 +25,11 @@ $userinfo = array(
 $adminAccount = 'RFEmployee'; 
 
 /*************************************************************************************************/
-/* Sub Page Titles Generated from Folder Lables                                                  */
+/* Sub Page Titles Generated from Folder Names (Capitalized, "-" & "_" have been removed)        */
 /*************************************************************************************************/
 $myTitle = basename(getcwd());
 $myTitle = str_replace("-", " ", $myTitle);
 $myTitle = str_replace("_", " ", $myTitle);
-$page_title2 = $myTitle;
+$page_title_raw = $myTitle;
+$page_title2 = ucwords($page_title_raw);
 ?>

@@ -8,6 +8,7 @@ $exclude_list = array(
 	".git",
 	".DS_Store",
 	".htaccess",
+	".gitignore",
 	"_services",
 	"_includes",
 	"_cms",

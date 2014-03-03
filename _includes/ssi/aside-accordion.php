@@ -21,6 +21,7 @@ $exclude_list = array(
     ".git",
     ".DS_Store",
     ".htaccess",
+    ".gitignore",
     "_services",
     "_includes",
     "_cms",
@@ -41,7 +42,7 @@ $exclude_list = array(
             $file_accord2 = str_replace("_", " ", $file_accord2);
 
             $path_accord=$dir_accord.'/'.$file_accord;
-             echo "<li><a href='".$path_accord."'>$file_accord2</a></li>";           
+             echo "<li><a href='".$path_accord."' title='".$file_accord2."'>$file_accord2</a></li>";           
 
             if(is_dir($dir_accord.'/'.$file_accord)) mkmap($dir_accord.'/'.$file_accord);
             echo "</ul>\n";
