@@ -167,8 +167,8 @@ line-height:14px;
 margin:1px 0 2px 0;}
 
 div#logo{
-width:935px;
-padding:31px 0 0 25px;
+width:960px;
+padding:0px 0 0 0px;
 position:relative;}
 
 div#logo img{
@@ -178,7 +178,7 @@ vertical-align:middle;}
 #logo2{
 float:right;
 clear:right;
-margin:0px 33px 0 0;}
+margin:40px 40px 0 0;}
 
 #logo3{
 float:right;
@@ -258,11 +258,13 @@ overflow: hidden;
 text-overflow: ellipsis; 
 -o-text-overflow: ellipsis;}
 
-aside .asidewrap p{
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis; 
--o-text-overflow: ellipsis;}
+aside.accordion, aside.accordion p, aside.accordion p a, aside.info, aside.info p, aside.info p a, aside.public, aside.public p, aside.public p a{
+white-space:nowrap;
+overflow:hidden;
+display:block;
+text-overflow:ellipsis; 
+-o-text-overflow:ellipsis;
+-ms-text-overflow:ellipsis;}
 
 aside .asidewrap ul ul li{
 font-weight:400;

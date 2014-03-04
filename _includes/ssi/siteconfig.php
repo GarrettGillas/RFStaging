@@ -15,8 +15,8 @@ $contact 	= "<strong>Jackie VanderZanden</strong><br>
 			   Client Partner<br>
 			   503.889.4530<br>
 			   <a href='mailto:jackie.vanderzanden@razorfish.com'>jackie.vanderzanden@razorfish.com</a>";
-$logo 		= "/_includes/logo-windows.jpg";
-$logo2 		= "/_includes/logo-razorfish.png";
+$logo 		= "/_includes/images/logo-windows.png";
+$logo2 		= "/_includes/images/logo-razorfish.png";
 
 $userinfo = array(
 			  'RFEmployee'=>'Snapper4781',

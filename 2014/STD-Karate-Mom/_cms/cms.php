@@ -25,5 +25,5 @@ if($_SESSION['is_admin'] == true){
 }	
 ?>
 
-<iframe src="<?php print "http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>_cms/index.php" width="680px" height="150px" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');"></iframe>
+<iframe src="<?php print "http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>_cms/index.php" width="680px" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');" scrolling="no"></iframe>
 </div><!--|.iframe-wrapper|-->

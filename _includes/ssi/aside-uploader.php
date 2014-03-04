@@ -1,4 +1,4 @@
-<aside>
+<aside class="uploader">
 <h3>File Uploader</h3>
 <div class="asidewrap">
 <p class="small"><strong>Drop files here:</strong></p>
