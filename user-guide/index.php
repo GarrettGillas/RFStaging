@@ -12,6 +12,10 @@ include '../_includes/ssi/checkauth.php';
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/html5shiv.js"></script>
+<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/ie.css);</style>
+<![endif]-->
 <link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 </head>
@@ -36,7 +40,9 @@ include '../_includes/ssi/checkauth.php';
 <p>The Razorfish Client Preview Platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. It has been purpose built to be fast and flexible so that teams can review and revise media across global offices at a an extremly fast pace. By posting all files directly in the browser, and being able to modify them there as well, we can avoid the use of FTP and other slow file transfer systems.</p>
 
 <h2>Uploading Files</h2>
-<p>To upload files to project pages, simply drag one or more files into the upload box on left hand side of the page as pictured below. The following files can be uploaded and viewed using the browser based uploader tool. One they are uploaded, they will be sorted into the 3 categories listed below.</p>
+<p>To upload files to project pages, simply drag one or more files into the upload box on left hand side of the page as pictured below. The following files can be uploaded and viewed using the browser based uploader tool. One they are uploaded, they will be sorted into the 3 categories listed below.</p> 
+<br>
+<p>Note that for Banners and Images, the filename must have it's dimensions (example: <code><strong>banner-300x250.swf</strong></code>) to be viewed inline on the staging page like the example below. Documents will always be download or open in a new tab.</p>
 
 
 <table width="600px" border="0" cellpadding="0" cellspacing="0">
@@ -46,7 +52,7 @@ include '../_includes/ssi/checkauth.php';
 <p>.SWF,  .HTML, .HTM</p>
 </td>
 <td width="50%" rowspan="3" valign="top">
-<p><strong>Dependancy files that can be uploaded but will not be viewable.</strong></p>
+<p><strong>Dependancy files that can be uploaded but will not be viewable:</strong></p>
 <!--<p>(Folders)</p>-->
 <p>.FLV, .AS, .XML, .JSON</p>
 <p>.EOT, .TTF, .OTF, .WOFF, .SVG</p>
@@ -82,7 +88,7 @@ include '../_includes/ssi/checkauth.php';
 <p>To add additional titles to the bottom section of a project page, hover the mouse over EXTERNAL LINKS and select [edit]. To add a new title use the following markup (ex ##NEW TITLE). Enter your login password and click the Apply Changes button. Note that this feature is only available to logged in Razorfish employees.</p>
 
 <h2>Adding Links</h2>
-<p>In the same manner as listed above hover the mouse over the section labeled EXTERNAL LINKS and select [edit]. The correct markup for links is [Link Name](http://example.com/). All links created this way will open in a new tab or window by default.</p>
+<p>In the same manner as listed above hover the mouse over the section labeled EXTERNAL LINKS and select [edit]. The correct markup for links is [<code><strong>Link Name</strong></code>](<code><strong>http://example.com/</strong></code>). All links created this way will open in a new tab or window by default.</p>
 
 <h2>Applying Changes</h2>
 <p>Note, to save your new edits to the page you’ll need to enter your password and click Apply Changes to save your work. Clicking Cancel will unto any changes that have been made to the page.</p>

@@ -10,6 +10,7 @@ if(isset($_GET['logout'])) {
 if(isset($_POST['username'])) {
     if($userinfo[$_POST['username']] == $_POST['password']) {
         $_SESSION['username'] = $_POST['username'];
+
         if($_POST['username'] == $adminAccount){
         	$_SESSION['is_admin'] = true;
         }else{
@@ -41,6 +42,10 @@ if(isset($_POST['username'])) {
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/html5shiv.js"></script>
+<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/ie.css);</style>
+<![endif]-->
 <link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 </head>

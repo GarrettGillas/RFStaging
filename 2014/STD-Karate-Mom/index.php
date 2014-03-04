@@ -20,6 +20,10 @@ include '../../_includes/ssi/checkauth.php';
 var uploadPath = "<?php echo $uploadPath; ?>";
 </script>
 
+<!--[if lt IE 9]>
+<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/html5shiv.js"></script>
+<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/ie.css);</style>
+<![endif]-->
 <link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 </head>
@@ -46,19 +50,14 @@ if($_SESSION['is_admin'] == true){
 <h1><?php echo $page_title2; ?></h1>
 
 <h2>Banners</h2>
-<div id="bannersContainer" class="linksContainer">
-
-</div>
+<div id="bannersContainer" class="linksContainer"></div>
 
 <h2>Images</h2>
-<div id="imagesContainer" class="linksContainer">
-
-</div>
+<div id="imagesContainer" class="linksContainer"></div>
 
 <h2>Documents</h2>
-<div id="documentsContainer" class="linksContainer">
+<div id="documentsContainer" class="linksContainer"></div>
 
-</div>
 
 <?php include '_cms/cms.php'; ?>
 
@@ -70,7 +69,8 @@ if($_SESSION['is_admin'] == true){
 
 <script>
 $(function() {
-	var pattern = new RegExp(/_(([0-9]{2,4})x)([0-9]{2,4})/);
+	/* Looking for dimensions in the filenames (such as 300x250) */
+	var pattern = new RegExp(/(([0-9]{2,4})[xX]([0-9]{2,4}))/);
 
 	$('.linksContainer').on('click', 'a.assetLink', function(e){
 		e.preventDefault();
@@ -97,7 +97,7 @@ $(function() {
 				assetExpand = document.createElement('div');
 				$(assetExpand).addClass('assetExpand');
 				$(assetExpand).css({'height': (assetDimensions.height)});
-				$(assetExpand).css({'width': assetDimensions.width});
+				$(assetExpand).css({'width': (assetDimensions.width)});
 				$(assetExpand).hide();
 				$(_assetLink).after(assetExpand);
 				if($(_assetLink).hasClass('img')){
@@ -112,7 +112,8 @@ $(function() {
 				}
 				$(assetExpand).show(300);
 			}else{
-				var temp = window.open($(_assetLink).attr('href'));
+				//var temp = window.open($(_assetLink).attr('href'));
+				$(_assetLink).addClass('doc');
 			}
 		}
 		
@@ -166,17 +167,13 @@ $(function() {
 				});
 			}
 		});
-
 		<?php endif; ?>
-
 	}
 
 	$(document).on(ProjectContent.DATA_REFRESH_COMPLETE, function(e){
 		setTimeout(1000, pushContent());
-	})
-	
-	ProjectContent.refresh(uploadPath);
-	
+	})	
+	ProjectContent.refresh(uploadPath);	
 });
 </script>
 
