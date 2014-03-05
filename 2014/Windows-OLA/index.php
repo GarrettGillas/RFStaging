@@ -92,25 +92,37 @@ $(function() {
 			$(_assetLink).addClass('open');
 			if(!$(_assetLink).hasClass('doc')){
 				dimensionsTemp = $(_assetLink).attr('href').match(pattern);
-				assetDimensions.width = dimensionsTemp[2];
-				assetDimensions.height = dimensionsTemp[3];
-				assetExpand = document.createElement('div');
-				$(assetExpand).addClass('assetExpand');
-				$(assetExpand).css({'height': (assetDimensions.height)});
-				$(assetExpand).css({'width': (assetDimensions.width)});
-				$(assetExpand).hide();
-				$(_assetLink).after(assetExpand);
-				if($(_assetLink).hasClass('img')){
-					assetObject = document.createElement('img');
-					$(assetObject).attr('src', $(_assetLink).attr('href'));
-					$(assetExpand).append(assetObject)
-				}else if($(_assetLink).hasClass('swf')){
-					assetObject = document.createElement('div');
-					$(assetObject).attr('id', 'swfContainer');
-					$(assetExpand).append(assetObject);
-					$(assetObject).flash({swf:$(_assetLink).attr('href'),height:assetDimensions.height,width:assetDimensions.width});
+				if(dimensionsTemp!=null&&dimensionsTemp[2]>0&&dimensionsTemp[3]>0){
+					assetDimensions.width = dimensionsTemp[2];
+					assetDimensions.height = dimensionsTemp[3];
+					assetExpand = document.createElement('div');
+					$(assetExpand).addClass('assetExpand');
+					$(assetExpand).css({'height': (assetDimensions.height)});
+					$(assetExpand).css({'width': (assetDimensions.width)});
+					$(assetExpand).hide();
+					$(_assetLink).after(assetExpand);
+					if($(_assetLink).hasClass('img')){
+						assetObject = document.createElement('img');
+						$(assetObject).attr('src', $(_assetLink).attr('href'));
+						$(assetExpand).append(assetObject)
+					}else if($(_assetLink).hasClass('swf')){
+						assetObject = document.createElement('div');
+						$(assetObject).attr('id', 'swfContainer');
+						$(assetExpand).append(assetObject);
+						$(assetObject).flash({swf:$(_assetLink).attr('href'),height:assetDimensions.height,width:assetDimensions.width});
+					}
+					$(assetExpand).show(300);
+				}else{
+					if($(_assetLink).hasClass('img')){
+						assetObject = document.createElement('img');
+						var win=window.open($(_assetLink).attr('href'), '_blank');
+						win.focus();
+					}else if($(_assetLink).hasClass('swf')){
+						$(_assetLink).css({'color': '#ff0000'});
+						$(_assetLink).append(' - ERROR: Cannot display SWF. The filename does not specify a dimension.');
+					}
 				}
-				$(assetExpand).show(300);
+				
 			}else{
 				//var temp = window.open($(_assetLink).attr('href'));
 				$(_assetLink).addClass('doc');
