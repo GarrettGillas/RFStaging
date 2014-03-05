@@ -8,7 +8,7 @@ if(isset($_GET['logout'])) {
 }
 
 if(isset($_POST['username'])) {
-    if($userinfo[$_POST['username']] == $_POST['password']) {
+    if($userinfo[$_POST['username']] == $_POST['password'] && $_POST['password']!="") {
         $_SESSION['username'] = $_POST['username'];
 
         if($_POST['username'] == $adminAccount){
