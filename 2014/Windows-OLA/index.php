@@ -9,17 +9,21 @@ include '../../_includes/ssi/checkauth.php';
 <meta charset="utf-8">
 <title><?php echo $page_title2; ?> | Razorfish Client Preview</title>
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/polyfills.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/swfObject.jquery.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
-
 <script type="text/javascript">
+if(document.URL.indexOf('index.php')>-1){
+	window.location.href = window.location.href.substr(0, window.location.href.indexOf('index.php'));
+}
+</script>
+<script>
 <?php $ds = DIRECTORY_SEPARATOR; ?>
 <?php $uploadPath = urlencode(realpath(dirname(__FILE__).$ds."uploads")); ?>
 var uploadPath = "<?php echo $uploadPath; ?>";
 </script>
-
 <!--[if lt IE 9]>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/html5shiv.js"></script>
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/ie.css);</style>
@@ -49,13 +53,13 @@ if($_SESSION['is_admin'] == true){
 <article>
 <h1><?php echo $page_title2; ?></h1>
 
-<h2>Banners</h2>
+<h2 id="bannersTitle">Banners</h2>
 <div id="bannersContainer" class="linksContainer"></div>
 
-<h2>Images</h2>
+<h2 id="imagesTitle">Images</h2>
 <div id="imagesContainer" class="linksContainer"></div>
 
-<h2>Documents</h2>
+<h2 id="documentsTitle">Documents</h2>
 <div id="documentsContainer" class="linksContainer"></div>
 
 
@@ -69,6 +73,21 @@ if($_SESSION['is_admin'] == true){
 
 <script>
 $(function() {
+
+
+	var bannersContainer = $('#bannersContainer');
+	var imagesContainer = $('#imagesContainer');
+	var documentsContainer = $('#documentsContainer');
+
+
+
+	bannersContainer.hide();
+	imagesContainer.hide();
+	documentsContainer.hide();
+	$('#bannersTitle').hide();
+	$('#imagesTitle').hide();
+	$('#documentsTitle').hide();
+
 	/* Looking for dimensions in the filenames (such as 300x250) */
 	var pattern = new RegExp(/(([0-9]{2,4})[xX]([0-9]{2,4}))/);
 
@@ -131,10 +150,6 @@ $(function() {
 		
 	});
 
-	var bannersContainer = $('#bannersContainer');
-	var imagesContainer = $('#imagesContainer');
-	var documentsContainer = $('#documentsContainer');
-
 	function pushContent(){
 		bannersContainer.empty();
 		imagesContainer.empty();
@@ -149,6 +164,31 @@ $(function() {
 		$.each(ProjectContent.documents, function( index, value ) {
 			documentsContainer.append(value);
 		});
+
+		if (!bannersContainer.is(':empty')){
+			$('#bannersTitle').fadeIn();
+			bannersContainer.fadeIn();
+		}else{
+			$('#bannersTitle').hide();
+			bannersContainer.hide();
+		}
+
+		if (!imagesContainer.is(':empty')){
+			$('#imagesTitle').fadeIn();
+			imagesContainer.fadeIn();
+		}else{
+			$('#imagesTitle').hide();
+			imagesContainer.hide();
+		}
+
+		if (!documentsContainer.is(':empty')){
+			$('#documentsTitle').fadeIn();
+			documentsContainer.fadeIn();
+		}else{
+			$('#documentsTitle').hide();
+			documentsContainer.hide();
+		}
+
 
 		<?php if($_SESSION['is_admin'] == true): ?>
 
@@ -174,7 +214,6 @@ $(function() {
 					data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
 					context: document.body
 				}).done(function(data) {
-					console.log("deleted?");
 					ProjectContent.refresh(uploadPath);
 				});
 			}
