@@ -12,8 +12,6 @@ include '../../_includes/ssi/checkauth.php';
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
-<script><?php $ds = DIRECTORY_SEPARATOR; $uploadPath = (getcwd()).$ds."uploads"; ?>
-var uploadPath = "<?php echo $uploadPath; ?>";</script>
 </head>
 
 

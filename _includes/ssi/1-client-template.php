@@ -27,7 +27,7 @@ include '_includes/ssi/checkauth.php';
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
 
 <article>
-<h1><?php echo $page_title; ?> - Razorfish Client Preview</h1>
+<h1><?php echo $page_title; ?></h1>
 
 <?php
 /* Directory Navigation with SCANDIR */

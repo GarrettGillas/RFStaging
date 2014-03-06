@@ -4,7 +4,7 @@
 <p class="small"><strong>Drop files here:</strong></p>
 <link href="<?php echo "http://" . $_SERVER['HTTP_HOST']; ?>/_includes/styles/dropzone.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="<?php echo "http://" . $_SERVER['HTTP_HOST']; ?>/_includes/js/dropzone.js"></script>
-<?php $ds = DIRECTORY_SEPARATOR; ?>
+<script type="text/javascript"><?php $ds = DIRECTORY_SEPARATOR; $uploadPath = urlencode((getcwd()).$ds."uploads"); ?> var uploadPath = "<?php echo $uploadPath; ?>";</script>
 <form action="/_services/upload.php" class="dropzone" id="fileUploader" enctype="multipart/form-data">
 <input type="hidden" value="<?php echo urldecode($uploadPath); ?>" id="contentUploadPath" name="contentUploadPath" />
 </form> 
