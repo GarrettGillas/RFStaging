@@ -1,9 +1,3 @@
 ## EXTERNAL LINKS
 
-[Nike](http://nike.com/)  
-
-[Bing](http://bing.com)
-
-[Xbox One](http://xbox.com) 
-
-
+[Example Link](http://bing.com/)  

@@ -1,11 +1,7 @@
 <aside class="accordion">
 <h3>File Menu</h3>
 <div class="asidewrap scroll-pane">
-
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.jscrollpane.min.js"></script>
- 
-<script>
+<script type="text/javascript">
 $(function()
 {
 	$('.scroll-pane').jScrollPane();

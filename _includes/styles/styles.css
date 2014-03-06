@@ -9,16 +9,15 @@ margin:20px auto;
 background-color:#fff;
 font-family:"Segoe UI",Segoe,"Helvetica Neue",Helvetica,Arial,sans-serif;
 font-size:12px;
-height:100%;
-color:#1a1a1a;}
+height:100%;}
 
 @font-face{
 font-family:'Segoe UI';
-src: url('../fonts/segoeui.eot');
 src: url('../fonts/segoeui.eot?#iefix') format('embedded-opentype'),
      url('../fonts/segoeui.woff') format('woff'),
-     url('../fonts/segoeui.ttf') format('truetype'),
-     /*url('../fonts/segoeui.svg#HelveticaNeueBold') format('svg');*/
+     url('../fonts/segoeui.ttf') format('truetype')/*,
+     url('../fonts/segoeui.svg#HelveticaNeueBold') format('svg')*/;
+src: url('../fonts/segoeui.eot');
 font-weight:normal;
 font-style:normal;}
 
@@ -233,7 +232,8 @@ margin:20px 0 0 0;}
 
 #form1 #form-right input{
 float:right;
-margin:0 0 0 16px;}
+margin:0 0 0 16px;
+font-weight:700;}
 
 .wrong-pw{
 color:#f10000;}
@@ -258,7 +258,9 @@ overflow: hidden;
 text-overflow: ellipsis; 
 -o-text-overflow: ellipsis;}
 
-aside.accordion, aside.accordion p, aside.accordion p a, aside.info, aside.info p, aside.info p a, aside.public, aside.public p, aside.public p a{
+aside.accordion, aside.accordion p, aside.accordion p a, 
+aside.info, aside.info p, aside.info p a, 
+aside.public, aside.public p, aside.public p a{
 white-space:nowrap;
 overflow:hidden;
 display:block;
@@ -354,6 +356,93 @@ to {opacity:1;}
 }
 
 /*************************************************************************************************/
+/* Browser Support Styles (using jquery.reject.js)                                               */
+/*************************************************************************************************/
+#jr_overlay{
+top: 0;
+left: 0;
+padding: 0;
+margin: 0;
+z-index: 2147483646;
+position: absolute;}
+
+#jr_wrap{
+position: absolute;
+text-align: center;
+width: 100%;
+z-index: 2147483647;
+padding: 0;
+margin: 0;}
+
+#jr_inner{
+background: #FFF;
+margin: 0 auto;
+height: auto;
+padding: 20px;
+position: relative;}
+
+#jr_header{
+display: block;
+/*padding: 5px;
+padding-bottom: 0;
+margin: 0;*/
+text-align: left;}
+
+#jr_inner p{
+text-align: left;
+/*padding: 5px;
+margin: 0;*/}
+
+#jr_inner ul{
+list-style-image: none;
+list-style-position: outside;
+list-style-type: none;
+margin: 0;
+padding: 0;}
+
+#jr_inner ul li{
+cursor: pointer;
+float: left;
+width: 120px;
+height: 122px;
+margin: 0 10px 10px 10px;
+padding: 0;
+text-align: center;}
+
+#jr_inner li a{
+text-decoration: none;
+padding: 0;
+margin: 0;}
+
+#jr_inner li a:hover{
+text-decoration: underline;}
+
+#jr_inner .jr_icon{
+width: 100px;
+height: 100px;
+margin: 1px auto;
+padding: 0;
+background: transparent no-repeat scroll left top;
+cursor: pointer;}
+
+#jr_close{
+clear:both;
+text-align:right;
+font-size: 10px;
+line-height: 10px;}
+
+#jr_close a{
+display: block;
+width: auto;
+margin: 0;
+padding: 0;
+text-decoration: underline;}
+
+#jr_close p{
+padding: 10px 0 0 0;
+margin: 0;}
+
+/*************************************************************************************************/
 /* Login Page Styles                                                                             */
 /*************************************************************************************************/
 article.login{
@@ -375,7 +464,8 @@ line-height: 26px;}
 article.login .loginFormRow input[type=submit]{
 border:0;
 background-color:#000;
-color:#fff;}
+color:#fff;
+font-weight:700;}
 
 article.login .loginFormRow input[type="text"], article.login .loginFormRow input[type="password"]{
 border:2px solid #fff;
@@ -428,6 +518,9 @@ text-transform:capitalize;}
 /*************************************************************************************************/
 body.client div#content{
 position:relative;}
+
+body.client h1{
+padding-bottom: 0;}
 
 body.client span.edit-del{
 position:absolute;
@@ -486,11 +579,12 @@ body.client .iframe-wrapper:hover p{
 opacity: 1;}
 
 body .iframe1{
-overflow-y:display;} 
+overflow-y:visible;} 
 
 body.iframe{
 position:relative;
 width:680px;
+margin-top:0px;
 overflow-x:hidden;
 overflow-y:visible;
 white-space: normal;}
@@ -502,9 +596,10 @@ white-space: normal;}
 
 body.iframe textarea{
 width: 660px;
-height: 220px;
+height: 160px;
 border: 0px;
 padding: 10px;
+margin-top:20px;
 resize:vertical;
 background-color:#F2F2F2;}
 
@@ -557,3 +652,15 @@ vertical-align:top;}
 
 body.year h1{
 margin-bottom: 20px;}
+
+/*************************************************************************************************/
+/* Styles for Internet Explorer                                                                  */
+/*************************************************************************************************/
+body.ie9 .iframe-wrapper p.cl2, body.ie10 .iframe-wrapper p.cl2, body.ie11 .iframe-wrapper p.cl2{
+opacity:1;}
+
+body.ie9 .dz-fallback{
+display:none;}
+
+body.ie9 .dz-message span{
+padding-right:15px;}

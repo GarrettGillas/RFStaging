@@ -1,5 +1,6 @@
 <?php
-include '_includes/ssi/siteconfig.php';
+include '../_includes/ssi/siteconfig.php';
+
 $errorstatus = "";
 
 if(isset($_GET['logout'])) {
@@ -38,30 +39,22 @@ if(isset($_POST['username'])) {
 <head>
 <meta charset="utf-8">
 <title><?php echo $page_title; ?> | Razorfish Client Preview</title>
+<link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/breadcrumbs.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
-<!--[if lt IE 9]>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/html5shiv.js"></script>
-<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/ie.css);</style>
-<![endif]-->
-<link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 </head>
     
 
 <body class="login">
-<?php include '_includes/ssi/header.php'; ?>
+<?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php include '_includes/ssi/aside-info.php'; ?>
-<?php #include '_includes/ssi/aside-uploader.php'; ?>
-<?php #include '_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
-<?php #include '_includes/ssi/aside-public.php'; ?> 
+<?php /* Project Info Widget  */ include '../_includes/ssi/aside-info.php'; ?>
+<?php /* Accordion Nav Widget */ #include '../_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 
 <section>
-<script>breadcrumbs();</script>
+<script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
 
 <article class='login'>
 <h1>Welcome. Please log in.</h1>
@@ -86,5 +79,5 @@ if(isset($_POST['username'])) {
 </section>
 </div><!--|#content|-->
 
-<?php include '_includes/ssi/footer.php'; ?>
+<?php include '../_includes/ssi/footer.php'; ?>
 </body></html>

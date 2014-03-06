@@ -1,5 +1,5 @@
 <script type="text/javascript">
-function autoResize(id){
+/*function autoResize(id){
     var newheight;
     var newwidth;
 
@@ -10,7 +10,7 @@ function autoResize(id){
     document.getElementById(id).height= (newheight) + "px";
     document.getElementById(id).width= (newwidth) + "px";
 }
-
+*/
 function newSite() {
     var sites = ['<?php echo "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>_cms/admin.php']   
     document.getElementById('iframe1').src = (sites);
@@ -25,5 +25,5 @@ if($_SESSION['is_admin'] == true){
 }	
 ?>
 
-<iframe src="<?php print "http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>_cms/index.php" width="680px" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');" scrolling="no"></iframe>
+<iframe src="<?php print "http://".$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]; ?>_cms/index.php" width="680px" height="250px" id="iframe1" marginheight="0" frameborder="0" scrolling="no"></iframe>
 </div><!--|.iframe-wrapper|-->

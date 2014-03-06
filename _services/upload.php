@@ -16,10 +16,6 @@ if (!empty($_FILES)) {
         move_uploaded_file($tmp,$temp);
         $temp='';
         $tmp='';
-
-
-    }
-    
+    }    
 }
-
 ?> 
