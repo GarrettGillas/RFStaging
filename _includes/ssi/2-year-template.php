@@ -65,23 +65,23 @@ function dir_nav() {
 
         elseif (strpos($file_entry,'internal') !== false) {
 
-          if(isset($_GET['togglepublic'.$extravar])){
+          if(isset($_GET['tpublic'.$extravar])){
             $foldvar1 = $entry;
             $foldvar2 = str_replace("-internal", "", $foldvar1);
             rename($foldvar1,$foldvar2); 
             echo "<script>location.reload();</script>";
           }
-          echo "<span class='edit-del pcolor'>&#91; <a href='?togglepublic".$extravar."='>Make Public</a> &#93;</span>\n"; 
+          echo "<span class='edit-del pcolor'>&#91; <a href='?tpublic".$extravar."='>Make Public</a> &#93;</span>\n"; 
         }
 
         else {
-          if(isset($_GET['toggleprivate'.$extravar])){
+          if(isset($_GET['tprivate'.$extravar])){
             $foldvar1 = $entry;
             $foldvar2 = $entry . "-internal";
             rename($foldvar1,$foldvar2); 
             echo "<script>location.reload();</script>";
           }
-          echo "<span class='edit-del'>&#91; <a href='?toggleprivate".$extravar."='>Make Private</a> &#93;</span>\n";
+          echo "<span class='edit-del'>&#91; <a href='?tprivate".$extravar."='>Make Private</a> &#93;</span>\n";
           
         }
       echo "</p>\n";
