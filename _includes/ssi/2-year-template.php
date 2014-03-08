@@ -11,12 +11,12 @@ include '../_includes/ssi/checkauth.php';
 <link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/polyfills.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<script>if(typeof window.history.pushState == 'function') { window.history.pushState({}, "Hide", "<?php echo "http://".$_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"],'?'); ?>"); }</script>
 </head>
 
 
-<body class="year">
+<body class="year<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
@@ -35,30 +35,65 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 /* Global Exclusion Handling */
 include '../_includes/ssi/exclusions.php';
+$thispath = $_SERVER["DOCUMENT_ROOT"] . strtok($_SERVER["REQUEST_URI"],'?');
 
 if (isset($_GET["dir"])) {
-  $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"].$_GET["dir"];
+  $dir_path = $thispath . $_GET["dir"];
 }
 else {
-  $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"];
+  $dir_path = $thispath;
 }
 
 function dir_nav() {
   global $exclude_list, $dir_path;
-   $directories = array_diff(scandir($dir_path), $exclude_list);
+    $directories = array_diff(scandir($dir_path), $exclude_list);
 
   foreach($directories as $entry) {
+  // Cleaning up the strings and look for the word "internal".
+  $file_entry = str_replace("-", " ", $entry);
+  $file_entry = str_replace("_", " ", $file_entry);
+  $foldertoggle = strstr($file_entry, ' internal');
+  $extravar .= "1"; 
 
-	$file_entry = str_replace("-", " ", $entry);
-	$file_entry = str_replace("_", " ", $file_entry);
 
     if(is_dir($dir_path.$entry)) {
-      echo "<p class='pro-name'><a href='".$_GET["dir"].$entry."/"."'>".$file_entry."</a></p>\n";
+      echo "<p class='pro-name" . $foldertoggle . "'><a href='".$_GET["dir"].$entry."/"."'>".$file_entry."</a>\n";
+        
+        // Outputs [public]/[private] toggle for admin users only. 
+        if($_SESSION['is_admin'] == false){ 
+        }
+
+        elseif (strpos($file_entry,'internal') !== false) {
+
+          if(isset($_GET['togglepublic'.$extravar])){
+            $foldvar1 = $entry;
+            $foldvar2 = str_replace("-internal", "", $foldvar1);
+            rename($foldvar1,$foldvar2); 
+            echo "<script>location.reload();</script>";
+          }
+          echo "<span class='edit-del pcolor'>&#91; <a href='?togglepublic".$extravar."='>Make Public</a> &#93;</span>\n"; 
+        }
+
+        else {
+          if(isset($_GET['toggleprivate'.$extravar])){
+            $foldvar1 = $entry;
+            $foldvar2 = $entry . "-internal";
+            rename($foldvar1,$foldvar2); 
+            echo "<script>location.reload();</script>";
+          }
+          echo "<span class='edit-del'>&#91; <a href='?toggleprivate".$extravar."='>Make Private</a> &#93;</span>\n";
+          
+        }
+      echo "</p>\n";
     }
   }
 }
 dir_nav();
 ?>
+
+<script>
+
+</script>
 
 </article>
 </section>

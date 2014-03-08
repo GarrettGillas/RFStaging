@@ -7,15 +7,17 @@ include '../../_includes/ssi/checkauth.php';
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">  
 <head>
 <meta charset="utf-8">
+<?php if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== false) { echo "<meta http-equiv='refresh' content='0; url=../../'>";} } ?>
 <title><?php echo $page_title2; ?> | Razorfish Client Preview</title>
 <link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<script type="text/javascript"><?php $ds = DIRECTORY_SEPARATOR; $uploadPath = urlencode((getcwd()).$ds."uploads"); ?> var uploadPath = "<?php echo $uploadPath; ?>";</script>
 </head>
 
 
-<body class="client">
+<body class="client<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} if (strpos($page_title2,'Internal') !== false) {echo " pvtpage"; } ?>">
 <?php include '../../_includes/ssi/header.php'; ?> 
 
 <div id="content">
@@ -27,7 +29,7 @@ include '../../_includes/ssi/checkauth.php';
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
 
 <article>
-<h1><?php echo $page_title2; ?></h1>
+<h1><?php if (strpos($page_title2,'internal') !== true) {$page_title4 = str_replace(' Internal', ' Internal*', $page_title2); echo $page_title4; }?></h1>
 
 <h2 id="bannersTitle">Banners</h2>
 <div id="bannersContainer" class="linksContainer"></div>
@@ -38,16 +40,24 @@ include '../../_includes/ssi/checkauth.php';
 <h2 id="documentsTitle">Documents</h2>
 <div id="documentsContainer" class="linksContainer"></div>
 
-
 <?php include '_cms/cms.php'; ?>
 
 </article>
+
+<?php 
+if (strpos($page_title2,'Internal') !== false) {
+	echo "<br><br><p>*This page has been made private and is only visible to Razorfish employees. ".
+		 "To make this page visible to everyone, go back to the <a href='../'><u>year page</u></a> ".
+		 "and click [ MAKE PUBLIC ] on the link next to this project.</p>"; 
+} 
+?>
 </section>
 </div><!--|#content|-->
 
 <?php include '../../_includes/ssi/footer.php'; ?>
 
 <script>
+/* Kevin's on-page file displayer/sorter script */ 
 $(function() {
 
 	var bannersContainer = $('#bannersContainer');
@@ -160,7 +170,6 @@ $(function() {
 			$('#documentsTitle').hide();
 			documentsContainer.hide();
 		}
-
 
 		<?php if($_SESSION['is_admin'] == true): ?>
 

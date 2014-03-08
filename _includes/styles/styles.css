@@ -3,7 +3,6 @@
 /*  For documentation & support contact Garrett Gillas at Razorfish Portland.                    */
 /*  Garrett.Gillas@razorfish.com                                                                 */
 /*************************************************************************************************/
-
 body{
 margin:20px auto;
 background-color:#fff;
@@ -184,6 +183,9 @@ float:right;
 clear:right;
 margin:18px 25px 0 0;}
 
+body.clientlogin .internal, body.pvtpage #iframe1{
+display:none;}
+
 /*************************************************************************************************/
 /* Form Styles                                                                                   */
 /*************************************************************************************************/
@@ -268,9 +270,19 @@ text-overflow:ellipsis;
 -o-text-overflow:ellipsis;
 -ms-text-overflow:ellipsis;}
 
+aside.accordion div{
+-webkit-user-select: none; /* Chrome/Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+ */
+-o-user-select: none;
+user-select: none;	}
+
 aside .asidewrap ul ul li{
 font-weight:400;
 margin-left:7px;}
+
+aside .asidewrap ul .internal{
+color:#999;}
 
 aside.accordion .asidewrap{
 max-height:370px;
@@ -330,10 +342,10 @@ overflow: auto;}
 /* Smooth Page Fade-In Effect Styles                                                             */
 /*************************************************************************************************/
 body{
-animation: fadein .25s;
--moz-animation: fadein .25s; /* Firefox */
--webkit-animation: fadein .25s; /* Safari and Chrome */
--o-animation: fadein .25s; /* Opera */}
+animation: fadein .45s;
+-moz-animation: fadein .45s; /* Firefox */
+-webkit-animation: fadein .45s; /* Safari and Chrome */
+-o-animation: fadein .45s; /* Opera */}
 
 @keyframes fadein{
 from {opacity:0;}
@@ -513,16 +525,26 @@ margin-top:10px;}
 body.year .pro-name{
 text-transform:capitalize;}
 
+body.year article .internal a, body article .pcolor, body article .pcolor a, 
+body.pvtpage h1, body.pvtpage article h2, body.pvtpage section p, body.pvtpage section p a{
+color:#999;}
+
+body.year article .internal span a{
+/*color:#1a1a1a;*/}
+
 /*************************************************************************************************/
 /* Client Asset Page Styles                                                                      */
 /*************************************************************************************************/
-body.client div#content{
+body.client div#content, body.year .pro-name div#content, body.year p.pro-name{
 position:relative;}
 
 body.client h1{
 padding-bottom: 0;}
 
-body.client span.edit-del{
+body.client article{
+min-height: 400px;}
+
+body.client span.edit-del, body.year .pro-name span.edit-del{
 position:absolute;
 text-transform: uppercase;
 font-size: 10px;
@@ -539,10 +561,13 @@ top:0;
 right:0;
 display:inline-block;}
 
-body.client p:hover span.edit-del{
-opacity: 1;}
+body.client p:hover span.edit-del, body.year p.pro-name:hover span.edit-del{
+opacity:1;}
 
 /*
+body.client p:hover a.assetLink{
+text-decoration:underline;}
+
 body.client p{
 background-color:#fff;
 transition: background .25s ease-in-out;

@@ -8,24 +8,28 @@ error_reporting(E_ALL ^ E_NOTICE);
 /*  Garrett.Gillas@razorfish.com                                                                 */
 /*************************************************************************************************/
 $page_title = "Microsoft Windows";
-$location 	= "<strong>Razorfish Portland</strong><br>
-			   700 SW Taylor<br>Suite 400<br>
-			   Portland, OR 97205<br>";
-$contact 	= "<strong>Jackie VanderZanden</strong><br>
-			   Client Partner<br>
-			   503.889.4530<br>
-			   <a href='mailto:jackie.vanderzanden@razorfish.com'>jackie.vanderzanden@razorfish.com</a>";
+
+$location 	= "<strong>Razorfish Portland</strong><br>".
+			   "700 SW Taylor<br>Suite 400<br>".
+			   "Portland, OR 97205<br>";
+
+$contact 	= "<strong>Jackie VanderZanden</strong><br>".
+			  "Client Partner<br>".
+			  "503.889.4530<br>".
+			  "<a href='mailto:jackie.vanderzanden@razorfish.com'>jackie.vanderzanden@razorfish.com</a>";
+
 $logo 		= "/_includes/images/logo-windows.png";
+
 $logo2 		= "/_includes/images/logo-razorfish.png";
 
 $userinfo = array(
 			  'RFEmployee'=>'Snapper4781',
-			  'RFClient'=>'Lincod4457',
-);
+			  'RFClient'=>'Lincod4457',);
+
 $adminAccount = 'RFEmployee'; 
 
 /*************************************************************************************************/
-/* Sub Page Titles Generated from Folder Names (Capitalized, "-" & "_" have been removed)        */
+/* Sub page Titles generated from folder names (Capitalized and "-" & "_" have been removed)     */
 /*************************************************************************************************/
 $myTitle = basename(getcwd());
 $myTitle = str_replace("-", " ", $myTitle);

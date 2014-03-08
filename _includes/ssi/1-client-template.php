@@ -16,7 +16,7 @@ include '_includes/ssi/checkauth.php';
 </head>
 
 
-<body class="root">
+<body class="root<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
 <?php include '_includes/ssi/header.php'; ?>
 
 <div id="content">

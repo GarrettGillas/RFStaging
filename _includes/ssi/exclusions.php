@@ -1,6 +1,6 @@
 <?php
 /*************************************************************************************************/
-/* Page Exclusion Handling, aside-accordion.php Has Separate Exclusion Handling                  */
+/* Page exclusion handling, aside-accordion.php has separate exclusion handling.                 */
 /*************************************************************************************************/
 $exclude_list = array(
 	".", 
@@ -13,6 +13,7 @@ $exclude_list = array(
 	"_includes",
 	"_cms",
 	"uploads",
+	"sandbox",
 	"login",
 	"user-guide",
 	"robots.txt",
