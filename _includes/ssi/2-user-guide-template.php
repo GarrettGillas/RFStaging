@@ -37,13 +37,14 @@ include '../_includes/ssi/checkauth.php';
 <p>Note that for Banners and Images, the filename must have it's dimensions (example: <code><strong>banner-300x250.swf</strong></code>) to be viewed inline on the staging page like the example below. Documents will always be download or open in a new tab.</p>
 
 
-<table width="600px" border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="0" cellspacing="0" class="guidetable">
+<tbody>
 <tr>
-<td width="50%">	
+<td>	
 <p><strong>Banners</strong></p>
 <p>.SWF,  .HTML, .HTM</p>
 </td>
-<td width="50%" rowspan="3" valign="top">
+<td rowspan="3" valign="top">
 <p><strong>Dependancy files that can be uploaded but will not be viewable:</strong></p>
 <!--<p>(Folders)</p>-->
 <p>.FLV, .AS, .XML, .JSON</p>
@@ -63,6 +64,7 @@ include '../_includes/ssi/checkauth.php';
 <p><strong>Documents</strong></p>
 <p>.PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS</p>	
 </td></tr>
+</tbody>
 </table>
 
 <img src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/_includes/images/user-thumbs1.png" class="guide-thumbs">
