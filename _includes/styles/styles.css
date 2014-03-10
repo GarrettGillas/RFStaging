@@ -659,13 +659,15 @@ left:297px;}
 body.guide .guide-labels span.g-a3{
 left:517px;}
 
-body.guide table{
+body.guide table.guidetable{
 margin:20px auto 0 auto;
 display:block;
 border:0px;
 padding:20px 20px 15px 20px;
-background-color:#F2F2F2;}
-guide-labels
+background-color:#F2F2F2;
+min-width:480px;
+max-width:555px;}
+
 body.guide table tr td{
 padding:0px 0px 5px 0px;
 width: 280px;
@@ -695,16 +697,10 @@ width:auto;
 min-width:700px;
 max-width:960px;}
 
-body.clientlogin section, body.clientlogin nav, body.clientlogin hr,  
-body.clientlogin .iframe-wrapper{
+body.clientlogin section, body.clientlogin nav, body.clientlogin hr,  body.clientlogin .iframe-wrapper{
 width:auto;
 min-width:480px;
 max-width:740px;} 
-
-
-body.clientlogin table.guidetable{
-min-width:480px;
-max-width:555px;} 
 
 body.clientlogin #iframe1{
 width:auto;

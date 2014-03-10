@@ -126,7 +126,7 @@ $(function() {
 				}
 				
 			}else{
-				//var temp = window.open($(_assetLink).attr('href'));
+				var temp = window.open($(_assetLink).attr('href'));
 				$(_assetLink).addClass('doc');
 			}
 		}		

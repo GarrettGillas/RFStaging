@@ -46,7 +46,7 @@ if(isset($_POST['username'])) {
 </head>
     
 
-<body class="login">
+<body class="login clientlogin">
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
