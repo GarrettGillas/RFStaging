@@ -22,15 +22,18 @@ $exclude_list = array(
     "uploads",
     "sandbox",
     "login",
+    "404",
     "user-guide",
     "robots.txt",
+    "PHP_errors.log",
     "index.php",
     "login.php",
     "README.md");
 
-    $ffs_accord = array_diff(scandir($dir_accord), $exclude_list);    
+    $ffs_accord = array_diff(scandir($dir_accord,1), $exclude_list);  
+    // Needs better sorting function. This works for now. 
     foreach($ffs_accord as $file_accord){
-    	echo "\n<ul>";
+    	echo "<ul>";
         if($file_accord != '.' && $file_accord!= '..' ){
 
             $file_accord2 = str_replace("-", " ", $file_accord);

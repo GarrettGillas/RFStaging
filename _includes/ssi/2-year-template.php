@@ -30,9 +30,6 @@ include '../_includes/ssi/checkauth.php';
 <h1><?php echo $page_title2; ?></h1>
 
 <?php
-/* Directory Navigation with SCANDIR */
-error_reporting(E_ALL ^ E_NOTICE);
-
 /* Global Exclusion Handling */
 include '../_includes/ssi/exclusions.php';
 $thispath = $_SERVER["DOCUMENT_ROOT"] . strtok($_SERVER["REQUEST_URI"],'?');
@@ -44,9 +41,11 @@ else {
   $dir_path = $thispath;
 }
 
+/* Directory Navigation with SCANDIR */
 function dir_nav() {
   global $exclude_list, $dir_path;
-    $directories = array_diff(scandir($dir_path), $exclude_list);
+    $directories = array_diff(scandir($dir_path,1), $exclude_list);
+    $extravar = "";
 
   foreach($directories as $entry) {
   // Cleaning up the strings and look for the word "internal".
@@ -55,9 +54,8 @@ function dir_nav() {
   $foldertoggle = strstr($file_entry, ' internal');
   $extravar .= "1"; 
 
-
     if(is_dir($dir_path.$entry)) {
-      echo "<p class='pro-name" . $foldertoggle . "'><a href='".$_GET["dir"].$entry."/"."'>".$file_entry."</a>\n";
+      echo "<p class='pro-name".$foldertoggle."'><a href='http://".$_SERVER['HTTP_HOST'].$_SERVER["REQUEST_URI"].$entry."/"."'>".$file_entry."</a>\n";
         
         // Outputs [public]/[private] toggle for admin users only. 
         if($_SESSION['is_admin'] == false){ 
@@ -82,7 +80,7 @@ function dir_nav() {
             echo "<script>location.reload();</script>";
           }
           echo "<span class='edit-del'>&#91; <a href='?tprivate".$extravar."='>Make Private</a> &#93;</span>\n";
-          
+
         }
       echo "</p>\n";
     }
@@ -90,10 +88,6 @@ function dir_nav() {
 }
 dir_nav();
 ?>
-
-<script>
-
-</script>
 
 </article>
 </section>

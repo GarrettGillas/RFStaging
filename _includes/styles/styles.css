@@ -253,6 +253,7 @@ list-style-type:none;}
 aside .asidewrap ul li{
 margin:1px 0 2px 0px;
 padding:0;
+width: 156px;
 font-weight:700;
 list-style-type:none;
 text-transform:capitalize;
@@ -260,6 +261,9 @@ white-space:nowrap;
 overflow:hidden;
 text-overflow:ellipsis; 
 -o-text-overflow:ellipsis;}
+
+aside .asidewrap ul li{
+width:149px;}
 
 aside.accordion, aside.accordion p, aside.accordion p a, 
 aside.info, aside.info p, aside.info p a, 
@@ -286,7 +290,7 @@ aside .asidewrap ul .internal{
 color:#999;}
 
 aside.accordion .asidewrap{
-max-height:370px;
+max-height:450px;
 overflow-y:auto;
 overflow-x:hidden;
 width:156px;
@@ -509,7 +513,7 @@ text-decoration:underline;}
 /*************************************************************************************************/
 /* Client Main Page (post login) Styles                                                          */
 /*************************************************************************************************/
-body.root h1{
+body.root h1, body.error h1{
 margin-bottom:20px;}
 
 body.root h2{
@@ -535,7 +539,7 @@ body.client div#content, body.year .pro-name div#content, body.year p.pro-name{
 position:relative;}
 
 body.client h1{
-padding-bottom:0;}
+padding-bottom:4px;}
 
 body.client article{
 min-height:400px;}
@@ -560,19 +564,23 @@ display:inline-block;}
 body.client p:hover span.edit-del, body.year p.pro-name:hover span.edit-del{
 opacity:1;}
 
-/*
-body.client p:hover a.assetLink{
-text-decoration:underline;}
-
-body.client p{
+body.client p.assetLinkItemContainer, body.year p.pro-name{
 background-color:#fff;
 transition:background .25s ease-in-out;
 -moz-transition:background .25s ease-in-out;
 -webkit-transition:background .25s ease-in-out;}
 
-body.client p:hover{
+body.client p.assetLinkItemContainer:hover, body.year p.pro-name:hover{
 background-color:#f2f2f2;}
-*/
+ 
+body.clientlogin p.assetLinkItemContainer, body.clientlogin p.pro-name{
+background-color:#fff;
+transition:background .25s ease-in-out;
+-moz-transition:background .25s ease-in-out;
+-webkit-transition:background .25s ease-in-out;}
+
+body.clientlogin p.assetLinkItemContainer:hover, body.clientlogin p.pro-name:hover{
+background-color:#fff;}
 
 body.client .iframe-wrapper{
 width:740px;

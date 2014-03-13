@@ -15,8 +15,11 @@ $exclude_list = array(
 	"uploads",
 	"sandbox",
 	"login",
+	"404",
 	"user-guide",
 	"robots.txt",
+	"PHP_errors.log",
+    "login.php",
 	"index.php",
 	"README.md");
 ?>

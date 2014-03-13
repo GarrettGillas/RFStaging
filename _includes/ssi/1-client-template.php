@@ -11,7 +11,6 @@ include '_includes/ssi/checkauth.php';
 <link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
 <style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/polyfills.js"></script>
 <script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
 </head>
 
@@ -30,9 +29,6 @@ include '_includes/ssi/checkauth.php';
 <h1><?php echo $page_title; ?></h1>
 
 <?php
-/* Directory Navigation with SCANDIR */
-error_reporting(E_ALL ^ E_NOTICE);
-
 /* Global Exclusion Handling */
 include '_includes/ssi/exclusions.php';
 
@@ -43,13 +39,14 @@ else {
   $dir_path = $_SERVER["DOCUMENT_ROOT"].$_SERVER["REQUEST_URI"];
 }
 
+/* Directory Navigation with SCANDIR */
 function dir_nav() {
   global $exclude_list, $dir_path;
-  $directories = array_diff(scandir($dir_path), $exclude_list);
+  $directories = array_diff(scandir($dir_path,1), $exclude_list);
 
   foreach($directories as $entry) {
     if(is_dir($dir_path.$entry)) {
-      echo "<h2><a href='".$_GET["dir"].$entry."/"."'>".$entry."</a></h2>\n";
+      echo "<h2><a href='http://".$_SERVER['HTTP_HOST']."/".$entry."/"."'>".$entry."</a></h2>\n";
     }
   }
 }
