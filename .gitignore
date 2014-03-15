@@ -9,3 +9,7 @@
 /2008/
 /2007/
 /2006/
+
+*.php~HEAD
+
+_includes/Example-Year/index.php
