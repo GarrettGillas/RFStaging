@@ -11,5 +11,5 @@
 <body class="iframe">
 <h2>EXTERNAL LINKS</h2>
 
-<p><a href="https://app.box.com/s/nh38hskz9avfip7z0ejy" target="_blank" class="cl2">Download All</a>  </p>
+<p><a href="http://bing.com/" target="_blank" class="cl2">Example Link</a>  </p>
 </body></html>

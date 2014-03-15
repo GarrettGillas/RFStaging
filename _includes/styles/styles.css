@@ -204,7 +204,7 @@ cursor:pointer;}
 form input[type="submit"]:hover{
 color:#c8c8c8 !important;}
 
-form input[type="password"]{
+form input[type="password"], form.inline-project input[type="text"]{
 border:2px solid #f2f2f2;
 background-color:#f2f2f2;
 line-height:16px;
@@ -212,10 +212,37 @@ padding:0 4px;
 margin:0 6px;
 width:130px;}
 
+form.inline-project{
+width:460px;
+padding:30px;
+margin:10px 0 30px 0;
+background-color:#f2f2f2;
+display:none;}
+
+form.inline-project input[type="text"]{
+margin:10px 10px 10px 0;
+width:182px;
+border:2px solid #fff;
+background-color:#fff;}
+
+form.inline-project input[type="submit"]{
+margin-right:16px;}
+
+form.new-project input[type="text"]{
+border:2px solid #fff;
+background-color:#fff;
+line-height:16px;
+padding:0 4px;
+margin:10px 0px;
+width:148px;}
+
+form.new-project label{
+white-space:normal;}
+
 form input[type="password"]:active, form input[type="password"]:hover, form input[type="password"]:focus{
 background-color:#fff;}
 
-form input[type="password"]:focus{
+form input[type="password"]:focus, form.new-project input[type="text"]:focus, form.inline-project input[type="text"]:focus{
 border:2px solid #1a1a1a;}
 
 #form1{
@@ -236,10 +263,14 @@ margin:20px 0 0 0;}
 #form1 #form-right input{
 float:right;
 margin:0 0 0 16px;
-font-weight:700;}
+font-weight:400;}
+
+form input[type="submit"]{
+font-weight:400;}
 
 .wrong-pw{
-color:#f10000;}
+color:#f10000;
+text-transform:none;}
 
 /*************************************************************************************************/
 /* Accordion Menu Widget Styles                                                                  */
@@ -517,7 +548,9 @@ body.root h1, body.error h1{
 margin-bottom:20px;}
 
 body.root h2{
-margin-top:10px;}
+margin-top:6px;
+margin-bottom:0px;
+padding:2px 0 2px 0;}
 
 /*************************************************************************************************/
 /* Client Year Page Styles                                                                       */
@@ -525,7 +558,7 @@ margin-top:10px;}
 body.year .pro-name{
 text-transform:capitalize;}
 
-body.year article .internal a, body article .pcolor, body article .pcolor a, 
+body.year article .internal, body.year article .internal a, body article .pcolor, body article .pcolor a, 
 body.pvtpage h1, body.pvtpage article h2, body.pvtpage section p, body.pvtpage section p a{
 color:#999;}
 
@@ -541,13 +574,17 @@ position:relative;}
 body.client h1{
 padding-bottom:4px;}
 
+body.root h2{
+position:relative;}
+
 body.client article{
 min-height:400px;}
 
-body.client span.edit-del, body.year .pro-name span.edit-del{
+body.client span.edit-del, body.year .pro-name span.edit-del, body.root span.edit-del{
 position:absolute;
 text-transform:uppercase;
 font-size:10px;
+font-weight:400;
 line-height:10px;
 clear:none;
 margin:2px 2px 0 0;
@@ -561,26 +598,24 @@ top:0;
 right:0;
 display:inline-block;}
 
-body.client p:hover span.edit-del, body.year p.pro-name:hover span.edit-del{
+body.client p:hover span.edit-del, body.year p.pro-name:hover span.edit-del, body.root h2:hover span.edit-del{
 opacity:1;}
 
 body.client p.assetLinkItemContainer, body.year p.pro-name{
 background-color:#fff;
+background-repeat:none;
 transition:background .25s ease-in-out;
 -moz-transition:background .25s ease-in-out;
 -webkit-transition:background .25s ease-in-out;}
 
-body.client p.assetLinkItemContainer:hover, body.year p.pro-name:hover{
-background-color:#f2f2f2;}
- 
-body.clientlogin p.assetLinkItemContainer, body.clientlogin p.pro-name{
-background-color:#fff;
-transition:background .25s ease-in-out;
--moz-transition:background .25s ease-in-out;
--webkit-transition:background .25s ease-in-out;}
+body.client p.assetLinkItemContainer:hover, body.year p.pro-name:hover, body.root h2:hover{
+background:#fff url("../images/bg-grey.png") repeat-x 0px 0px;} /* Rolover browser bug hack fix. */
+
+body.client p.assetLinkItemContainer .assetExpand{
+background-color:#fff;}
 
 body.clientlogin p.assetLinkItemContainer:hover, body.clientlogin p.pro-name:hover{
-background-color:#fff;}
+background-image:none;}
 
 body.client .iframe-wrapper{
 width:740px;

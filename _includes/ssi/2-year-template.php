@@ -20,7 +20,8 @@ include '../_includes/ssi/checkauth.php';
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ include '../_includes/ssi/aside-info.php'; ?>
+<?php /* Project Info Widget  */ if($_SESSION['is_admin'] == false){ include '../_includes/ssi/aside-info.php'; } ?>
+<?php /* Add Project Widget   */ if($_SESSION['is_admin'] == true){ $_SESSION['edit_redirect'] = curPageURL(); include '../_includes/ssi/add-project.php';} ?>
 <?php /* Accordion Nav Widget */ include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 
 <section>
@@ -28,6 +29,12 @@ include '../_includes/ssi/checkauth.php';
 
 <article>
 <h1><?php echo $page_title2; ?></h1>
+
+
+
+
+
+
 
 <?php
 /* Global Exclusion Handling */
@@ -59,30 +66,92 @@ function dir_nav() {
         
         // Outputs [public]/[private] toggle for admin users only. 
         if($_SESSION['is_admin'] == false){ 
+          //show nothing
         }
 
         elseif (strpos($file_entry,'internal') !== false) {
 
-          if(isset($_GET['tpublic'.$extravar])){
-            $foldvar1 = $entry;
-            $foldvar2 = str_replace("-internal", "", $foldvar1);
-            rename($foldvar1,$foldvar2); 
-            echo "<script>location.reload();</script>";
-          }
-          echo "<span class='edit-del pcolor'>&#91; <a href='?tpublic".$extravar."='>Make Public</a> &#93;</span>\n"; 
+            // Make ProjectPublic
+            if(isset($_GET['tpublic'.$extravar])){
+              $foldvar1 = $entry;
+              $foldvar2 = str_replace("-internal", "", $foldvar1);
+              rename($foldvar1,$foldvar2); 
+              echo "<script>location.reload();</script>";
+            }
+
+            // Deletes Project/Folder             
+            if(isset($_GET['tdelete'.$extravar])){
+              exec ('rm -rf '.$entry);
+              echo "<script>location.reload();</script>";
+            }
+
+            // Duplicates & Renames Project/Folder
+            if(isset($_GET['trename'.$extravar])){
+              $fname = str_replace(" ", "-", $fname);
+              copy($entry,$fname); 
+            }
+
+            // Output Admin Controls
+            echo "<span class='edit-del'>&#91;\n"; 
+            echo "<a href='#' class='confirm-ren".$extravar."'>Duplicate</a> - \n";
+            echo "<a href='?tdelete".$extravar."=' class='confirm-del'>Delete</a> - \n";
+            echo "<a href='?tpublic".$extravar."=' class='confirm-pub'>Make Public</a> \n"; 
+            echo "&#93;</span>\n\n"; 
+
+            // "Rename Project" Ajax Form
+            echo "<script>$( 'a.confirm-ren".$extravar."' ).click(function() { $( 'form.new-project".$extravar."' ).show( 'fast' ); }); "; 
+            echo "$( '#hidr".$extravar."' ).click(function() { $( 'form.new-project".$extravar."' ).hide( 1000 );});</script> \n\n";
+
+            echo "<form class='new-project".$extravar." inline-project' action='?trename=" . $_GET['fname']. "' method='get'> \n";
+            echo "<p>Enter a name for the duplicate copy of project (<strong>".$entry."</strong>) in the field below. Project names must contain no spaces or special characters aside from dashes. </p> \n";
+            echo "<input type='text' name='fname' id='fname' maxlength='50' onclick=\"this.value='';\" onfocus='this.select()' onblur=\"this.value=!this.value?'New-Name':this.value;\" value='New-Name'><br> \n";
+            echo "<input type='submit' value='rename project'>";
+            echo "<input type='submit' value='cancel' id='hidr".$extravar."'> \n";
+            echo "</form>";
         }
 
         else {
-          if(isset($_GET['tprivate'.$extravar])){
-            $foldvar1 = $entry;
-            $foldvar2 = $entry . "-internal";
-            rename($foldvar1,$foldvar2); 
-            echo "<script>location.reload();</script>";
-          }
-          echo "<span class='edit-del'>&#91; <a href='?tprivate".$extravar."='>Make Private</a> &#93;</span>\n";
+
+            // Makes Project Private
+            if(isset($_GET['tprivate'.$extravar])){
+              $foldvar1 = $entry;
+              $foldvar2 = $entry . "-internal";
+              rename($foldvar1,$foldvar2); 
+              echo "<script>location.reload();</script>";
+            }
+
+            // Deletes Project/Folder             
+            if(isset($_GET['tdelete'.$extravar])){
+              exec ('rm -rf '.$entry);
+              echo "<script>location.reload();</script>";
+            }
+
+            // Duplicates & Renames Project/Folder
+            if(isset($_GET['trename'.$extravar])){
+              $fname = str_replace(" ", "-", $fname);
+              copy($entry,$fname); 
+            }
+
+            // Output Admin Controls
+            echo "<span class='edit-del'>&#91;\n"; 
+            echo "<a href='#' class='confirm-ren".$extravar."'>Duplicate</a> - \n";
+            echo "<a href='?tdelete".$extravar."=' class='confirm-del'>Delete</a> - \n";
+            echo "<a href='?tprivate".$extravar."=' class='confirm-priv'>Make Private</a>\n"; 
+            echo "&#93;</span>\n\n"; 
+
+            // "Rename Project" Ajax Form
+            echo "<script>$( 'a.confirm-ren".$extravar."' ).click(function() { $( 'form.new-project".$extravar."' ).show( 'fast' ); }); "; 
+            echo "$( '#hidr".$extravar."' ).click(function() { $( 'form.new-project".$extravar."' ).hide( 1000 );});</script> \n\n";
+
+            echo "<form class='new-project".$extravar." inline-project' action='?trename=" . $_GET['fname']. "' method='get'> \n";
+            echo "<p>Enter a name for the duplicate copy of project (<strong>".$entry."</strong>) in the field below. Project names must contain no spaces or special characters aside from dashes. </p> \n";
+            echo "<input type='text' name='fname' id='fname' maxlength='50' onclick=\"this.value='';\" onfocus='this.select()' onblur=\"this.value=!this.value?'New-Name':this.value;\" value='New-Name'><br> \n";
+            echo "<input type='submit' value='rename project'>";
+            echo "<input type='submit' value='cancel' id='hidr".$extravar."'> \n";
+            echo "</form>";
 
         }
-      echo "</p>\n";
+      echo "</p>\n\n";
     }
   }
 }

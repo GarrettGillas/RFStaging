@@ -13,6 +13,7 @@ $exclude_list = array(
 	"_includes",
 	"_cms",
 	"uploads",
+	"media",
 	"sandbox",
 	"login",
 	"404",
