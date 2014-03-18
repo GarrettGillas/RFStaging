@@ -1,6 +1,8 @@
 <?php
 if(!isset($_SESSION)) { session_start(); }
-error_reporting(error_reporting() & ~E_NOTICE);
+
+// Supresses Error Reporting if Enabled
+error_reporting(error_reporting() & ~E_NOTICE); 
 
 /*************************************************************************************************/
 /*  Project information setup for the Razorfish Client Preview platfom.                          */

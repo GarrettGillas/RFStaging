@@ -22,7 +22,6 @@ function ReadFolderDirectory($dir,$listDir= array())
     return $listDir;    
 }
 
-// $output = json_encode(ReadFolderDirectory(urldecode(realpath($_POST['pathToContent']))));
 $output = json_encode(ReadFolderDirectory(urldecode($_POST['pathToContent'])));
 header('Content-Type: application/json');
 echo $output;

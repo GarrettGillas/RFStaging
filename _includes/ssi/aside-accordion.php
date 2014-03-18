@@ -35,7 +35,7 @@ $exclude_list = array(
     // Needs better sorting function. This works for now. 
 
     foreach($ffs_accord as $file_accord){
-    	echo "<ul>";
+        echo "<ul>";
         if($file_accord != '.' && $file_accord!= '..' ){
 
             $file_accord2 = str_replace("-", " ", $file_accord);

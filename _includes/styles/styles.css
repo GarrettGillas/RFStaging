@@ -611,6 +611,9 @@ transition:background .25s ease-in-out;
 body.client p.assetLinkItemContainer:hover, body.year p.pro-name:hover, body.root h2:hover{
 background:#fff url("../images/bg-grey.png") repeat-x 0px 0px;} /* Rolover browser bug hack fix. */
 
+body.clientlogin h2:hover{
+background-image:none;}
+
 body.client p.assetLinkItemContainer .assetExpand{
 background-color:#fff;}
 

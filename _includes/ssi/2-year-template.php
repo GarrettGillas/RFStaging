@@ -30,12 +30,6 @@ include '../_includes/ssi/checkauth.php';
 <article>
 <h1><?php echo $page_title2; ?></h1>
 
-
-
-
-
-
-
 <?php
 /* Global Exclusion Handling */
 include '../_includes/ssi/exclusions.php';
@@ -122,8 +116,14 @@ function dir_nav() {
 
             // Deletes Project/Folder             
             if(isset($_GET['tdelete'.$extravar])){
-              exec ('rm -rf '.$entry);
-              echo "<script>location.reload();</script>";
+
+              //chdir ($entry);
+              //exec ("del *.* /s /q");
+
+              //system('/bin/rm -rf ' . escapeshellarg($entry));
+              
+              //exec ('rm -rf '.$entry);
+              //echo "<script>location.reload();</script>";
             }
 
             // Duplicates & Renames Project/Folder
@@ -146,7 +146,7 @@ function dir_nav() {
             echo "<form class='new-project".$extravar." inline-project' action='?trename=" . $_GET['fname']. "' method='get'> \n";
             echo "<p>Enter a name for the duplicate copy of project (<strong>".$entry."</strong>) in the field below. Project names must contain no spaces or special characters aside from dashes. </p> \n";
             echo "<input type='text' name='fname' id='fname' maxlength='50' onclick=\"this.value='';\" onfocus='this.select()' onblur=\"this.value=!this.value?'New-Name':this.value;\" value='New-Name'><br> \n";
-            echo "<input type='submit' value='rename project'>";
+            echo "<input type='submit' value='duplicate project'>";
             echo "<input type='submit' value='cancel' id='hidr".$extravar."'> \n";
             echo "</form>";
 
