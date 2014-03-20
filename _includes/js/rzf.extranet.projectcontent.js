@@ -120,7 +120,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('.confirm-del-year').click(function(){
-        var answer = confirm("Are you sure you want to delete this year?");
+        var answer = confirm("Are you absolutly sure you want to delete this year? This action is not reversable.");
         if (answer){
             return true;
         } else {

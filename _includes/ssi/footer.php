@@ -1,10 +1,10 @@
 <footer>
 <p>&copy; <script>var year = new Date();document.write(year.getFullYear());</script> Razorfish, LLC  &nbsp|&nbsp  
 <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question">Support</a>  &nbsp|&nbsp   
-<a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/user-guide/";?>">User Guide</a><?php if($_SESSION['username']): ?> &nbsp;|&nbsp; 
-<a href="/login/?logout=1"><?php if($_SESSION['is_admin'] == true) {echo "(Admin) ";}?>Logout</a><?php endif; ?></p>
-<p id="copy">Razorfish Client Preview <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">Version 2.0</a></p>
-<a href="http://www.razorfish.com/" target="_blank"><img src="<?php echo "http://".$_SERVER['HTTP_HOST'].$logo2; ?>" id="logo3"></a>
+<a href="<?php echo $tld."user-guide/";?>">User Guide</a><?php if($_SESSION['username']): ?> &nbsp;|&nbsp; 
+<a href="<?php echo $tld; ?>login/?logout=1"><?php if($_SESSION['is_admin'] == true) {echo "(Admin) ";}?>Logout</a><?php endif; ?></p>
+<p id="copy">Razorfish Client Preview <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">Version 2.1</a></p>
+<a href="http://www.razorfish.com/" target="_blank"><img src="<?php echo $tld.$logo2; ?>" id="logo3"></a>
 </footer>
 
 

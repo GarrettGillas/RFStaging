@@ -1,4 +1,4 @@
-<?php
+	<?php
 include '../_includes/ssi/siteconfig.php';
 include '../_includes/ssi/checkauth.php';
 ?>
@@ -8,10 +8,10 @@ include '../_includes/ssi/checkauth.php';
 <head>
 <meta charset="utf-8">
 <title><?php echo $page_title2; ?></title>
-<link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
-<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<link rel="shortcut icon" href="<?php echo $tld; ?>_includes/images/favicon.ico" type="image/x-icon">
+<style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/rzf.extranet.projectcontent.js"></script>
 </head>
 
 

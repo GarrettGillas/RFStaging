@@ -5,47 +5,34 @@
 
 <?php
 function mkmap($dir_accord){
-
-/*************************************************************************************************/
-/* Accordion navigation exclusion handling, exclusions.php has separate exclusion handling.      */
-/*************************************************************************************************/
-$exclude_list = array(
-    ".", 
-    "..",
-    ".git",
-    ".DS_Store",
-    ".htaccess",
-    ".gitignore",
-    "_services",
-    "_includes",
-    "_cms",
-    "uploads",
-    "media",
-    "sandbox",
-    "login",
-    "404",
-    "user-guide",
-    "robots.txt",
-    "PHP_errors.log",
-    "index.php",
-    "login.php",
-    "README.md");
+global $exclude_list;
 
     $ffs_accord = array_diff(scandir($dir_accord,1), $exclude_list);  
-    // Needs better sorting function. This works for now. 
-
+    
+    /* Displays links to year pages */ 
     foreach($ffs_accord as $file_accord){
         echo "<ul>";
         if($file_accord != '.' && $file_accord!= '..' ){
-
-            $file_accord2 = str_replace("-", " ", $file_accord);
-            $file_accord2 = str_replace("_", " ", $file_accord2);
             $path_accord = $dir_accord.'/'.$file_accord;
-            $foldertoggle = strstr($file_accord2, ' internal');
+            echo "<li><a href='".$path_accord."/' title='".$file_accord."' class='reg'>$file_accord</a></li>\n";           
 
-            echo "<li><a href='".$path_accord."' title='".$file_accord2."' class='reg".$foldertoggle."'>$file_accord2</a></li>";           
+            /* Displays links to project pages */ 
+            if(is_dir($dir_accord.'/'.$file_accord)) {
+                $dir_accord2 = ($dir_accord.'/'.$file_accord);
+                $dir_accord3 = array_diff(scandir($dir_accord2), $exclude_list);
+                natcasesort($dir_accord3);
 
-            if(is_dir($dir_accord.'/'.$file_accord)) mkmap($dir_accord.'/'.$file_accord);
+                foreach($dir_accord3 as $file_accord){
+                    if($file_accord != '.' && $file_accord!= '..' ){
+                        $file_accord2 = str_replace("-", " ", $file_accord);
+                        $file_accord2 = str_replace("_", " ", $file_accord2);
+                        $foldertoggle = strstr($file_accord2, ' internal');
+
+                        echo "<li class='sec'><a href='".$dir_accord2."/".$file_accord."/' title='".$file_accord2."' class='reg".$foldertoggle."'>$file_accord2</a></li>\n";
+                    }
+                }
+            }
+
             echo "</ul>\n";
         }        
     }    

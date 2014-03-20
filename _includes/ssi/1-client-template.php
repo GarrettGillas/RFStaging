@@ -8,10 +8,10 @@ include '_includes/ssi/checkauth.php';
 <head>
 <meta charset="utf-8">
 <title><?php echo $page_title; ?> | Razorfish Client Preview</title>
-<link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
-<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<link rel="shortcut icon" href="<?php echo $tld; ?>_includes/images/favicon.ico" type="image/x-icon">
+<style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/rzf.extranet.projectcontent.js"></script>
 <script>if(typeof window.history.pushState == 'function') { window.history.pushState({}, "Hide", "<?php echo "http://".$_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"],'?'); ?>"); }</script>
 </head>
 
@@ -31,16 +31,7 @@ include '_includes/ssi/checkauth.php';
 <h1><?php echo $page_title; ?></h1>
 
 <?php
-/* Global Exclusion Handling */
-include '_includes/ssi/exclusions.php';
-$thispath = $_SERVER["DOCUMENT_ROOT"] . strtok($_SERVER["REQUEST_URI"],'?');
-
-if (isset($_GET["dir"])) {
-  $dir_path = $thispath . $_GET["dir"];
-}
-else {
-  $dir_path = $thispath;
-}
+$dir_path = $_SERVER["DOCUMENT_ROOT"] . strtok($_SERVER["REQUEST_URI"],'?');
 
 /* Directory Navigation with SCANDIR */
 function dir_nav() {
@@ -57,7 +48,7 @@ function dir_nav() {
     if(is_dir($dir_path.$entry)) {
       echo "<h2><a href='http://".$_SERVER['HTTP_HOST']."/".$entry."/"."'>".$entry."</a>\n";
 
-      	// Outputs [public]/[private] toggle for admin users only. 
+      	// Outputs [DELETE] function for admin users only. 
         if($_SESSION['is_admin'] == false){ 
           	//Show Nothing
         }
@@ -65,8 +56,9 @@ function dir_nav() {
         else{        	
          	// Deletes Year/Folder             
         	if(isset($_GET['tdelete'.$extravar])){
-            	exec ('rm -rf '.$entry);
-              	echo "<script>location.reload();</script>";
+            	system("rmdir ".escapeshellarg($entry) . " /s /q"); //Delete for Windows
+              //exec ('rm -rf '.$entry); //Delete for Linux 
+              echo "<script>location.reload();</script>";
           	}
           	// Output Admin Controls
         	echo "<span class='edit-del'>&#91; <a href='?tdelete".$extravar."=' class='confirm-del-year'>Delete</a> &#93;</span>\n";

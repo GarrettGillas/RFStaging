@@ -3,7 +3,7 @@
 <div class="asidewrap">
 
 <form class="new-project" action="?tcreate=<?php echo $_GET['fname'];?>" method="get">
-<label>Enter a name for the project that you would like to create in the field below. Project names must contain no spaces or special characters aside from dashes.</label>
+<label>Enter a name for the project that you would like to create in the field below. Project names may contain letters, dashes and have no spaces or special characters.</label>
 <input type="text" name="fname" id="fname" maxlength="50" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Example-Project':this.value;" value="Example-Project"><br>
 <input type="submit" value="create">
 </form>

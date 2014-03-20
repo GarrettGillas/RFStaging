@@ -39,10 +39,10 @@ if(isset($_POST['username'])) {
 <head>
 <meta charset="utf-8">
 <title><?php echo $page_title; ?> | Razorfish Client Preview</title>
-<link rel="shortcut icon" href="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/images/favicon.ico" type="image/x-icon">
-<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/rzf.extranet.projectcontent.js"></script>
+<link rel="shortcut icon" href="<?php echo $tld; ?>_includes/images/favicon.ico" type="image/x-icon">
+<style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/rzf.extranet.projectcontent.js"></script>
 </head>
     
 

@@ -11,14 +11,14 @@ font-size:12px;
 height:100%;}
 
 @font-face{
-font-family:'Segoe UI';
-src:url('../fonts/segoeui.eot?#iefix') format('embedded-opentype'),
+font-family: 'Segoe UI';
+src: url('../fonts/segoeui.eot?#iefix') format('embedded-opentype'),
      url('../fonts/segoeui.woff') format('woff'),
      url('../fonts/segoeui.ttf') format('truetype')/*,
      url('../fonts/segoeui.svg#HelveticaNeueBold') format('svg')*/;
-src:url('../fonts/segoeui.eot');
-font-weight:normal;
-font-style:normal;}
+src: url('../fonts/segoeui.eot');     
+font-weight: normal;
+font-style: normal;}
 
 a:link, a:hover, a:visited{
 color:#1a1a1a;
@@ -313,7 +313,7 @@ aside.accordion div{
 -o-user-select:none;
 user-select:none;	}
 
-aside .asidewrap ul ul li{
+aside .asidewrap ul li.sec{
 font-weight:400;
 margin-left:7px;}
 
