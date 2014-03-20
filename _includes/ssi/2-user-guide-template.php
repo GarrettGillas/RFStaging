@@ -1,4 +1,4 @@
-	<?php
+<?php
 include '../_includes/ssi/siteconfig.php';
 include '../_includes/ssi/checkauth.php';
 ?>
@@ -19,7 +19,7 @@ include '../_includes/ssi/checkauth.php';
 <?php include '../_includes/ssi/header.php'; ?> 
 
 <div id="content"> 
-<?php /* Project Info Widget  */ include '../_includes/ssi/aside-info.php'; ?>
+<?php /* Project Info Widget  */ #include '../_includes/ssi/aside-info.php'; ?>
 <?php /* Accordion Nav Widget */ include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 
 <section>
@@ -90,10 +90,7 @@ include '../_includes/ssi/checkauth.php';
 <img src="<?php echo "http://".$_SERVER['HTTP_HOST'] ?>/_includes/images/user-thumbs2.png" class="guide-thumbs">
 <p class="guide-labels"><span class="g-a1">Add Titles</span><span class="g-a2">Add Links</span><span class="g-a3">Apply Changes</span></p>
 
-<hr>
 
-<h2>Creating New Projects</h2>
-<p>At this time only Technical Producion Managers can create new client, year and project pages. If you need a new page setup, please contact <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question">Support</a> and we will create a new one as soon as possible.</p>
 
 
 </article>

@@ -1,6 +1,5 @@
 <?php
 include '../_includes/ssi/siteconfig.php';
-
 $errorstatus = "";
 
 if(isset($_GET['logout'])) {
@@ -50,8 +49,7 @@ if(isset($_POST['username'])) {
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ include '../_includes/ssi/aside-info.php'; ?>
-<?php /* Accordion Nav Widget */ #include '../_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
+<?php /* Project Info Widget  */ #include '../_includes/ssi/aside-info.php'; ?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
@@ -62,17 +60,11 @@ if(isset($_POST['username'])) {
 <form name="login" action="" id="form2" method="post">
 <?php echo $errorstatus; ?>
 
-<div class="loginFormRow">
-<span>Username:</span><input type="text" name="username" value="">
-</div><!--|.loginFormRow|-->
+<div class="loginFormRow"><span>Username:</span><input type="text" name="username" value=""></div>
 
-<div class="loginFormRow">
-<span>Password:</span><input type="password" name="password" value="">
-</div><!--|.loginFormRow|-->
+<div class="loginFormRow"><span>Password:</span><input type="password" name="password" value=""></div>
 
-<div class="loginFormRow">
-<input type="submit" name="submit" value="Submit">
-</div><!--|.loginFormRow|-->
+<div class="loginFormRow"><input type="submit" name="submit" value="Submit"></div>
 </form>
 
 </article>

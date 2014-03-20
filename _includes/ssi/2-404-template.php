@@ -18,7 +18,7 @@ include '../_includes/ssi/siteconfig.php';
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ include '../_includes/ssi/aside-info.php'; ?>
+<?php /* Project Info Widget  */ #include '../_includes/ssi/aside-info.php'; ?>
 <?php /* Accordion Nav Widget */ #include '../_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 
 <section>

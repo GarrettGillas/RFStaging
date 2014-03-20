@@ -11,10 +11,10 @@ global $exclude_list;
     
     /* Displays links to year pages */ 
     foreach($ffs_accord as $file_accord){
-        echo "<ul>";
+        echo "<ul>\n";
         if($file_accord != '.' && $file_accord!= '..' ){
             $path_accord = $dir_accord.'/'.$file_accord;
-            echo "<li><a href='".$path_accord."/' title='".$file_accord."' class='reg'>$file_accord</a></li>\n";           
+            echo "<li class='year'><a href='".$path_accord."/' title='".$file_accord."'>$file_accord</a></li>\n";           
 
             /* Displays links to project pages */ 
             if(is_dir($dir_accord.'/'.$file_accord)) {
@@ -26,9 +26,9 @@ global $exclude_list;
                     if($file_accord != '.' && $file_accord!= '..' ){
                         $file_accord2 = str_replace("-", " ", $file_accord);
                         $file_accord2 = str_replace("_", " ", $file_accord2);
-                        $foldertoggle = strstr($file_accord2, ' internal');
+                        $foldertoggle = strstr($file_accord2, 'internal');
 
-                        echo "<li class='sec'><a href='".$dir_accord2."/".$file_accord."/' title='".$file_accord2."' class='reg".$foldertoggle."'>$file_accord2</a></li>\n";
+                        echo "<li><a href='".$dir_accord2."/".$file_accord."/' title='".$file_accord2."' class='".$foldertoggle."'>$file_accord2</a></li>\n";
                     }
                 }
             }

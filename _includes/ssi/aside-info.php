@@ -5,4 +5,4 @@
 <br>
 <p><?php echo $contact; ?></p>
 </div><!--|.asidewrap|-->
-</aside>
+</aside><!--|.info|-->

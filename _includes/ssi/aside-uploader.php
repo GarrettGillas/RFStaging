@@ -48,4 +48,4 @@ $(function() {
 });
 </script>
 </div><!--|.asidewrap|-->
-</aside>
+</aside><!--|.uploader|-->

@@ -20,7 +20,7 @@ include '_includes/ssi/checkauth.php';
 <?php include '_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ if($_SESSION['is_admin'] == false){ include '_includes/ssi/aside-info.php'; } ?>
+<?php /* Project Info Widget  */ #if($_SESSION['is_admin'] == false){ include '_includes/ssi/aside-info.php'; } ?>
 <?php /* Add New Year Widget  */ if($_SESSION['is_admin'] == true){ $_SESSION['edit_redirect'] = curPageURL(); include '_includes/ssi/add-year.php';} ?>
 <?php /* Accordion Nav Widget */ include '_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
 

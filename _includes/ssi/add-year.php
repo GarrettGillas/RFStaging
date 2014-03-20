@@ -39,4 +39,4 @@ echo "<script>location.reload();</script>";
 ?>
 
 </div><!--|.asidewrap|-->
-</aside>
+</aside><!--|.add-year|-->
