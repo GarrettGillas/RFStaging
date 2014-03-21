@@ -21,7 +21,6 @@ if(strcmp($pass,"CHANGE_THIS_PASSWORD") == 0) {?>
 
 $fn = "includes/page.txt"; 
 $backup_folder = './backup';
-
 $error_msg = '';
 
 $home_page = "http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\') . "/";
@@ -78,7 +77,8 @@ if(isset($_POST['addition'])) {
 	
 		header ("location: " . $home_page);
 		return;
-	} else {
+		} 
+		else {
 		// Bad password
 		$error_msg = "<span class='wrong-pw'>Incorrect password.</span>";
         if (get_magic_quotes_gpc()) {
@@ -100,9 +100,9 @@ if($contents == NULL) {
 <head>
 <meta charset=utf-8 />
 <title></title>
-<style type="text/css" media="all">@import url(<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/styles/styles.css);</style>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo "http://".$_SERVER['HTTP_HOST']; ?>/_includes/js/jquery.textarea.js"></script>
+<style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.textarea.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function () {
 	$("textarea").tabby();
@@ -116,7 +116,7 @@ jQuery(document).ready(function () {
 <textarea id="area" name="addition"><?=$contents?></textarea>
 
 <div id="form-left">
-Password:<input type="password" name="pass" class="cms-pass"><?php echo $error_msg ?>
+<input type="hidden" name="pass" class="cms-pass" value="<?php echo $pass; ?>">
 </div><!--|#form-left|-->
 
 <div id="form-right">
@@ -124,4 +124,4 @@ Password:<input type="password" name="pass" class="cms-pass"><?php echo $error_m
 <input type="submit" name="back" value="Cancel">
 </div><!--|#form-right|-->
 </form>
-</body>
+</body></html>
