@@ -727,6 +727,10 @@ body.guide .guide-thumbs{
 margin:20px auto 0 auto;
 display:block;} 
 
+body.guide .guide-thumbs2{
+float:right; 
+margin:13px 0 0 30px;} 
+
 body.guide .guide-labels{
 position:relative;
 padding-bottom:14px;}

@@ -170,6 +170,11 @@ project page as explained <a href="#cms">above</a>.</p>
 <span class="edit-del" id="viewing" name="viewing">[ Viewing Media ]</span>
 
 <?php } ?>
+<?php if(($_SESSION['is_partner'] == true) || ($_SESSION['is_client'] == true)){ ?>
+
+<img src="<?php echo $tld; ?>_includes/images/user-thumbs_single.png" class="guide-thumbs2">
+
+<?php } ?>
 <?php if(($_SESSION['is_partner'] == true) || ($_SESSION['is_client'] == true) || ($_SESSION['is_admin'] == true)  ){ ?>
 
 <h2>Viewing Files</h2>
