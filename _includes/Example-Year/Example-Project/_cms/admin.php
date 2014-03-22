@@ -114,14 +114,11 @@ jQuery(document).ready(function () {
 <body onload="resizeTextArea()" onresize="resizeTextArea()" class="iframe">
 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" id="form1">
 <textarea id="area" name="addition"><?=$contents?></textarea>
-
-<div id="form-left">
-<input type="hidden" name="pass" class="cms-pass" value="<?php echo $pass; ?>">
-</div><!--|#form-left|-->
-
 <div id="form-right">
 <input type="submit" name="submit" value="Apply Changes">
 <input type="submit" name="back" value="Cancel">
+<a href="<?php echo $tld; ?>user-guide/#cms" target="_blank"><img src="<?php echo $tld; ?>_includes/images/help_icon.png" class="helplink"></a>
 </div><!--|#form-right|-->
 </form>
+
 </body></html>

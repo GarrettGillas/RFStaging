@@ -14,7 +14,7 @@ include '../_includes/ssi/siteconfig.php';
 </head>
     
 
-<body class="error<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
+<body class="unavailable<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
@@ -24,13 +24,13 @@ include '../_includes/ssi/siteconfig.php';
 
 <section>
 <nav>
-<a href="/">error</a>    
+unavailable 
 </nav>
 
 <article>
-<h1>404 Error: This page does not exist</h1>
+<h1>Access Denied: You do not have permission to view this page</h1>
 
-<p>Go back to the <a href="/"><u>homepage</u></a> to find what you are looking for. Refer to the <a href="<?php echo $tld."user-guide/";?>"><u>User Guide</u></a> or contact <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question">Support</a> if you have any further questions about using the Razorfish Client Preview site.</p>
+<p>Go back to the <a href="javascript:history.go(-1)"><u>previous page</u></a> to find what you are looking for. Refer to the <a href="<?php echo $tld."user-guide/";?>"><u>User Guide</u></a> or contact <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question">Support</a> if you have any further questions about using the Razorfish Client Preview site.</p>
 
 </article>
 </section>

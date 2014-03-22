@@ -6,6 +6,7 @@
 <label>Enter a name for the project that you would like to create in the field below. Project names may contain letters and dashes but may not have spaces or special characters.</label>
 <input type="text" name="fname" id="fname" maxlength="50" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Example-Project':this.value;" value="Example-Project"><br>
 <input type="submit" value="create">
+<a href="<?php echo $tld; ?>user-guide/#addproject" target="_blank"><img src="<?php echo $tld; ?>_includes/images/help_icon_grey.png" class="helplink"></a>
 </form>
 
 <?php

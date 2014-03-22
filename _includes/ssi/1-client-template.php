@@ -1,6 +1,7 @@
 <?php
 include '_includes/ssi/siteconfig.php';
 include '_includes/ssi/checkauth.php';
+if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" ); } 
 ?>
 
 <!DOCTYPE html>

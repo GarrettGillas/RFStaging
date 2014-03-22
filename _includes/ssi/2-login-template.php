@@ -1,5 +1,6 @@
 <?php
 include '../_includes/ssi/siteconfig.php';
+
 $errorstatus = "";
 
 if(isset($_GET['logout'])) {
@@ -11,20 +12,23 @@ if(isset($_POST['username'])) {
     if($userinfo[$_POST['username']] == $_POST['password'] && $_POST['password']!="") {
         $_SESSION['username'] = $_POST['username'];
 
-        if($_POST['username'] == $adminAccount){
-        	$_SESSION['is_admin'] = true;
-        }else{
-        	$_SESSION['is_admin'] = false;
-        }
+        if($_POST['username'] == $adminAccount){ $_SESSION['is_admin'] = true; }
+        else{ $_SESSION['is_admin'] = false; }
+
+        if($_POST['username'] == $clientAccount){ $_SESSION['is_client'] = true; }
+        else{ $_SESSION['is_client'] = false; }
+
+        if($_POST['username'] == $partnerAccount){ $_SESSION['is_partner'] = true; }
+        else{ $_SESSION['is_partner'] = false; }
 
         if(isset($_SESSION['LoginRedirect'])){
         	header('Location:  '.$_SESSION['LoginRedirect']);
         }else{
         	header('Location:  /index.php');
-        }
-        
-    }else {
-        //Invalid Login
+        }        
+    }
+
+    else {
         $errorstatus = "<div class='errorstatus'>\n" . 
         			   "<p><span class='wrong-pw'>Incorrect Username or Password.</span><br>\n" . 
         			   "<a href='mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview - Login Request for " . $_SERVER['HTTP_HOST'] . "'>Request Login</a> &gt;</p>\n" . 
@@ -49,13 +53,14 @@ if(isset($_POST['username'])) {
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ #include '../_includes/ssi/aside-info.php'; ?>
+<?php /* Login Page Widget   */ include '../_includes/ssi/aside-login.php'; ?>
+<?php /* Project Info Widget */ #include '../_includes/ssi/aside-info.php'; ?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
 
 <article class='login'>
-<h1>Welcome. Please log in.</h1>
+<h1>Please log in to Enter</h1>
 
 <form name="login" action="" id="form2" method="post">
 <?php echo $errorstatus; ?>

@@ -1,13 +1,13 @@
 <?php
 include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
+if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== false) { header( "Location: ".$tld."/unavailable" ); } } 
 ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">  
 <head>
 <meta charset="utf-8">
-<?php if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== false) { echo "<meta http-equiv='refresh' content='0; url=../../'>";} } ?>
 <title><?php echo $page_title2; ?> | Razorfish Client Preview</title>
 <link rel="shortcut icon" href="<?php echo $tld; ?>_includes/images/favicon.ico" type="image/x-icon">
 <style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
@@ -23,7 +23,8 @@ include '../../_includes/ssi/checkauth.php';
 <div id="content">
 <?php /* Project Info Widget  */ #if($_SESSION['is_admin'] == false){ include '../../_includes/ssi/aside-info.php'; } ?>
 <?php /* File Uploader Widget */ if($_SESSION['is_admin'] == true){ $_SESSION['edit_redirect'] = curPageURL(); include '../../_includes/ssi/aside-uploader.php';} ?>
-<?php /* Accordion Nav Widget */ include '../../_includes/ssi/aside-accordion.php'; mkmap("../.."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
+<?php /* Accordion Nav Widget */ if($_SESSION['is_partner'] == false){ include '../../_includes/ssi/aside-accordion.php'; mkmap("../.."); echo "</div><!--|.asidewrap|-->\n</aside>"; } ?>
+<?php /* Partner Login Widget */ if($_SESSION['is_partner'] == true){ include '../../_includes/ssi/aside-partner.php';} ?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>

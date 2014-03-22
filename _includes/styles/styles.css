@@ -110,17 +110,24 @@ clear:none;
 padding:0px;
 width:740px;
 margin:0px 0 0px 220px;
-min-height:550px;}
+min-height:450px;}
 
 section ul{
 list-style-type:none;
 padding:0;
+margin:0;}
+
+aside ol{
+padding:0;
 margin:0;
-margin-left:0;}
+list-style:decimal inside none;}
 
 section li{
 padding:0;
 margin:0 0 2px 0;}
+
+aside ol li{
+margin:0;}
 
 nav{
 width:740px; 
@@ -239,6 +246,10 @@ width:148px;}
 form.new-project label{
 white-space:normal;}
 
+form.new-project .helplink{
+margin:0px 0 0 10px;
+vertical-align:sub;}
+
 form input[type="password"]:active, form input[type="password"]:hover, form input[type="password"]:focus{
 background-color:#fff;}
 
@@ -260,6 +271,10 @@ clear:none;
 width:280px;
 margin:20px 0 0 0;}
 
+#form1 #form-right .helplink{
+float:right;
+margin:6px 0px 0 0;}
+
 #form1 #form-right input{
 float:right;
 margin:0 0 0 16px;
@@ -271,6 +286,12 @@ font-weight:400;}
 .wrong-pw{
 color:#f10000;
 text-transform:none;}
+
+.helplink{
+background-color:#fff;}
+
+.helplink:hover{
+background-color:#c8c8c8;}
 
 /*************************************************************************************************/
 /* Accordion Menu Widget Styles                                                                  */
@@ -541,13 +562,16 @@ line-height:28px;}
 article.login form .errorstatus a{
 text-decoration:underline;}
 
-.login aside.info{
+.login aside.info, .login aside.welcome{
 height:213px;}
+
+.login aside.welcome p{
+white-space:normal;}
 
 /*************************************************************************************************/
 /* Client Main Page (post login) Styles                                                          */
 /*************************************************************************************************/
-body.root h1, body.error h1{
+body.root h1, body.error h1, body.unavailable h1{
 margin-bottom:20px;}
 
 body.root h2{
@@ -682,6 +706,14 @@ margin:10px 0 18px 0;}
 .deleteButton{
 display:inline-block;}
 
+aside.uploader .asidewrap{
+position:relative;}
+
+aside.uploader .asidewrap .helplink{
+position:absolute;
+bottom:23px;
+right:21px;}
+
 /*************************************************************************************************/
 /* User Guide Page Styles                                                                        */
 /*************************************************************************************************/
@@ -728,6 +760,20 @@ display:table-cell;}
 
 body.year h1{
 margin-bottom:20px;}
+
+body.guide article>p, body.guide article>h2{
+margin-bottom:16px;}
+
+body.guide span.edit-del{
+text-transform:uppercase;
+font-size:10px;
+font-weight:400;
+line-height:10px;
+margin:-16px 0px 0 0;
+right:0px;
+padding:0;
+height:14px;
+position:absolute;}
 
 /*************************************************************************************************/
 /* Styles for Internet Explorer                                                                  */

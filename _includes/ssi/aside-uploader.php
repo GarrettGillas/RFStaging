@@ -4,15 +4,14 @@
 <div class="asidewrap">
 <p class="small"><strong>Drop files here:</strong></p>
 
-<link href="<?php echo "http://" . $_SERVER['HTTP_HOST']; ?>/_includes/styles/dropzone.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="<?php echo "http://" . $_SERVER['HTTP_HOST']; ?>/_includes/js/dropzone.js"></script>
+<link href="<?php echo $tld; ?>_includes/styles/dropzone.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="<?php echo $tld; ?>_includes/js/dropzone.js"></script>
 
 <form action="/_services/upload.php" class="dropzone" id="fileUploader" enctype="multipart/form-data">
 <input type="hidden" value="<?php echo urldecode($uploadPath); ?>" id="contentUploadPath" name="contentUploadPath" />
 </form> 
 
-<p class="small"><strong>Supported formats:</strong> JPG, PNG, GIF,<br> SWF, HTML, PDF, PPT, DOC,
-(<a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/user-guide/";?>" style="text-decoration:underline;">more</a>)<br>
+<p class="small"><strong>Supported formats:</strong> SWF, JPG,<br> PNG, GIF, PDF, PPTX, DOCX...<br>
 <strong>Maximum file size:</strong> 100MB</p>
 
 <script type="text/javascript">
@@ -23,7 +22,7 @@ $(function() {
 
 	Dropzone.options.fileUploader = {
 		uploadMultiple : true,
-		acceptedFiles : ".SWF,  .HTML, .HTM, .GIF, .JPG, .JPEG, .PNG, .PDF, .PPT, .PPTX, .DOCX, .DOC, .XLSX, .XLS, .FLV, .AS, .XML, .JSON, .EOT, .TTF, .OTF, .WOFF, .SVG, .JS, .ICO, .PHP, .TXT, .RTF, .MP4, .OGV, .WEBM, .M4V",
+		acceptedFiles : ".SWF, .JSON, .GIF, .JPG, .JPEG, .PNG, .PDF, .PPT, .PPTX, .DOC, .DOCX, .XLS, .XLSX, .FLV, .AS, .XML",
 		dictInvalidFileType: "File type not supported.",
 		maxFilesize: 100,
 		init: function(){
@@ -47,5 +46,8 @@ $(function() {
 	}
 });
 </script>
+
+<a href="<?php echo $tld; ?>user-guide/#uploader" target="_blank"><img src="<?php echo $tld; ?>_includes/images/help_icon_grey.png" class="helplink"></a>
+
 </div><!--|.asidewrap|-->
 </aside><!--|.uploader|-->

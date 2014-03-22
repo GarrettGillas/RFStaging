@@ -88,7 +88,6 @@ function breadcrumbs() {
     }
     x++;
   }
-
   for(var i in bits){
     output += " &nbsp;>&nbsp; <a href=\"";
     for(y=1;y<x-i;y++){
@@ -96,7 +95,6 @@ function breadcrumbs() {
     }
     output += bits[i] + "/\">" + bits[i] + "</a>";
   }
-
   if(sURL.indexOf('login/')!= -1){
     output = "<nav><a href='/login/'>Login</a>";
   }
@@ -105,7 +103,7 @@ function breadcrumbs() {
   }
 
 /*************************************************************************************************/
-/* Action Confirmation Prompts                                                                   */
+/* Form Action Confirmation Prompts                                                              */
 /*************************************************************************************************/
 $(document).ready(function(){
     $('.confirm-del').click(function(){
@@ -176,6 +174,24 @@ function yearValidation(year,ev) {
         return true;
     } }
 }
+
+/*************************************************************************************************/
+/* "Smooth" anchorlink scrolling                                                                 */
+/*************************************************************************************************/
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 
 /*************************************************************************************************/
 /* jReject (jQuery Browser Rejection Plugin)                                                     */
