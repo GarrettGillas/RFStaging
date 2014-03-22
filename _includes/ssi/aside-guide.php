@@ -28,8 +28,11 @@
 
 <li class="year"><a href="#support">Support</a></li>
 <li><a href="#support">Additional Support</a></li>
-
 </ul>
+
+<br>
+
+<p><a href="https://razorfish.box.com/rfstaging" target="_blank"><strong>Development Guide</strong> (WIP)</a></p>
 
 </div><!--|.asidewrap|-->
 </aside><!--|.info|-->

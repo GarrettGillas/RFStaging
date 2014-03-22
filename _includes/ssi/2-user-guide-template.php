@@ -39,7 +39,7 @@ include '../_includes/ssi/checkauth.php';
 
 <h2>Using the Client Preview Platform</h2>
 
-<p>The Razorfish Client Preview Platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. 
+<p>The Razorfish Client Preview platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. 
 It has been purpose built to be scalable and flexible so that teams can review and revise media across global offices at a an extremly fast pace.</p> 
 
 <?php } ?>
@@ -48,6 +48,9 @@ It has been purpose built to be scalable and flexible so that teams can review a
 <p>By adding projects directyly in the browser, posting media files on the page, and being able to modify them there as well, we can avoid 
 the use of FTP and other slow file transfer systems. We also have the ability to link projects to third party websites such as ad servers
 and rich media vendors should the need arise. Please see the instructions below for further information on how to use this platform.</p>
+
+<p>If you are a developer and would like deploy the Razorfish Client Preview platform to another account, developer documentaion can be downloaded 
+from <a href="https://razorfish.box.com/rfstaging" target="_blank">Box.com</a> (WIP).</p>
 
 <hr> 
 <span class="edit-del" id="addyear" name="addyear">[ Setting Up ]</span>
