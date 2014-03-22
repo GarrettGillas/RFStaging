@@ -5,8 +5,8 @@
 <ul>
 <li class="year"><a href="#addyear">Setting Up</a></li>
 <li><a href="#addyear">Adding Years</a></li>
-<li><a href="#addproject">Creating New Projects</a></li>
-<li><a href="#addproject">Duplicate, Delete and Make Private</a></li>
+<li><a href="#addyear">Creating New Projects</a></li>
+<li><a href="#addyear">Duplicate, Delete and Make Private</a></li>
 
 <li class="year"><a href="#upload">File Handling</a></li>
 <li><a href="#upload">Uploading Files</a></li>
