@@ -34,11 +34,9 @@ include '../_includes/ssi/checkauth.php';
 <article>
 <h1><?php echo $page_title2; ?></h1>
 
-
 <?php if(($_SESSION['is_partner'] == true) || ($_SESSION['is_client'] == true) || ($_SESSION['is_admin'] == true)  ){ ?>
 
 <h2>Using the Client Preview Platform</h2>
-
 <p>The Razorfish Client Preview platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. 
 It has been purpose built to be scalable and flexible so that teams can review and revise media across global offices at a an extremly fast pace.</p> 
 
@@ -56,14 +54,12 @@ from <a href="https://razorfish.box.com/rfstaging" target="_blank">Box.com</a> (
 <span class="edit-del" id="addyear" name="addyear">[ Setting Up ]</span>
 
 <h2>Adding Years</h2>
-
 <p>If you are currently using a new install of the Razorfish Client Preview platfrom, the first thing that you'll need to do is add a year
 to start putting projects under. After you have logged in and are on the main page, enter the project year that you would like to create 
 in the field on the form on the left hand side. After hitting "create", you should see the year you have entered appear on the right hand 
 side of the page.</p>
 
 <h2 id="addproject" name="addproject">Creating New Projects</h2>
-
 <p>Once you are on the year page and you would like to add a new project, go to the box on the left hand side of the page again. There, you will
 need to enter the name of the project that you would like to create. Special characters are not allowed (aside from dashes) and avoid using 
 acronyms, job codes and any other illegible jargon when naming you projects.</p>
@@ -71,8 +67,7 @@ acronyms, job codes and any other illegible jargon when naming you projects.</p>
 <img src="<?php echo $tld; ?>_includes/images/user-thumbs3.png" class="guide-thumbs">
 <p class="guide-labels"><span class="g-a1">Add Year</span><span class="g-a2">Add Project</span><span class="g-a3">Delete Project</span></p>
 
-<h2>Duplicate, Delete and Make Private</h2>
-
+<h2 id="ddmp" name="ddmp">Duplicate, Delete and Make Private</h2>
 <p>Once you have a project setup, you will see several controls that appear on the right hand side of the page when you mouse over it's name. 
 By hitting "duplicate" you can make a copy of a project and give it a new name. By hitting "delete" you can remove a project permanently and 
 will not be able to recover any of your files. By hitting "make private" you effectivly hide the project from the client and they will not have 
@@ -116,14 +111,14 @@ the 3 categories listed below.</p>
 <p>Note that for Banners and Images, the filename must have it's dimensions (example: <code><strong>banner-300x250.swf</strong></code>) 
 to be viewed inline on the staging page like the example below. Documents will always be download or open in a new tab.</p>
 
-<h2>Viewing Files</h2>
+<h2 id="viewfiles" name="viewfiles">Viewing Files</h2>
 <p>To view files that have been uploaded, select a project name from the File Menu on the left if you are not on a project page already. 
 Observe the file categories (Banners, Images and Documents). Click on a file that you wish to view and it will appear inline on the page.</p>
 
 <img src="<?php echo $tld; ?>_includes/images/user-thumbs1.png" class="guide-thumbs">
 <p class="guide-labels"><span class="g-a1">Upload</span><span class="g-a2">View</span><span class="g-a3">Delete</span></p>
 
-<h2>Deleting Files</h2>
+<h2 id="delfiles" name="delfiles">Deleting Files</h2>
 <p>When you are done viewing a file. Move the mouse over the file's name again. The [delete] option will appear on the right hand side 
 of the page if you are a razorfish employee. Click the [delete] button to remove the file. This option is disabled for non-Razorfish employees.</p>
 
@@ -136,12 +131,12 @@ of the page if you are a razorfish employee. Click the [delete] button to remove
 for links is [<code><strong>Link Name</strong></code>](<code><strong>http://example.com/</strong></code>). All links created this 
 way will open in a new tab or window by default.</p>
 
-<h2>Adding Titles</h2>
+<h2 id="addtitles" name="addtitles">Adding Titles</h2>
 <p>To add additional titles to the bottom section of a project page, hover the mouse over EXTERNAL LINKS and select [edit]. To add a 
 new title use the following markup (ex ##NEW TITLE). Enter your login password and click the Apply Changes button. Note that this feature 
 is only available to logged in Razorfish employees.</p>
 
-<h2>Applying Changes</h2>
+<h2 id="applychanges" name="applychanges">Applying Changes</h2>
 <p>Note, to save your new edits to the page you’ll need to enter your password and click Apply Changes to save your work. Clicking Cancel 
 will unto any changes that have been made to the page.</p>
 
@@ -161,7 +156,7 @@ with FTP. However, these types of projects can still be kept alongside other med
 contact <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question - <?php echo $tld; ?>">Support</a> 
 or your project manager for access.</p>
 
-<h2>Adding Links</h2>
+<h2 id="addlinks" name="addlinks">Adding Links</h2>
 
 <p>Once you have manually uploaded your files via FTP, be sure to link to them form the "External Links" section at the bottom of your 
 project page as explained <a href="#cms">above</a>.</p>
@@ -186,7 +181,7 @@ page while documents will either download or open in a new tab, depending on the
 <?php } ?>
 <?php if($_SESSION['is_admin'] == true){  ?>
 
-<h2>Sharing Content with the Client</h2>
+<h2 id="sharing" name="sharing">Sharing Content with the Client</h2>
 
 <p>To share a project with a client, simply copy the URL of the page you would like to share and send it in an email with the client's 
 username and password for this site. Clients should never, under any circumstance receive the Admin login for the Razorfish Client Preview 
