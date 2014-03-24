@@ -193,9 +193,9 @@ partner.</p>
 
 <h2>Sharing Files with Partners</h2>
 
-<p>To share a project with a partner, simply copy the URL of the page you would like to share and send it in an email with the partner's 
-username and password for this site. Partners should never, under any circumstance receive the regular login for the Razorfish Client Preview 
-Platform.</p>
+<p>To share a project with a partner, simply copy the URL of the project page you would like to share and send it in an email with the "partner 
+username and password" for this site. If you don't have this username and password, email your contact at Razorfish and they will send you one. 
+Partners should never, under any circumstance receive the regular login for the Razorfish Client Preview Platform.</p>
 
 <?php } ?>
 <?php if($_SESSION['is_admin'] == true){  ?>
