@@ -113,6 +113,7 @@ jQuery(document).ready(function () {
 
 <body onload="resizeTextArea()" onresize="resizeTextArea()" class="iframe">
 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" id="form1">
+<input type="hidden" name="pass" class="cms-pass" value="<?php echo $pass; ?>">
 <textarea id="area" name="addition"><?=$contents?></textarea>
 <div id="form-right">
 <input type="submit" name="submit" value="Apply Changes">
