@@ -30,11 +30,6 @@ if($_SESSION['is_admin'] == true && $guidewidget == "yes"){
 	include '../_includes/ssi/aside-guide.php';
 } 
 
-/* Project Info Widget  */ 
-if($infowidget == "yes"){ 
-include '../_includes/ssi/aside-info.php'; 
-}
-
 /* Accordion Nav Widget */ 
 if($_SESSION['is_partner'] == false && $navwidget == "yes"){ 
 	include '../_includes/ssi/aside-accordion.php'; 
