@@ -14,13 +14,22 @@ include '../_includes/ssi/siteconfig.php';
 </head>
     
 
-<body class="error<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
+<body class="error<?php echo $bodyclasses; ?>">
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ #include '../_includes/ssi/aside-info.php'; ?>
-<?php /* Accordion Nav Widget */ #include '../_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
-<?php /* Partner Login Widget */ if($_SESSION['is_partner'] == true){ include '../_includes/ssi/aside-partner.php';} ?>
+
+<?php 
+/* Project Info Widget  */ 
+if($infowidget == "yes"){ 
+	include '../_includes/ssi/aside-info.php';
+} 
+
+/* Partner Info Widget */ 
+if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){
+	include '../_includes/ssi/aside-partner.php';
+} 
+?>
 
 <section>
 <nav>

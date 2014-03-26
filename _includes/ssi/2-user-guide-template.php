@@ -19,14 +19,33 @@ include '../_includes/ssi/checkauth.php';
 </head>
 
 
-<body class="guide <?php if($_SESSION['is_admin'] == false){echo "clientlogin";} ?>">
+<body class="guide<?php echo $bodyclasses; ?>">
 <?php include '../_includes/ssi/header.php'; ?> 
 
 <div id="content"> 
-<?php /* Guide Contents       */ if($_SESSION['is_admin'] == true){ include '../_includes/ssi/aside-guide.php';} ?>
-<?php /* Project Info Widget  */ #include '../_includes/ssi/aside-info.php'; ?>
-<?php /* Accordion Nav Widget */ if($_SESSION['is_partner'] == false){ include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; } ?>
-<?php /* Partner Login Widget */ if($_SESSION['is_partner'] == true){ include '../_includes/ssi/aside-partner.php';} ?>
+
+<?php 
+/* User Guide Contents  */  
+if($_SESSION['is_admin'] == true && $guidewidget == "yes"){ 
+	include '../_includes/ssi/aside-guide.php';
+} 
+
+/* Project Info Widget  */ 
+if($infowidget == "yes"){ 
+include '../_includes/ssi/aside-info.php'; 
+}
+
+/* Accordion Nav Widget */ 
+if($_SESSION['is_partner'] == false && $navwidget == "yes"){ 
+	include '../_includes/ssi/aside-accordion.php'; 
+	mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; 
+} 
+
+/* Partner Info Widget */ 
+if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){ 
+	include '../_includes/ssi/aside-partner.php';
+} 
+?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
@@ -80,7 +99,9 @@ access to nor will they be able to see it in the navigation. You can make it vie
 <h2>Uploading Files</h2>
 <p>To upload files to project pages, simply drag one or more files into the upload box on left hand side of the page as pictured below. 
 The following files can be uploaded and viewed using the browser based uploader tool. One they are uploaded, they will be sorted into 
-the 3 categories listed below.</p> 
+the 3 categories listed below. Note that for Banners and Images, the filename must have it's dimensions (example: 
+<code><strong>banner-300x250.swf</strong></code>) to be viewed inline on the staging page like the example below. Documents will always 
+be download or open in a new tab.</p> 
 
 <table border="0" cellpadding="0" cellspacing="0" class="guidetable">
 <tbody>
@@ -108,8 +129,10 @@ the 3 categories listed below.</p>
 </table>
 <br>
 
-<p>Note that for Banners and Images, the filename must have it's dimensions (example: <code><strong>banner-300x250.swf</strong></code>) 
-to be viewed inline on the staging page like the example below. Documents will always be download or open in a new tab.</p>
+
+<p>If the file that you want to show is on a 3rd party site (such as Flashtalking, Sizmek or Box.com) you can add links to them on the 
+page by following the instructions under <a href="#cms">Adding Links</a>. If you need to upload a file that is not compatible with the 
+uploader tool mentioned above, you can post it via FTP by following the instructions under <a href="#other">Uploading Other Media Types</a>.</p>
 
 <h2 id="viewfiles" name="viewfiles">Viewing Files</h2>
 <p>To view files that have been uploaded, select a project name from the File Menu on the left if you are not on a project page already. 

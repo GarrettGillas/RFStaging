@@ -53,8 +53,17 @@ if(isset($_POST['username'])) {
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Login Page Widget   */ include '../_includes/ssi/aside-login.php'; ?>
-<?php /* Project Info Widget */ #include '../_includes/ssi/aside-info.php'; ?>
+<?php 
+/* Project Info Widget */
+if($infowidget == "yes"){ 
+    include '../_includes/ssi/aside-info.php'; 
+}
+
+/* Login Page Widget   */
+else{
+    include '../_includes/ssi/aside-login.php';     
+}
+?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>

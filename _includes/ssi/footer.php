@@ -10,7 +10,7 @@ if($_SESSION['is_partner'] == true) {echo "(Partner) ";}
 ?>
 Logout</a><?php endif; ?></p>
 
-<p id="copy">Razorfish Client Preview - <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">Version 2.5</a></p>
+<p id="copy">Razorfish Client Preview - <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">Version 2.6</a></p>
 <a href="http://www.razorfish.com/" target="_blank"><img src="<?php echo $tld.$logo2; ?>" id="logo3"></a>
 </footer>
 

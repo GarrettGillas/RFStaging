@@ -17,13 +17,30 @@ if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" 
 </head>
 
 
-<body class="year<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
+<body class="year<?php echo $bodyclasses; ?>">
 <?php include '../_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ #if($_SESSION['is_admin'] == false){ include '../_includes/ssi/aside-info.php'; } ?>
-<?php /* Add Project Widget   */ if($_SESSION['is_admin'] == true){ $_SESSION['edit_redirect'] = curPageURL(); include '../_includes/ssi/add-project.php';} ?>
-<?php /* Accordion Nav Widget */ include '../_includes/ssi/aside-accordion.php'; mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
+
+<?php 
+/* Project Info Widget  */ 
+if($_SESSION['is_admin'] == false && $infowidget == "yes"){ 
+  include '../_includes/ssi/aside-info.php'; 
+} 
+
+/* Add Project Widget   */ 
+if($_SESSION['is_admin'] == true && $addprojectwidget == "yes"){ 
+  $_SESSION['edit_redirect'] = curPageURL(); 
+  include '../_includes/ssi/add-project.php';
+} 
+
+/* Accordion Nav Widget */ 
+if($navwidget == "yes"){ 
+  include '../_includes/ssi/aside-accordion.php'; 
+  mkmap(".."); 
+  echo "</div><!--|.asidewrap|-->\n</aside>"; 
+}
+?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>

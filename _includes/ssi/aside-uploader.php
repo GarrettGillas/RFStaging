@@ -7,7 +7,7 @@
 <link href="<?php echo $tld; ?>_includes/styles/dropzone.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo $tld; ?>_includes/js/dropzone.js"></script>
 
-<form action="/_services/upload.php" class="dropzone" id="fileUploader" enctype="multipart/form-data">
+<form action="/_includes/services/upload.php" class="dropzone" id="fileUploader" enctype="multipart/form-data">
 <input type="hidden" value="<?php echo urldecode($uploadPath); ?>" id="contentUploadPath" name="contentUploadPath" />
 </form> 
 

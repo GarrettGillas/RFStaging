@@ -1,7 +1,8 @@
 <?php
 include '_includes/ssi/siteconfig.php';
 include '_includes/ssi/checkauth.php';
-if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" ); } 
+//if($_SESSION['is_partner'] == true){ header( "Location: ".$tld."/unavailable" ); } 
+if($_SESSION['is_partner'] == true){ echo "<script>window.location = '".$tld."/unavailable';</script>";}
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +18,30 @@ if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" 
 </head>
 
 
-<body class="root<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} ?>">
+<body class="root<?php echo $bodyclasses; ?>">
 <?php include '_includes/ssi/header.php'; ?>
 
 <div id="content">
-<?php /* Project Info Widget  */ #if($_SESSION['is_admin'] == false){ include '_includes/ssi/aside-info.php'; } ?>
-<?php /* Add New Year Widget  */ if($_SESSION['is_admin'] == true){ $_SESSION['edit_redirect'] = curPageURL(); include '_includes/ssi/add-year.php';} ?>
-<?php /* Accordion Nav Widget */ include '_includes/ssi/aside-accordion.php'; mkmap("."); echo "</div><!--|.asidewrap|-->\n</aside>"; ?>
+
+<?php 
+/* Project Info Widget */ 
+if($_SESSION['is_admin'] == false && $infowidget == "yes"){ 
+  include '_includes/ssi/aside-info.php'; 
+}
+
+/* Add New Year Widget */ 
+if($_SESSION['is_admin'] == true && $addyearwidget == "yes"){ 
+  $_SESSION['edit_redirect'] = curPageURL(); 
+  include '_includes/ssi/add-year.php';
+}
+
+/* Accordion Nav Widget */ 
+if($navwidget == "yes"){ 
+  include '_includes/ssi/aside-accordion.php'; 
+  mkmap("."); 
+  echo "</div><!--|.asidewrap|-->\n</aside>";
+}
+?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>

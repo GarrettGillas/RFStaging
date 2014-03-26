@@ -17,14 +17,38 @@ if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== fals
 </head>
 
 
-<body class="client<?php if($_SESSION['is_admin'] == false){echo " clientlogin";} if (strpos($page_title2,'Internal') !== false) {echo " pvtpage"; } ?>">
+<body class="client<?php echo $bodyclasses; ?>">
+
 <?php include '../../_includes/ssi/header.php'; ?> 
 
 <div id="content">
-<?php /* Project Info Widget  */ #if($_SESSION['is_admin'] == false){ include '../../_includes/ssi/aside-info.php'; } ?>
-<?php /* File Uploader Widget */ if($_SESSION['is_admin'] == true){ $_SESSION['edit_redirect'] = curPageURL(); include '../../_includes/ssi/aside-uploader.php';} ?>
-<?php /* Accordion Nav Widget */ if($_SESSION['is_partner'] == false){ include '../../_includes/ssi/aside-accordion.php'; mkmap("../.."); echo "</div><!--|.asidewrap|-->\n</aside>"; } ?>
-<?php /* Partner Login Widget */ if($_SESSION['is_partner'] == true){ include '../../_includes/ssi/aside-partner.php';} ?>
+
+
+
+<?php 
+/* Project Info Widget  */ 
+if($_SESSION['is_admin'] == false && $infowidget == "yes"){ 
+	include '../../_includes/ssi/aside-info.php'; 
+} 
+
+/* File Uploader Widget */ 
+if($_SESSION['is_admin'] == true && $uploaderwidget == "yes"){ 
+	$_SESSION['edit_redirect'] = curPageURL(); 
+	include '../../_includes/ssi/aside-uploader.php';
+} 
+
+/* Accordion Nav Widget */ 
+if($_SESSION['is_partner'] == false && $navwidget == "yes"){ 
+	include '../../_includes/ssi/aside-accordion.php'; 
+	mkmap("../.."); 
+	echo "</div><!--|.asidewrap|-->\n</aside>"; 
+} 
+
+/* Partner Info Widget */ 
+if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){
+	include '../../_includes/ssi/aside-partner.php';
+} 
+?>
 
 <section>
 <script type="text/javascript">breadcrumbs(); window.onload = jQuery.reject;</script>
@@ -57,7 +81,7 @@ if (strpos($page_title2,'Internal') !== false) {
 
 <?php include '../../_includes/ssi/footer.php'; ?>
 
-<script>
+<script type="text/javascript">
 /* Kevin's on-page file displayer/sorter script */ 
 $(function() {
 
@@ -193,7 +217,7 @@ $(function() {
 			if(confirm('Are you sure you want to delete '+$(this).attr('href')+"?")){
 				$.ajax({
 					type: "POST",
-					url: "/_services/delete.php?"+new Date().getTime(),
+					url: "/_includes/services/delete.php?"+new Date().getTime(),
 					data: {filePath: uploadPath, fileToDelete: $(this).attr('href'), delete: true},
 					context: document.body
 				}).done(function(data) {
