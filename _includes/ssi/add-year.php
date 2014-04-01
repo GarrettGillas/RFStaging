@@ -6,7 +6,7 @@
 <label>Enter the project year that you would like to create in the field below.</label>
 <input type="text" name="fname" id="fname" maxlength="4" onclick="this.value='';" onfocus="this.select()" onblur="yearValidation(this.value,event);" value="20XX" onkeypress="yearValidation(this.value,event);"><br>
 <input type="submit" value="create" style="float:none;">
-<a href="<?php echo $tld; ?>user-guide/#addyear" target="_blank"><img src="<?php echo $tld; ?>_includes/images/help_icon_grey.png" class="helplink"></a>
+<a href="<?php echo $tld; ?>user-guide/#addyear"><img src="<?php echo $tld; ?>_includes/images/help_icon_grey.png" class="helplink"></a>
 </form>
 
 <?php

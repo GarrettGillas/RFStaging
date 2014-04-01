@@ -1,13 +1,12 @@
 RewriteEngine On
 RewriteBase /
 
-#404 Error Page
+# 404 Error Page
 ErrorDocument 404 /404/ 
 ErrorDocument 403 /404/ 
 
-#Disable Directory Index Viewing
+# Disable Directory Index Viewing
 Options -Indexes
-
 
 # Secure .htaccess File
 <Files .htaccess>

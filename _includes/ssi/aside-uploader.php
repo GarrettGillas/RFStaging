@@ -47,7 +47,7 @@ $(function() {
 });
 </script>
 
-<a href="<?php echo $tld; ?>user-guide/#uploader" target="_blank"><img src="<?php echo $tld; ?>_includes/images/help_icon_grey.png" class="helplink"></a>
+<a href="<?php echo $tld; ?>user-guide/#upload"><img src="<?php echo $tld; ?>_includes/images/help_icon_grey.png" class="helplink"></a>
 
 </div><!--|.asidewrap|-->
 </aside><!--|.uploader|-->

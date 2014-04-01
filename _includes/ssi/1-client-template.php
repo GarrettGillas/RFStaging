@@ -1,10 +1,8 @@
 <?php
 include '_includes/ssi/siteconfig.php';
 include '_includes/ssi/checkauth.php';
-//if($_SESSION['is_partner'] == true){ header( "Location: ".$tld."/unavailable" ); } 
-if($_SESSION['is_partner'] == true){ echo "<script>window.location = '".$tld."/unavailable';</script>";}
+if($_SESSION['is_partner'] == true){ header( "Location: ".$tld."/unavailable" ); } 
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>

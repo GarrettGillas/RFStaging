@@ -3,7 +3,6 @@ include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
 if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== false) { header( "Location: ".$tld."/unavailable" ); } } 
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">  
 <head>

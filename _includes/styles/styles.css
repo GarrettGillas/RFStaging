@@ -1,7 +1,7 @@
 /*************************************************************************************************/
-/*  Styles for the Razorfish Client Preview platfom.                                             */
-/*  For documentation & support contact Garrett Gillas at Razorfish Portland.                    */
-/*  garrett.gillas@razorfish.com                                                                 */
+/* Styles for the Razorfish Client Preview platfom.                                              */
+/* For documentation & support contact Garrett Gillas at Razorfish Portland.                     */
+/* garrett.gillas@razorfish.com                                                                  */
 /*************************************************************************************************/
 body{
 margin:20px auto;
@@ -361,7 +361,8 @@ margin:20px;}
 
 .jspContainer{
 overflow:hidden;
-position:relative;}
+position:relative;
+min-height:100px;}
 
 .jspPane{
 position:absolute;}

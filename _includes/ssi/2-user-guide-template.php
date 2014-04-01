@@ -6,7 +6,6 @@ include '../_includes/ssi/checkauth.php';
 /* "Admin" (full access), "Client" (view access) or "Partner" (very limited access).             */
 /*************************************************************************************************/
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -52,23 +51,23 @@ if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){
 
 <h2>Using the Client Preview Platform</h2>
 <p>The Razorfish Client Preview platform is a tool for Razorfish employees to use to post creative media for internal and client reviews. 
-It has been purpose built to be scalable and flexible so that teams can review and revise media across global offices at a an extremly fast pace.</p> 
+It has been purpose built to be scalable and flexible so that teams can review and revise media across global offices at an extremely fast pace.</p> 
 
 <?php } ?>
 <?php if($_SESSION['is_admin'] == true){  ?>
 
-<p>By adding projects directyly in the browser, posting media files on the page, and being able to modify them there as well, we can avoid 
+<p>By adding projects directly in the browser, posting media files on the page, and being able to modify them there as well, we can avoid 
 the use of FTP and other slow file transfer systems. We also have the ability to link projects to third party websites such as ad servers
 and rich media vendors should the need arise. Please see the instructions below for further information on how to use this platform.</p>
 
-<p>If you are a developer and would like deploy the Razorfish Client Preview platform to another account, developer documentaion can be downloaded 
-from <a href="https://razorfish.box.com/rfstaging" target="_blank">Box.com</a> (WIP).</p>
+<p>If you are a developer and would like deploy the Razorfish Client Preview platform to another account, developer documentation can be downloaded 
+from <a href="https://razorfish.box.com/rfstaging" target="_blank">Box.com</a>.</p>
 
 <hr> 
 <span class="edit-del" id="addyear" name="addyear">[ Setting Up ]</span>
 
 <h2>Adding Years</h2>
-<p>If you are currently using a new install of the Razorfish Client Preview platfrom, the first thing that you'll need to do is add a year
+<p>If you are currently using a new install of the Razorfish Client Preview platform, the first thing that you'll need to do is add a year
 to start putting projects under. After you have logged in and are on the main page, enter the project year that you would like to create 
 in the field on the form on the left hand side. After hitting "create", you should see the year you have entered appear on the right hand 
 side of the page.</p>
@@ -84,7 +83,7 @@ acronyms, job codes and any other illegible jargon when naming you projects.</p>
 <h2 id="ddmp" name="ddmp">Duplicate, Delete and Make Private</h2>
 <p>Once you have a project setup, you will see several controls that appear on the right hand side of the page when you mouse over it's name. 
 By hitting "duplicate" you can make a copy of a project and give it a new name. By hitting "delete" you can remove a project permanently and 
-will not be able to recover any of your files. By hitting "make private" you effectivly hide the project from the client and they will not have 
+will not be able to recover any of your files. By hitting "make private" you effectively hide the project from the client and they will not have 
 access to nor will they be able to see it in the navigation. You can make it viewable to the client once again by hitting "make public".</p>
 
 
@@ -94,9 +93,9 @@ access to nor will they be able to see it in the navigation. You can make it vie
 <h2>Uploading Files</h2>
 <p>To upload files to project pages, simply drag one or more files into the upload box on left hand side of the page as pictured below. 
 The following files can be uploaded and viewed using the browser based uploader tool. One they are uploaded, they will be sorted into 
-the 3 categories listed below. Note that for Banners and Images, the filename must have it's dimensions (example: 
+the 3 categories listed below. Note that for Banners and Images, the filename must have its dimensions (example: 
 <code><strong>banner-300x250.swf</strong></code>) to be viewed inline on the staging page like the example below. Documents will always 
-be download or open in a new tab.</p> 
+be downloaded or opened in a new tab.</p> 
 
 <table border="0" cellpadding="0" cellspacing="0" class="guidetable">
 <tbody>
@@ -106,7 +105,7 @@ be download or open in a new tab.</p>
 <p>.SWF</p>
 </td>
 <td rowspan="3" valign="top">
-<p><strong>Dependancy files that can be uploaded but will not be viewable:</strong></p>
+<p><strong>Dependency files that can be uploaded but will not be viewable:</strong></p>
 <p>.FLV, .AS, .XML, .JSON</p>
 </td>
 </tr>
@@ -167,7 +166,7 @@ will unto any changes that have been made to the page.</p>
 
 <h2>Uploading Other Media Types</h2>
 
-<p>While the Razorfish Client Preview platform is very quick and efficent for posting standard media types, occasionally you might need to 
+<p>While the Razorfish Client Preview platform is very quick and efficient for posting standard media types, occasionally you might need to 
 post a rich media unit, landing page, or other html-based content. In these cases, the files vill need to be posted the old-fashioned way 
 with FTP. However, these types of projects can still be kept alongside other medi types by uploading them to a projects media folder 
 (example: <code><strong><?php echo $tld; ?>2014/example-project/media/example.html</strong></code>). If you need FTP access to this site, 
@@ -223,7 +222,7 @@ Partners should never, under any circumstance receive the regular login for the 
 
 <h2>Additional Support</h2>
 
-<p>This project is being tracked an updated on jira <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">here</a>. 
+<p>This project is being tracked an updated on Jira <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">here</a>. 
 If you need FTP access to this site or for any other questions regarding this platform, contact your project manager or 
 <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question - <?php echo $tld; ?>">Garrett Gillas</a> 
 at Razorfish Portland.</p>
