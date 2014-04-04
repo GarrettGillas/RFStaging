@@ -2,14 +2,24 @@
 /*************************************************************************************************/
 /* Project information setup for the Razorfish Client Preview platfom.                           */
 /* For documentation & support contact Garrett Gillas at Razorfish Portland.                     */
-/* email: garrett.gillas@razorfish.com                                                           */
+/* Email: garrett.gillas@razorfish.com                                                           */
+/*                                                                                               */
+/* Contents:                                                                                     */
+/*   1. Setup project name, contact info and logos.                                              */
+/*   2. User account setup.                                                                      */
+/*   3. Sidebar widgets.                                                                         */
+/*   4. Global exclusion handling.                                                               */
+/*   5. Other global variables.                                                                  */
+/*                                                                                               */
 /*************************************************************************************************/
 if(!isset($_SESSION)) { session_start(); }
 error_reporting(error_reporting() & ~E_NOTICE);  
 
 /*************************************************************************************************/
-/* Setup project name, contact info and logos.                                                   */
+/* 1. Setup project name, contact info and logos.                                                */
 /*************************************************************************************************/
+           $brand = "Razorfish";
+
       $page_title = "Microsoft Windows";
 
        $location  = "<strong>Razorfish Portland</strong><br>".
@@ -21,11 +31,11 @@ error_reporting(error_reporting() & ~E_NOTICE);
                     "503.889.4530<br>".
                     "<a href='mailto:jackie.vanderzanden@razorfish.com'>jackie.vanderzanden@razorfish.com</a>";
 
-            $logo = "_includes/images/logo-windows.png";
-           $logo2 = "_includes/images/logo-razorfish.png";
+            $logo = "_includes/brands/client-windows.png";
+           $logo2 = "_includes/brands/logo-razorfish.png";
 
 /*************************************************************************************************/
-/* Setup user user accounts here.                                                                */
+/* 2. Setup user user accounts here.                                                             */
 /*************************************************************************************************/
         $userinfo = array(
                     "RFEmployee"=>"Snapper4781",
@@ -37,7 +47,7 @@ error_reporting(error_reporting() & ~E_NOTICE);
   $partnerAccount = "WinPartner";  
 
 /*************************************************************************************************/
-/* Toggle sidebar widgets here. All values should be "yes" by default.                           */
+/* 3. Toggle sidebar widgets here. All values should be "yes" by default.                        */
 /*************************************************************************************************/
       $infowidget = "no";   // Project Information Widget   
        $navwidget = "yes";  // Side Navigation Widget        
@@ -49,7 +59,7 @@ $addprojectwidget = "yes";  // "Add New Project" Widget
   $uploaderwidget = "yes";  // "File Uploader" Widget       
 
 /*************************************************************************************************/
-/* Global exclusion handling. Add files that you want hidden here.                               */
+/* 4. Global exclusion handling. Add files that you want hidden here.                            */
 /*************************************************************************************************/
     $exclude_list = array(
                     ".", 
@@ -65,6 +75,7 @@ $addprojectwidget = "yes";  // "Add New Project" Widget
                     "uploads",
                     "media",
                     "login",
+                    "brands",
                     "user-guide",
                     "robots.txt",
                     "login.php",
@@ -74,7 +85,7 @@ $addprojectwidget = "yes";  // "Add New Project" Widget
                     "PHP_errors.log");
 
 /*************************************************************************************************/
-/* Generating page titles and other global variables. No need to edit below this line.           */
+/* 5. Generating page titles and other global variables. No need to edit below this line.        */
 /*************************************************************************************************/
          $myTitle = basename(getcwd());
          $myTitle = str_replace("-", " ", $myTitle);
@@ -84,12 +95,9 @@ $addprojectwidget = "yes";  // "Add New Project" Widget
            $bvar1 = "";
            $bvar2 = "";
 
-if($_SESSION['is_admin'] == false){
-  $bvar1 = " clientlogin";
-} 
-if(strpos($page_title2,'Internal') !== false){
-  $bvar2 = " pvtpage";
-} 
+if($_SESSION['is_admin'] == false){ $bvar1 = " clientlogin"; } 
+if(strpos($page_title2,'Internal') !== false){ $bvar2 = " pvtpage"; }
+
      $bodyclasses = $bvar1.$bvar2;
              $tld = "http://".$_SERVER['HTTP_HOST']."/";
 ?>

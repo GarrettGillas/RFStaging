@@ -1,7 +1,21 @@
 /*************************************************************************************************/
 /* Styles for the Razorfish Client Preview platfom.                                              */
 /* For documentation & support contact Garrett Gillas at Razorfish Portland.                     */
-/* garrett.gillas@razorfish.com                                                                  */
+/* Email: garrett.gillas@razorfish.com                                                           */
+/*                                                                                               */
+/* Contents:                                                                                     */
+/*   1. Form Styles                                                                              */
+/*   2. Accordion Menu Widget Styles                                                             */
+/*   3. Smooth Page Fade-In Effects                                                              */
+/*   4. Browser Support Styles                                                                   */
+/*   5. Login Page Styles                                                                        */
+/*   6. Client Main Page                                                                         */
+/*   7. Client Year Page                                                                         */
+/*   8. Client Asset Page                                                                        */
+/*   9. User Guide Page                                                                          */
+/*   10. Styles for Internet Explorer                                                            */
+/*   11. Semi-Responsive Styling                                                                 */
+/*                                                                                               */
 /*************************************************************************************************/
 body{
 margin:20px auto;
@@ -104,7 +118,7 @@ font-size:11px;}
 
 footer p#copy{
 left:auto;
-right:160px;}
+right:175px;}
 
 footer p a:link, footer p a:visited{
 text-decoration:none;
@@ -194,18 +208,18 @@ vertical-align:middle;}
 #logo2{
 float:right;
 clear:right;
-margin:40px 40px 0 0;}
+margin:22px 40px 0 0;}
 
 #logo3{
 float:right;
 clear:right;
-margin:18px 25px 0 0;}
+margin:0px 25px 0 0;}
 
 body.clientlogin .internal, body.pvtpage #iframe1{
 display:none;}
 
 /*************************************************************************************************/
-/* Form Styles                                                                                   */
+/* 1. Form Styles                                                                                */
 /*************************************************************************************************/
 form input[type="submit"]{
 background-color:#1a1a1a;
@@ -304,7 +318,7 @@ background-color:#fff;}
 background-color:#c8c8c8;}
 
 /*************************************************************************************************/
-/* Accordion Menu Widget Styles                                                                  */
+/* 2. Accordion Menu Widget Styles                                                               */
 /*************************************************************************************************/
 aside .asidewrap ul{
 margin:0 0 0px 0;
@@ -407,7 +421,7 @@ width:100%;
 overflow:auto;}
 
 /*************************************************************************************************/
-/* Smooth Page Fade-In Effect Styles                                                             */
+/* 3. Smooth Page Fade-In Effect Styles                                                          */
 /*************************************************************************************************/
 body{
 animation:fadein .6s;
@@ -436,7 +450,7 @@ to {opacity:1;}
 }
 
 /*************************************************************************************************/
-/* Browser Support Styles (using jquery.reject.js)                                               */
+/* 4. Browser Support Styles (using jquery.reject.js)                                            */
 /*************************************************************************************************/
 #jr_overlay{
 top:0;
@@ -518,7 +532,7 @@ padding:10px 0 0 0;
 margin:0;}
 
 /*************************************************************************************************/
-/* Login Page Styles                                                                             */
+/* 5. Login Page Styles                                                                          */
 /*************************************************************************************************/
 article.login{
 background-color:#f2f2f2;
@@ -580,7 +594,7 @@ height:213px;}
 white-space:normal;}
 
 /*************************************************************************************************/
-/* Client Main Page (post login) Styles                                                          */
+/* 6. Client Main Page (post login) Styles                                                       */
 /*************************************************************************************************/
 body.root h1, body.error h1, body.unavailable h1{
 margin-bottom:20px;}
@@ -591,7 +605,7 @@ margin-bottom:0px;
 padding:2px 0 2px 0;}
 
 /*************************************************************************************************/
-/* Client Year Page Styles                                                                       */
+/* 7. Client Year Page Styles                                                                    */
 /*************************************************************************************************/
 body.year .pro-name{
 text-transform:capitalize;}
@@ -604,7 +618,7 @@ body.year article .internal span a{
 /*color:#1a1a1a;*/}
 
 /*************************************************************************************************/
-/* Client Asset Page Styles                                                                      */
+/* 8. Client Asset Page Styles                                                                   */
 /*************************************************************************************************/
 body.client div#content, body.year .pro-name div#content, body.year p.pro-name{
 position:relative;}
@@ -726,7 +740,7 @@ bottom:23px;
 right:21px;}
 
 /*************************************************************************************************/
-/* User Guide Page Styles                                                                        */
+/* 9. User Guide Page Styles                                                                     */
 /*************************************************************************************************/
 body.guide article p{
 margin-right:20px;}
@@ -791,7 +805,7 @@ height:14px;
 position:absolute;}
 
 /*************************************************************************************************/
-/* Styles for Internet Explorer                                                                  */
+/* 10. Styles for Internet Explorer                                                              */
 /*************************************************************************************************/
 body.ie9 .iframe-wrapper p.cl2, body.ie10 .iframe-wrapper p.cl2, body.ie11 .iframe-wrapper p.cl2{
 opacity:1;}
@@ -803,7 +817,7 @@ body.ie9 .dz-message span{
 padding-right:15px;}
 
 /*************************************************************************************************/
-/* Semi-Responsive Styling for Client Logins                                                     */
+/* 11. Semi-Responsive Styling for Client/Partner Accounts                                       */
 /*************************************************************************************************/
 body.clientlogin header, body.clientlogin div#logo, body.clientlogin div#content, body.clientlogin footer{
 width:auto;
