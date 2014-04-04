@@ -86,7 +86,7 @@ function dir_nav() {
             // Deletes Project/Folder             
             if(isset($_GET['tdelete'.$extravar])){
               system("rmdir ".escapeshellarg($entry) . " /s /q"); //Delete for Windows
-              //exec ('rm -rf '.$entry); //Delete for Linux 
+              exec ('rm -rf '.$entry); //Delete for Linux 
               echo "<script>location.reload();</script>";
             }
 
@@ -129,7 +129,7 @@ function dir_nav() {
             // Deletes Project/Folder             
             if(isset($_GET['tdelete'.$extravar])){
               system("rmdir ".escapeshellarg($entry) . " /s /q"); //Delete for Windows
-              //exec ('rm -rf '.$entry); //Delete for Linux 
+              exec ('rm -rf '.$entry); //Delete for Linux 
               echo "<script>location.reload();</script>";
             }
 

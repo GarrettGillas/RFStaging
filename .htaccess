@@ -8,6 +8,9 @@ ErrorDocument 403 /404/
 # Disable Directory Index Viewing
 Options -Indexes
 
+# Set Default Document Type
+DirectoryIndex index.php 
+
 # Secure .htaccess File
 <Files .htaccess>
 order allow,deny
