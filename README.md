@@ -52,21 +52,21 @@ This is the Razorfish Client Preview platform built by Razorfish Portland. This 
 
 Garrett Gillas // 
 Technical Production Manager - 
-[mailto:garrett.gillas@razorfish.com](garrett.gillas@razorfish.com)
+garrett.gillas@razorfish.com
 
 Kevin Jones // 
 Senior Presentation Layer Engineer - 
-[mailto:kevin.jones@razorfish.com](kevin.jones@razorfish.com)
+kevin.jones@razorfish.com
 
 Todd Mellors // 
 QA Lead - 
-[mailto:todd.mellors@razorfish.com](todd.mellors@razorfish.com)
+todd.mellors@razorfish.com
 
 Brooks Pleninger // 
 Senior Designer - 
-[mailto:brooks.pleninger@razorfish.com](brooks.pleninger@razorfish.com)
+brooks.pleninger@razorfish.com
 
 Matt Bouchard // 
 Program Manager - 
-[mailto:matt.bouchard@razorfish.com](matt.bouchard@razorfish.com)
+matt.bouchard@razorfish.com
 
