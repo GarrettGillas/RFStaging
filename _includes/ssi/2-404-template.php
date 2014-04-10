@@ -20,12 +20,12 @@ include '../_includes/ssi/siteconfig.php';
 
 <?php 
 /* Project Info Widget  */ 
-if($infowidget == "yes"){ 
+if($infowidget == "true"){ 
 	include '../_includes/ssi/aside-info.php';
 } 
 
 /* Partner Info Widget */ 
-if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){
+if($_SESSION['is_partner'] == true && $partnerwidget == "true"){
 	include '../_includes/ssi/aside-partner.php';
 } 
 ?>

@@ -163,6 +163,17 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('.confirm-settings').click(function(){
+        var answer = confirm("Are you sure you want to change the global settings for this client preview site?");
+        if (answer){
+            return true;
+        } else {
+            return false;
+        }
+    });
+});
+
 /*************************************************************************************************/
 /* 3. "Create Year" Form Validation                                                              */
 /*************************************************************************************************/

@@ -1,65 +1,68 @@
 <?php
 /*************************************************************************************************/
-/* Project information setup for the Razorfish Client Preview platfom.                           */
+/* Project information & setup for the Razorfish Client Preview platfom.                         */
 /* For documentation & support contact Garrett Gillas at Razorfish Portland.                     */
 /* Email: garrett.gillas@razorfish.com                                                           */
 /*                                                                                               */
 /* Contents:                                                                                     */
-/*   1. Setup project name, contact info and logos.                                              */
-/*   2. User account setup.                                                                      */
-/*   3. Sidebar widgets.                                                                         */
-/*   4. Global exclusion handling.                                                               */
-/*   5. Other global variables.                                                                  */
+/*   1. Setup Company, Client, Contact Info & Logos                                              */
+/*   2. User Account Setup                                                                       */
+/*   3. Toggle Sidebar Widgets                                                                   */
+/*   4. Global Exclusion Handling                                                                */
+/*   5. Other Global Variables                                                                   */
 /*                                                                                               */
 /*************************************************************************************************/
 if(!isset($_SESSION)) { session_start(); }
 error_reporting(error_reporting() & ~E_NOTICE);  
 
 /*************************************************************************************************/
-/* 1. Setup project name, contact info and logos.                                                */
+/* 1. Setup Company, Client, Contact Info & Logos                                                */
 /*************************************************************************************************/
            $brand = "Razorfish";
 
       $page_title = "Microsoft Windows";
 
-       $location  = "<strong>Razorfish Portland</strong><br>".
-                    "700 SW Taylor<br>Suite 400<br>".
-                    "Portland, OR 97205<br>";
+      $office_loc = "Razorfish Portland";
+        $add1_loc = "700 SW Taylor";
+        $add2_loc = "Suite 400";
+        $add3_loc = "Portland, OR 97205";
 
-         $contact = "<strong>Jackie VanderZanden</strong><br>".
-                    "Client Partner<br>".
-                    "503.889.4530<br>".
-                    "<a href='mailto:jackie.vanderzanden@razorfish.com'>jackie.vanderzanden@razorfish.com</a>";
+       $cont_name = "Example";
+      $cont_title = "Client Partner";
+      $cont_phone = "888.888.8888";
+      $cont_email = "Example@razorfish.com";
 
-            $logo = "_includes/brands/client-windows.png";
-           $logo2 = "_includes/brands/logo-razorfish.png";
+            $logo = "_includes/clients/windows.png";
+           $logo2 = "_includes/brands/razorfish.png";
+     
+     $cms_version = "3.0";
+     
+/*************************************************************************************************/
+/* 2. Setup User Accounts                                                                        */
+/*************************************************************************************************/
+    $adminAccount = "Example";  
+   $adminPassword = "Example"; 
+
+   $clientAccount = "Example"; 
+  $clientPassword = "Example";
+
+  $partnerAccount = "Example";  
+ $partnerPassword = "Example";
 
 /*************************************************************************************************/
-/* 2. Setup user user accounts here.                                                             */
+/* 3. Toggle Sidebar Widgets (All values should be "true" or "false".)                           */
 /*************************************************************************************************/
-        $userinfo = array(
-                    "RFEmployee"=>"Snapper4781",
-                    "OneConsumer"=>"W1nd0w$8!",
-                    "WinPartner"=>"Win765!gg",);
+      $infowidget = "true"; // Project Information Widget   
+       $navwidget = "true";  // Side Navigation Widget        
+   $partnerwidget = "true";  // Partner User Info Widget   
 
-    $adminAccount = "RFEmployee";  
-   $clientAccount = "OneConsumer"; 
-  $partnerAccount = "WinPartner";  
-
-/*************************************************************************************************/
-/* 3. Toggle sidebar widgets here. All values should be "yes" by default.                        */
-/*************************************************************************************************/
-      $infowidget = "no";   // Project Information Widget   
-       $navwidget = "yes";  // Side Navigation Widget        
-   $partnerwidget = "yes";  // Partner User Info Widget     
-     $guidewidget = "yes";  // User Guide Table of Contents 
-
-   $addyearwidget = "yes";  // "Add New Year" Widget        
-$addprojectwidget = "yes";  // "Add New Project" Widget     
-  $uploaderwidget = "yes";  // "File Uploader" Widget       
+     $guidewidget = "true";  // User Guide Table of Contents 
+   $addyearwidget = "true";  // "Add New Year" Widget        
+$addprojectwidget = "true";  // "Add New Project" Widget     
+  $uploaderwidget = "true";  // "File Uploader" Widget       
 
 /*************************************************************************************************/
-/* 4. Global exclusion handling. Add files that you want hidden here.                            */
+/* 4. Global Exclusion Handling (Add files and folders that you would like hidden here)          */
 /*************************************************************************************************/
     $exclude_list = array(
                     ".", 
@@ -76,16 +79,18 @@ $addprojectwidget = "yes";  // "Add New Project" Widget
                     "media",
                     "login",
                     "brands",
+                    "settings",
                     "user-guide",
                     "robots.txt",
                     "login.php",
                     "index.php",
                     "README.md",
+                    "Thumbs.db",
                     "errors.log",
                     "PHP_errors.log");
 
 /*************************************************************************************************/
-/* 5. Generating page titles and other global variables. No need to edit below this line.        */
+/* 5. Generate Page Titles & Other Global Variables (No need to edit below this line)            */
 /*************************************************************************************************/
          $myTitle = basename(getcwd());
          $myTitle = str_replace("-", " ", $myTitle);
@@ -100,4 +105,10 @@ if(strpos($page_title2,'Internal') !== false){ $bvar2 = " pvtpage"; }
 
      $bodyclasses = $bvar1.$bvar2;
              $tld = "http://".$_SERVER['HTTP_HOST']."/";
+         $contact = "<strong>".$cont_name."</strong><br>".$cont_title."<br>".$cont_phone."<br><a href='mailto:".$cont_email."'>".$cont_email."</a>";
+        $location = "<strong>".$office_loc."</strong><br>".$add1_loc."<br>".$add2_loc."<br>".$add3_loc."<br>";
+        $userinfo = array(
+    $adminAccount => $adminPassword,
+   $clientAccount => $clientPassword,
+  $partnerAccount => $partnerPassword,);
 ?>

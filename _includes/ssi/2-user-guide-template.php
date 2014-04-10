@@ -25,18 +25,18 @@ include '../_includes/ssi/checkauth.php';
 
 <?php 
 /* User Guide Contents  */  
-if($_SESSION['is_admin'] == true && $guidewidget == "yes"){ 
+if($_SESSION['is_admin'] == true && $guidewidget == "true"){ 
 	include '../_includes/ssi/aside-guide.php';
 } 
 
 /* Accordion Nav Widget */ 
-if($_SESSION['is_partner'] == false && $navwidget == "yes"){ 
+if($_SESSION['is_partner'] == false && $navwidget == "true"){ 
 	include '../_includes/ssi/aside-accordion.php'; 
 	mkmap(".."); echo "</div><!--|.asidewrap|-->\n</aside>"; 
 } 
 
 /* Partner Info Widget */ 
-if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){ 
+if($_SESSION['is_partner'] == true && $partnerwidget == "true"){ 
 	include '../_includes/ssi/aside-partner.php';
 } 
 ?>
@@ -94,7 +94,7 @@ access to nor will they be able to see it in the navigation. You can make it vie
 <p>To upload files to project pages, simply drag one or more files into the upload box on left hand side of the page as pictured below. 
 The following files can be uploaded and viewed using the browser based uploader tool. One they are uploaded, they will be sorted into 
 the 3 categories listed below. Note that for Banners and Images, the filename must have its dimensions (example: 
-<code><strong>banner-300x250.swf</strong></code>) to be viewed inline on the staging page like the example below. Documents will always 
+<code>banner-300x250.swf</code>) to be viewed inline on the staging page like the example below. Documents will always 
 be downloaded or opened in a new tab.</p> 
 
 <table border="0" cellpadding="0" cellspacing="0" class="guidetable">
@@ -145,7 +145,7 @@ of the page if you are a razorfish employee. Click the [delete] button to remove
 
 <h2>Adding Links</h2>
 <p>In the same manner as listed above hover the mouse over the section labeled EXTERNAL LINKS and select [edit]. The correct markup 
-for links is [<code><strong>Link Name</strong></code>](<code><strong>http://example.com/</strong></code>). All links created this 
+for links is [<code>Link Name</code>](<code>http://example.com/</code>). All links created this 
 way will open in a new tab or window by default.</p>
 
 <h2 id="addtitles" name="addtitles">Adding Titles</h2>
@@ -169,8 +169,8 @@ will unto any changes that have been made to the page.</p>
 <p>While the Razorfish Client Preview platform is very quick and efficient for posting standard media types, occasionally you might need to 
 post a rich media unit, landing page, or other html-based content. In these cases, the files vill need to be posted the old-fashioned way 
 with FTP. However, these types of projects can still be kept alongside other medi types by uploading them to a projects media folder 
-(example: <code><strong><?php echo $tld; ?>2014/example-project/media/example.html</strong></code>). If you need FTP access to this site, 
-contact <a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question - <?php echo $tld; ?>">Support</a> 
+(example: <code><?php echo $tld; ?>2014/example-project/media/example.html</code>). If you need FTP access to this site, 
+contact <a href="mailto:garrett.gillas@razorfish.com?subject=<?php echo $brand; ?> Client Preview Support Question - <?php echo $tld; ?>">Support</a> 
 or your project manager for access.</p>
 
 <h2 id="addlinks" name="addlinks">Adding Links</h2>
@@ -224,7 +224,7 @@ Partners should never, under any circumstance receive the regular login for the 
 
 <p>This project is being tracked an updated on Jira <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">here</a>. 
 If you need FTP access to this site or for any other questions regarding this platform, contact your project manager or 
-<a href="mailto:garrett.gillas@razorfish.com?subject=Razorfish Client Preview Support Question - <?php echo $tld; ?>">Garrett Gillas</a> 
+<a href="mailto:garrett.gillas@razorfish.com?subject=<?php echo $brand; ?> Client Preview Support Question - <?php echo $tld; ?>">Garrett Gillas</a> 
 at Razorfish Portland.</p>
 <br>
 

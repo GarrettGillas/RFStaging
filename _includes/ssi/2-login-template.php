@@ -54,7 +54,7 @@ if(isset($_POST['username'])) {
 <div id="content">
 <?php 
 /* Project Info Widget */
-if($infowidget == "yes"){ 
+if($infowidget == "true"){ 
     include '../_includes/ssi/aside-info.php'; 
 }
 

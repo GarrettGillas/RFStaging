@@ -1,7 +1,7 @@
 <?php
 include '_includes/ssi/siteconfig.php';
 include '_includes/ssi/checkauth.php';
-if($_SESSION['is_partner'] == true){ header( "Location: ".$tld."/unavailable" ); } 
+if($_SESSION['is_partner'] == true) echo "<script>window.location = '".$tld."/unavailable';</script>"; 
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -12,7 +12,7 @@ if($_SESSION['is_partner'] == true){ header( "Location: ".$tld."/unavailable" );
 <style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $tld; ?>_includes/js/rzf.extranet.projectcontent.js"></script>
-<script>if(typeof window.history.pushState == 'function') { window.history.pushState({}, "Hide", "<?php echo "http://".$_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"],'?'); ?>"); }</script>
+<script>if(typeof window.history.pushState=='function'){window.history.pushState({},"Hide","<?php echo "http://".$_SERVER['HTTP_HOST'].strtok($_SERVER["REQUEST_URI"],'?'); ?>");}</script>
 </head>
 
 
@@ -23,18 +23,18 @@ if($_SESSION['is_partner'] == true){ header( "Location: ".$tld."/unavailable" );
 
 <?php 
 /* Project Info Widget */ 
-if($_SESSION['is_admin'] == false && $infowidget == "yes"){ 
+if($_SESSION['is_admin'] == false && $infowidget == "true"){ 
   include '_includes/ssi/aside-info.php'; 
 }
 
 /* Add New Year Widget */ 
-if($_SESSION['is_admin'] == true && $addyearwidget == "yes"){ 
+if($_SESSION['is_admin'] == true && $addyearwidget == "true"){ 
   $_SESSION['edit_redirect'] = curPageURL(); 
   include '_includes/ssi/add-year.php';
 }
 
 /* Accordion Nav Widget */ 
-if($navwidget == "yes"){ 
+if($navwidget == "true"){ 
   include '_includes/ssi/aside-accordion.php'; 
   mkmap("."); 
   echo "</div><!--|.asidewrap|-->\n</aside>";
@@ -79,9 +79,22 @@ function dir_nav() {
           	}
           	// Output Admin Controls
         	echo "<span class='edit-del'>&#91; <a href='?tdelete".$extravar."=' class='confirm-del-year'>Delete</a> &#93;</span>\n";
-		}        
+		  }        
     }
     echo "</h2>\n";
+  }
+  if($extravar == ""){ 
+?> 
+
+<br>
+<h2>Getting Started</h2>
+<br>
+<p>It looks like this is a newly installed version of the <?php echo $brand; ?> Client Preview platfrom. If this is a new site, visit the 
+<a href="<?php echo $tld."settings/";?>"><u>Settings</u></a> page to configure the site. Once the settings are setup, you can immediatly 
+start adding years (see the panel on the left) or visit the <a href="<?php echo $tld."user-guide/";?>"><u>User Guide</u></a> to better 
+learn how to use this site.</p>
+
+<?php
   }
 }
 dir_nav();

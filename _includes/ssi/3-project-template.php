@@ -1,7 +1,7 @@
 <?php
 include '../../_includes/ssi/siteconfig.php';
 include '../../_includes/ssi/checkauth.php';
-if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== false) { header( "Location: ".$tld."/unavailable" ); } } 
+if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== false) { echo "<script>window.location = '".$tld."/unavailable';</script>"; } } 
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">  
@@ -26,25 +26,25 @@ if($_SESSION['is_admin'] == false){ if (strpos($page_title2,'Internal') !== fals
 
 <?php 
 /* Project Info Widget  */ 
-if($_SESSION['is_admin'] == false && $infowidget == "yes"){ 
+if($_SESSION['is_admin'] == false && $infowidget == "true"){ 
 	include '../../_includes/ssi/aside-info.php'; 
 } 
 
 /* File Uploader Widget */ 
-if($_SESSION['is_admin'] == true && $uploaderwidget == "yes"){ 
+if($_SESSION['is_admin'] == true && $uploaderwidget == "true"){ 
 	$_SESSION['edit_redirect'] = curPageURL(); 
 	include '../../_includes/ssi/aside-uploader.php';
 } 
 
 /* Accordion Nav Widget */ 
-if($_SESSION['is_partner'] == false && $navwidget == "yes"){ 
+if($_SESSION['is_partner'] == false && $navwidget == "true"){ 
 	include '../../_includes/ssi/aside-accordion.php'; 
 	mkmap("../.."); 
 	echo "</div><!--|.asidewrap|-->\n</aside>"; 
 } 
 
 /* Partner Info Widget */ 
-if($_SESSION['is_partner'] == true && $partnerwidget == "yes"){
+if($_SESSION['is_partner'] == true && $partnerwidget == "true"){
 	include '../../_includes/ssi/aside-partner.php';
 } 
 ?>

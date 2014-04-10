@@ -1,7 +1,7 @@
 <?php
 include '../_includes/ssi/siteconfig.php';
 include '../_includes/ssi/checkauth.php';
-if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" ); } 
+if($_SESSION['is_partner'] !== false) echo "<script>window.location = '".$tld."/unavailable';</script>"; 
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -12,7 +12,7 @@ if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" 
 <style type="text/css" media="all">@import url(<?php echo $tld; ?>_includes/styles/styles.css);</style>
 <script type="text/javascript" src="<?php echo $tld; ?>_includes/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo $tld; ?>_includes/js/rzf.extranet.projectcontent.js"></script>
-<script>if(typeof window.history.pushState == 'function') { window.history.pushState({}, "Hide", "<?php echo "http://".$_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"],'?'); ?>"); }</script>
+<script>if(typeof window.history.pushState=='function'){window.history.pushState({},"Hide","<?php echo "http://".$_SERVER['HTTP_HOST'].strtok($_SERVER["REQUEST_URI"],'?'); ?>");}</script>
 </head>
 
 
@@ -23,18 +23,18 @@ if($_SESSION['is_partner'] !== false){ header( "Location: ".$tld."/unavailable" 
 
 <?php 
 /* Project Info Widget  */ 
-if($_SESSION['is_admin'] == false && $infowidget == "yes"){ 
+if($_SESSION['is_admin'] == false && $infowidget == "true"){ 
   include '../_includes/ssi/aside-info.php'; 
 } 
 
 /* Add Project Widget   */ 
-if($_SESSION['is_admin'] == true && $addprojectwidget == "yes"){ 
+if($_SESSION['is_admin'] == true && $addprojectwidget == "true"){ 
   $_SESSION['edit_redirect'] = curPageURL(); 
   include '../_includes/ssi/add-project.php';
 } 
 
 /* Accordion Nav Widget */ 
-if($navwidget == "yes"){ 
+if($navwidget == "true"){ 
   include '../_includes/ssi/aside-accordion.php'; 
   mkmap(".."); 
   echo "</div><!--|.asidewrap|-->\n</aside>"; 
@@ -52,7 +52,7 @@ $dir_path = $_SERVER["DOCUMENT_ROOT"] . strtok($_SERVER["REQUEST_URI"],'?');
 
 /* Directory Navigation with SCANDIR */
 function dir_nav() {
-  global $exclude_list, $dir_path;
+  global $exclude_list, $dir_path, $tld;
 
     $directories = array_diff(scandir($dir_path), $exclude_list);
     natcasesort($directories);
@@ -75,7 +75,7 @@ function dir_nav() {
 
         elseif (strpos($file_entry,'internal') !== false) {
 
-            // Make ProjectPublic
+            // Makes Project Public
             if(isset($_GET['tpublic'.$extravar])){
               $foldvar1 = $entry;
               $foldvar2 = str_replace("-internal", "", $foldvar1);
@@ -110,6 +110,7 @@ function dir_nav() {
             echo "<input type='text' name='fname' id='fname' maxlength='50' onclick=\"this.value='';\" onfocus='this.select()' onblur=\"this.value=!this.value?'New-Name':this.value;\" value='New-Name'><br> \n";
             echo "<input type='submit' value='rename project'>";
             echo "<input type='submit' value='cancel' id='hidr".$extravar."'> \n";
+            echo "<a href='".$tld."user-guide/#ddmp'><img src='".$tld."_includes/images/help_icon_grey.png' class='helplink'></a>";
             echo "</form> \n";
 
             echo "<script>$( 'a.confirm-ren".$extravar."' ).click(function() { $( 'form.new-project".$extravar."' ).show( 'fast' ); }); "; 
@@ -153,6 +154,7 @@ function dir_nav() {
             echo "<input type='text' name='fname' id='fname' maxlength='50' onclick=\"this.value='';\" onfocus='this.select()' onblur=\"this.value=!this.value?'New-Name':this.value;\" value='New-Name'><br> \n";
             echo "<input type='submit' value='duplicate project'>";
             echo "<input type='submit' value='cancel' id='hidr".$extravar."'> \n";
+            echo "<a href='".$tld."user-guide/#ddmp'><img src='".$tld."_includes/images/help_icon_grey.png' class='helplink'></a>";
             echo "</form> \n";
 
             echo "<script>$( 'a.confirm-ren".$extravar."' ).click(function() { $( 'form.new-project".$extravar."' ).show( 'fast' ); }); "; 
@@ -164,6 +166,8 @@ function dir_nav() {
   }
 }
 dir_nav();
+
+
 ?>
 
 </article>

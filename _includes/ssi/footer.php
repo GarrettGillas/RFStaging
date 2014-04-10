@@ -1,7 +1,12 @@
 <footer>
-<p>&copy; 2013-<script>var year = new Date();document.write(year.getFullYear());</script> <?php echo $brand; ?> &nbsp|&nbsp  
+<p>&copy;<script>var year = new Date();document.write(year.getFullYear());</script> <?php echo $brand; ?> &nbsp|&nbsp  
 <a href="mailto:garrett.gillas@razorfish.com?subject=<?php echo $brand; ?> Client Preview Support Question - <?php echo $tld; ?>">Support</a>  &nbsp|&nbsp   
 <a href="<?php echo $tld."user-guide/";?>">User Guide</a><?php if($_SESSION['username']): ?> &nbsp;|&nbsp; 
+
+<?php if($_SESSION['is_admin'] == true) { ?>
+<a href="<?php echo $tld."settings/";?>">Settings</a> &nbsp;|&nbsp;
+<?php ;} ?>
+
 <a href="<?php echo $tld; ?>login/?logout=1">
 <?php 
 if($_SESSION['is_admin'] == true) {echo "(Admin) ";} 
@@ -10,7 +15,7 @@ if($_SESSION['is_partner'] == true) {echo "(Partner) ";}
 ?>
 Logout</a><?php endif; ?></p>
 
-<p id="copy"><?php echo $brand; ?> Client Preview - <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">Version 2.8</a></p>
+<p id="copy"><?php echo $brand; ?> Client Preview - <a href="https://razorfish-nw.atlassian.net/browse/EXTRANET-2" target="_blank">Version <?php echo $cms_version; ?></a></p>
 <img src="<?php echo $tld.$logo2; ?>" id="logo3">
 </footer>
 
