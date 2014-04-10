@@ -6,10 +6,10 @@ This is the Razorfish Client Preview platform built by Razorfish Portland. This 
 #### Installation
 
 1. Download the most recent build of the Razorfish Client Preview platform from Github at [https://github.com/GarrettGillas/RFStaging](https://github.com/GarrettGillas/RFStaging) and unzip it to your desktop.
-2. Open the file siteconfig.php with a text editor and edit the usernames and passwords of the 3 login accounts and then save the file. You will need these accounts to login to the site.
-3. FTP all of the files from to the root folder of the domain that you want to setup. This can be either a Linux server or a Windows server running PHP.
+2. Open the file "_includes/ssi/siteconfig.php" with a text editor and edit the usernames and passwords of the 3 login accounts and then save the file. You will need these accounts to login to the site.
+3. FTP all of the files that were downloaded from the Github repository to the root folder of the domain that you would like to setup. This can be either a Linux server or a Windows server running PHP.
 4. Login using the admin account and then go to the setup page to define the project information. 
-5. Once this is done, the site is ready to use. Refer to the user guide for further instructions on how to use the Razorfish Client Preview platform.
+5. Once this is done, the site is ready to use. Once you have logged into the site, refer to the page labeled "User Guide" for further instructions on how to use the Razorfish Client Preview platform.
 
 
 #### FAQ

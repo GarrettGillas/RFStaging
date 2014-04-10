@@ -20,7 +20,7 @@ error_reporting(error_reporting() & ~E_NOTICE);
 /*************************************************************************************************/
            $brand = "Razorfish";
 
-      $page_title = "Microsoft Windows";
+      $page_title = "Example";
 
       $office_loc = "Razorfish Portland";
         $add1_loc = "700 SW Taylor";
@@ -30,7 +30,7 @@ error_reporting(error_reporting() & ~E_NOTICE);
        $cont_name = "John Doe";
       $cont_title = "Client Partner";
       $cont_phone = "888.888.8888";
-      $cont_email = "example@razorfish.com";
+      $cont_email = "Example@razorfish.com";
 
             $logo = "_includes/clients/windows.png";
            $logo2 = "_includes/brands/razorfish.png";
@@ -40,19 +40,19 @@ error_reporting(error_reporting() & ~E_NOTICE);
 /*************************************************************************************************/
 /* 2. Setup User Accounts                                                                        */
 /*************************************************************************************************/
-    $adminAccount = "example";  
-   $adminPassword = "example"; 
+    $adminAccount = "Example";  
+   $adminPassword = "Example"; 
 
-   $clientAccount = "example"; 
-  $clientPassword = "example";
+   $clientAccount = "Example"; 
+  $clientPassword = "Example";
 
-  $partnerAccount = "example";  
- $partnerPassword = "example";
+  $partnerAccount = "Example";  
+ $partnerPassword = "Example";
 
 /*************************************************************************************************/
 /* 3. Toggle Sidebar Widgets (All values should be "true" or "false".)                           */
 /*************************************************************************************************/
-      $infowidget = "true"; // Project Information Widget   
+      $infowidget = "true";  // Project Information Widget   
        $navwidget = "true";  // Side Navigation Widget        
    $partnerwidget = "true";  // Partner User Info Widget   
 
