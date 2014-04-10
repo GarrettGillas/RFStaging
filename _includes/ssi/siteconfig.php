@@ -18,16 +18,16 @@ error_reporting(error_reporting() & ~E_NOTICE);
 /*************************************************************************************************/
 /* 1. Setup Company, Client, Contact Info & Logos                                                */
 /*************************************************************************************************/
-           $brand = "Razorfish";
+           $brand = "Example";
 
-      $page_title = "Example";
+      $page_title = "Microsoft Windows";
 
       $office_loc = "Razorfish Portland";
         $add1_loc = "700 SW Taylor";
         $add2_loc = "Suite 400";
         $add3_loc = "Portland, OR 97205";
 
-       $cont_name = "John Doe";
+       $cont_name = "Jane Doe";
       $cont_title = "Client Partner";
       $cont_phone = "888.888.8888";
       $cont_email = "Example@razorfish.com";
