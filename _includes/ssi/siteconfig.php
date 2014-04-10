@@ -27,10 +27,10 @@ error_reporting(error_reporting() & ~E_NOTICE);
         $add2_loc = "Suite 400";
         $add3_loc = "Portland, OR 97205";
 
-       $cont_name = "Example";
+       $cont_name = "Jackie VanderZanden";
       $cont_title = "Client Partner";
-      $cont_phone = "888.888.8888";
-      $cont_email = "Example@razorfish.com";
+      $cont_phone = "503.889.4530";
+      $cont_email = "jackie.vanderzanden@razorfish.com";
 
             $logo = "_includes/clients/windows.png";
            $logo2 = "_includes/brands/razorfish.png";
@@ -40,19 +40,19 @@ error_reporting(error_reporting() & ~E_NOTICE);
 /*************************************************************************************************/
 /* 2. Setup User Accounts                                                                        */
 /*************************************************************************************************/
-    $adminAccount = "Example";  
-   $adminPassword = "Example"; 
+    $adminAccount = "RFEmployee";  
+   $adminPassword = "Snapper4781"; 
 
-   $clientAccount = "Example"; 
-  $clientPassword = "Example";
+   $clientAccount = "OneConsumer"; 
+  $clientPassword = "W1nd0w$8!";
 
-  $partnerAccount = "Example";  
- $partnerPassword = "Example";
+  $partnerAccount = "WinPartner";  
+ $partnerPassword = "Win765!gg";
 
 /*************************************************************************************************/
 /* 3. Toggle Sidebar Widgets (All values should be "true" or "false".)                           */
 /*************************************************************************************************/
-      $infowidget = "true"; // Project Information Widget   
+      $infowidget = "false"; // Project Information Widget   
        $navwidget = "true";  // Side Navigation Widget        
    $partnerwidget = "true";  // Partner User Info Widget   
 
